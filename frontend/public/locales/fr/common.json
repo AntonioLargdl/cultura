@@ -1,0 +1,274 @@
+{
+  "pages": {
+    "comision": {
+      "title": "MORELIA",
+      "subtitle": "FILM",
+      "letter": "S",
+      "menu": {
+        "title": "Morelia Ville de la Culture",
+        "h1": "La porte d'entrée de Morelia",
+        "h2": "Pour l'industrie cinématographique",
+        "buttons": {
+          "locations": "Lieux",
+          "talent": "Talent",
+          "crew": "Équipe"
+        },
+        "description": {
+          "locations": "Explorez ses rues et paysages",
+          "talent": "Découvrez votre casting",
+          "crew": "Équipe et services spécialisés"
+        }
+      },
+      "about": {
+        "title": "Qui sommes-nous ?",
+        "description1": "La Commission cinématographique de Morelia",
+        "description2": "faisant partie de la Secrétariat municipal de la Culture, est dédiée au développement et à la promotion de l'industrie cinématographique et audiovisuelle de la ville. Nous gérons les installations, les permis et les autorisations, établissant des relations avec des organisations similaires à l'intérieur et à l'extérieur du pays",
+        "description3": "Nous vous invitons à raconter vos histoires à Morelia"
+      },
+      "do": {
+        "title": "Que faisons-nous ?",
+        "subtitle": "Ressens la ville",
+        "description1": "La Commission cinématographique de Morelia, faisant partie de la Secrétariat municipal de la Culture",
+        "description2": "Nous développons et promouvons l'industrie cinématographique et audiovisuelle de la ville",
+        "description3": "Nous gérons les installations, les permis et les autorisations pour la promotion cinématographique à Morelia"
+      },
+      "services": {
+        "title": "Services en vedette",
+        "subtitle1": "Conseils et consultations",
+        "text1": "Obtenez des conseils d'experts pour votre projet audiovisuel",
+        "subtitle2": "Guide des lieux",
+        "text2": "Explorez notre sélection de scénarios polyvalents et captivants",
+        "subtitle3": "Permis et procédures de tournage",
+        "text3": "Simplifiez le processus pour que vous puissiez vous concentrer sur votre créativité",
+        "subtitle4": "Sécurité et utilisation des espaces communs",
+        "text4": "Assurez un environnement sûr et accessible pour votre production"
+      },
+      "footer": {
+        "title": "Découvrez Morelia, filmez vos histoires, créez de la magie",
+        "contact": "Contact",
+        "copy": "Secrétariat de la culture de Morelia 2024. Propulsé par Live Tech."
+      }
+    },    
+    "login": {
+      "title": "Panneau d'administration",
+      "signin": "Connexion",
+      "fields": {
+        "username": "Utilisateur",
+        "password": "Mot de passe"
+      },
+      "placeholder": {
+        "username": "Nom d'utilisateur"
+      },
+      "errors": {
+        "validEmail": "Adresse e-mail incorrecte",
+        "login": "Erreur de connexion",
+        "loginError": "Mauvais mot de passe ou adresse e-mail"
+      },
+      "buttons": {
+        "submit": "Connexion",
+        "forgotPassword": "Mot de passe oublié ?"
+      }
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié ?",
+      "fields": {
+        "email": "E-mail"
+      },
+      "placeholder": {
+        "email": "Saisissez votre adresse e-mail"
+      },
+      "errors": {
+        "validEmail": "Adresse e-mail incorrecte"
+      },
+      "buttons": {
+        "submit": "Envoyer les instructions",
+        "login": "Vous avez déjà un compte ? Connexion"
+      }
+    },
+    "updatePassword": {
+      "title": "Saisissez votre nouveau mot de passe",
+      "fields": {
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmez le mot de passe"
+      },
+      "errors": {
+        "password": "Les mots de passe ne correspondent pas"
+      },
+      "buttons": {
+        "submit": "Mettre à jour le mot de passe"
+      }
+    },
+    "menu": {
+      "title": "Menu"
+    },
+    "users": {
+      "title": "Utilisateurs",
+      "button": "Créer un nouvel utilisateur",
+      "table": {
+        "photo": "Photo",
+        "email": "Email",
+        "username": "Nom d'utilisateur",
+        "role": "Rôle"
+      },
+      "delete": {
+        "title": "Êtes-vous sûr de vouloir supprimer",
+        "alert": "Les informations de l'utilisateur seront supprimées",
+        "cancel": "Annuler",
+        "accept": "Accepter"
+      }
+    },    
+    "categories": {
+      "title": "Catégories"
+    },
+    "locations": {
+      "title": "Emplacements",
+      "button": "Créer un nouvel emplacement",
+      "map": "Voir sur la carte",
+      "contact": "Contact",
+      "time": "Horaires",
+      "services": "Services",
+      "infrastructure": "Infrastructure",
+      "access": "Accès",
+      "seasons": "Activités saisonnières"
+    },
+    "directories": {
+      "title": "Répertoires"
+    },
+    "blog": {
+      "title": "Blogs"
+    },
+    "billboards": {
+      "title": "Panneaux publicitaires"
+    },
+    "portfolios": {
+      "title": "Portefeuilles"
+    }
+  },
+  "navigation": {
+    "menu": "Menu",
+    "users": "Utilisateurs",
+    "categories": "Catégories",
+    "locations": "Lieux",
+    "directories": "Répertoires",
+    "blogs": "Blogs",
+    "billboards": "Panneaux publicitaires",
+    "portfolios": "Portefeuilles"
+  },
+  "buttons": {
+    "error": "Nous ne parvenons pas à trouver la page que vous recherchez",
+    "menu": "Retour au Menu",
+    "logout": "Déconnexion"
+  },
+  "forms": {
+    "createUsers": {
+      "alert": "Veuillez sélectionner une image",
+      "title": "Nouvel",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Écrivez votre adresse e-mail ici"
+        },
+        "username": {
+          "label": "Nom d'utilisateur",
+          "placeholder": "Nom d'utilisateur sans espaces"
+        },
+        "password": {
+          "label": "Mot de passe"
+        },
+        "select": {
+          "option1": "Sélectionnez un rôle",
+          "option2": "Administrateur",
+          "option3": "Secrétariat de la Culture",
+          "option4": "Commission Cinématographique",
+          "option5": "Auteur de blog"
+        },
+        "image": {
+          "add": "Ajouter une photo",
+          "modify": "Modifier la photo",
+          "preview": "Aperçu",
+          "valid": "Fichiers valides : jpg et png"
+        }        
+      },
+      "buttons": {
+        "send": "Créer un nouvel utilisateur"
+      }
+    },
+    "createLocation": {
+      "title": "Nouvel emplacement",
+      "subtitle": {
+        "contact": "Contact",
+        "location": "Emplacement",
+        "coordinates": "Coordonnées",
+        "information": "Information"
+      },      
+      "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Entrez le nom ici"
+        },
+        "category": {
+          "label": "Catégorie",
+          "placeholder": "Sélectionnez la catégorie",
+          "park": "Parc",
+          "roads": "Routes",
+          "architecture": "Architecture",
+          "industry": "Industrie",
+          "entertainment": "Divertissement",
+          "culture": "Culture",
+          "health": "Santé",
+          "trade": "Commerce",
+          "sports": "Sports",
+          "nature": "Nature",
+          "recreation": "Loisirs",
+          "offices": "Bureaux",
+          "hotels": "Hôtels",
+          "restaurants": "Restaurants"
+        },
+        "phone": {
+          "label": "Téléphone",
+          "placeholder": "Entrez le téléphone ici"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "Entrez l'e-mail ici"
+        },
+        "address": {
+          "label": "Adresse",
+          "placeholder": "Entrez l'adresse complète"
+        },
+        "location": {
+          "title": "Sélectionnez l'emplacement exact",
+          "longitude": "Longitude",
+          "latitude": "Latitude"
+        },
+        "time": {
+          "label": "Heures d'ouverture",
+          "placeholder": "Entrez les heures d'ouverture ici"
+        },
+        "services": {
+          "label": "Services",
+          "placeholder": "Entrez les services ici"
+        },
+        "infrastructure": {
+          "label": "Infrastructure",
+          "placeholder": "Entrez l'infrastructure ici"
+        },
+        "seasons": {
+          "label": "Activités saisonnières",
+          "placeholder": "Indiquez s'il y a des activités saisonnières"
+        },
+        "access": {
+          "label": "Accès",
+          "placeholder": "Entrez les points d'accès"
+        },
+        "photos": {
+          "label": "Infrastructure",
+          "placeholder": "Entrez l'infrastructure ici"
+        },
+        "image": {
+          "add": "Ajouter ou faire glisser des photos ici"
+        }
+      }
+    }    
+  }  
+}

@@ -1,0 +1,275 @@
+{
+  "pages": {
+    "comision": {
+      "title": "MORELIA",
+      "subtitle": "FILM",
+      "letter": "S",
+      "menu": {
+        "title": "Morelia City of Culture",
+        "h1": "The Gateway of Morelia",
+        "h2": "For the Film Industry",
+        "buttons": {
+          "locations": "Locations",
+          "talent": "Talent",
+          "crew": "Crew"
+        },
+        "description": {
+          "locations": "Explore its streets and landscapes",
+          "talent": "Discover your cast",
+          "crew": "Team and specialized services"
+        }
+      },
+      "about": {
+        "title": "Who we are?",
+        "description1": "The Morelia Film Commission",
+        "description2": "part of the Municipal Secretariat of Culture, is dedicated to the development and promotion of the film and audiovisual industry in the city. We manage facilities, permits, and authorizations, establishing relationships with similar organizations inside and outside the country",
+        "description3": "We invite you to tell your stories in Morelia"
+      },
+      "do": {
+        "title": "What do we do?",
+        "subtitle": "Feel the city",
+        "description1": "The Morelia Film Commission, part of the Municipal Secretariat of Culture",
+        "description2": "We develop and promote the film and audiovisual industry in the city",
+        "description3": "We manage facilities, permits, and authorizations for film promotion in Morelia"
+      },
+      "services": {
+        "title": "Featured Services",
+        "subtitle1": "Consulting and Advice",
+        "text1": "Get expert guidance for your audiovisual project",
+        "subtitle2": "Locations Guide",
+        "text2": "Explore our selection of versatile and captivating scenarios",
+        "subtitle3": "Filming Permits and Procedures",
+        "text3": "Simplify the process so you can focus on your creativity",
+        "subtitle4": "Security and Use of Common Spaces",
+        "text4": "Ensure a safe and accessible environment for your production"
+      },
+      "footer": {
+        "title": "Discover Morelia, Film Your Stories, Create Magic",
+        "contact": "Contact",
+        "copy": "Morelia Cultural Secretariat 2024. Powered by Live Tech."
+      }
+    },
+    "login": {
+      "title": "Admin Panel",
+      "signin": "Login",
+      "fields": {
+        "username": "User",
+        "password": "Password"
+      },
+      "placeholder": {
+        "username": "Username"
+      },
+      "errors": {
+        "validEmail": "Wrong email",
+        "login": "Login error",
+        "loginError": "Wrong password or email"
+      },
+      "buttons": {
+        "submit": "Login",
+        "forgotPassword": "Forgot your password?"
+      }
+    },
+    "forgotPassword": {
+      "title": "Forgot your password?",
+      "fields": {
+        "email": "Email"
+      },
+      "placeholder": {
+        "email": "Write your email"
+      },
+      "errors": {
+       "validEmail": "Wrong email"
+      },
+      "buttons": {
+        "submit": "Send instructions",
+        "forgotPassword": "Already have an account? Login"
+      }
+    },
+    "updatePassword": {
+      "title": "Type your new password",
+      "fields": {
+        "password": "Password",
+        "confirmPassword": "Confirm password"
+      },
+      "errors": {
+        "password": "The passwords doesn't match"
+      },
+      "buttons": {
+        "submit": "Update Password"
+      }
+    },
+    "menu": {
+      "title": "Menu"
+    },
+    "users": {
+      "title": "Users",
+      "button": "Create new user",
+      "table": {
+        "photo": "Photo",
+        "email": "Email",
+        "username": "Username",
+        "role": "Role"
+      },
+      "delete": {
+        "title": "Are you sure you want to delete",
+        "alert": "The user's information will be deleted",
+        "cancel": "Cancel",
+        "accept": "Accept"
+      }
+    },    
+    "categories": {
+      "title": "Categories"
+    },
+    "locations": {
+      "title": "Locations",
+      "button": "Create New Location",
+      "map": "View on Map",
+      "contact": "Contact",
+      "time": "Hours",
+      "services": "Services",
+      "infrastructure": "Infrastructure",
+      "access": "Access",
+      "seasons": "Seasonal Activities"
+    },    
+    "directories": {
+      "title": "Directories"
+    },
+    "blog": {
+      "title": "Blogs"
+    },
+    "billboards": {
+      "title": "Billboards"
+    },
+    "portfolios": {
+      "title": "Portfolios"
+    }
+  },
+  "navigation": {
+    "menu": "Menu",
+    "users": "Users",
+    "categories": "Categories",
+    "locations": "Locations",
+    "directories": "Directories",
+    "blogs": "Blogs",
+    "billboards": "Billboards",
+    "portfolios": "Portfolios"
+  },
+  "buttons": {
+    "error": "We can't seem to find the page you are looking for",
+    "menu": "Back to Menu",
+    "logout": "Logout"
+  },
+  "forms": {
+    "createUsers": {
+      "alert": "Please select an image",
+      "title": "New user",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "Write here your email"
+        },
+        "username": {
+          "label": "Username",
+          "placeholder": "Username without spaces"
+        },
+        "password": {
+          "label": "Password"
+        },
+        "select": {
+          "option1": "Select role",
+          "option2": "Administrator",
+          "option3": "Secretaría de Cultura",
+          "option4": "Comisión Fílmica",
+          "option5": "Blog writer"
+        },
+        "image": {
+          "add": "Add photo",
+          "modify": "Modify photo",
+          "preview": "Preview",
+          "valid": "Valid files: jpg and png"
+        }        
+      },
+      "buttons": {
+        "send": "Create new user"
+      }
+    }, 
+    "createLocation": {
+      "title": "New location",
+      "subtitle": {
+        "contact": "Contact",
+        "location": "Location",
+        "coordinates": "Coordinates",
+        "information": "Information"
+      },      
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter the name here"
+        },
+        "category": {
+          "label": "Category",
+          "placeholder": "Select the category",
+          "park": "Park",
+          "roads": "Roads",
+          "architecture": "Architecture",
+          "industry": "Industry",
+          "entertainment": "Entertainment",
+          "culture": "Culture",
+          "health": "Health",
+          "trade": "Trade",
+          "sports": "Sports",
+          "nature": "Nature",
+          "recreation": "Recreation",
+          "offices": "Offices",
+          "hotels": "Hotels",
+          "restaurants": "Restaurants"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "Enter the phone here"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter the email here"
+        },
+        "address": {
+          "label": "Address",
+          "placeholder": "Enter the complete address"
+        },
+        "location": {
+          "title": "Select the exact location",
+          "longitude": "Longitude",
+          "latitude": "Latitude"
+        },
+        "time": {
+          "label": "Opening Hours",
+          "placeholder": "Enter the opening hours here"
+        },
+        "services": {
+          "label": "Services",
+          "placeholder": "Enter the services here"
+        },
+        "infrastructure": {
+          "label": "Infrastructure",
+          "placeholder": "Enter the infrastructure here"
+        },
+        "seasons": {
+          "label": "Seasonal Activities",
+          "placeholder": "Enter if there are seasonal activities"
+        },
+        "access": {
+          "label": "Access",
+          "placeholder": "Enter the access points"
+        },
+        "photos": {
+          "label": "Infrastructure",
+          "placeholder": "Enter the infrastructure here"
+        },
+        "image": {
+          "add": "Add or drag photos here"
+        }
+      }
+    }
+    
+  }
+}
