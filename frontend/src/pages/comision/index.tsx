@@ -12,7 +12,7 @@ const darkTheme = createTheme({
     palette: {
       mode: 'dark',
     },
-  });
+});
 
 const Comision = () => {
   return (

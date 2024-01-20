@@ -7,7 +7,7 @@ export const AdvancedBannerTop = () => {
 
   const background: BannerLayer = {
     image:
-      "https://s3-us-west-2.amazonaws.com/s.cdpn.io/105988/banner-background.jpg",
+      "https://res.cloudinary.com/dg22urw5p/image/upload/v1705768181/WEB/banner_gcux5m.webp",
     translateY: [0, 50],
     opacity: [1, 0.3],
     scale: [1.05, 1, "easeOutCubic"],
@@ -28,7 +28,7 @@ export const AdvancedBannerTop = () => {
 
   const foreground: BannerLayer = {
     image:
-      "https://res.cloudinary.com/dg22urw5p/image/upload/v1705466008/WEB/fondo_rp4e3g.png",
+      "https://res.cloudinary.com/dg22urw5p/image/upload/v1705768183/WEB/fondo_gcxms9.webp",
     translateY: [0, 15],
     scale: [1, 1.1, "easeOutCubic"],
     shouldAlwaysCompleteAnimation: true
