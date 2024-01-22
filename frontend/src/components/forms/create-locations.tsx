@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Button, MenuItem, Select, TextField, useTheme } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, FormGroup, MenuItem, Select, TextField, useTheme } from '@mui/material';
 import { useTranslate } from '@refinedev/core';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -20,8 +20,7 @@ import { PiBag, PiBank, PiDribbbleLogo, PiFactory, PiHeartbeatBold, PiMartini, P
 import DropFileInput from '../drop-file-input';
 
 
-const LocationForm = ({type, register, setValue, formLoading, handleSubmit, onFinishHandler, fileRemove, onFileDrop, photoList, fileList} : FormLocationProps) => {
-       
+const LocationForm = ({type, register, setValue, formLoading, handleSubmit, onFinishHandler, fileRemove, onFileDrop, photoList, fileList} : FormLocationProps) => {       
     // location
     const [location, setLocation] = useState({ lng:-101.1923185, lat:19.702423 })
 
@@ -33,6 +32,51 @@ const LocationForm = ({type, register, setValue, formLoading, handleSubmit, onFi
         event.target.value = event.target.value.toLowerCase();
     };
 
+    // Servicios
+    const ServicesList = [
+        { value: "water", text: translate("forms.createLocation.services.water") },
+        { value: "energy", text: translate("forms.createLocation.services.energy") },
+        { value: "internet", text: translate("forms.createLocation.services.internet") },
+        { value: "tables", text: translate("forms.createLocation.services.tables") },
+        { value: "screen", text: translate("forms.createLocation.services.screen") },
+        { value: "workStations", text: translate("forms.createLocation.services.workStations") },
+        { value: "cleaning", text: translate("forms.createLocation.services.cleaning") },
+        { value: "basic", text: translate("forms.createLocation.services.basic") },
+        { value: "health", text: translate("forms.createLocation.services.health") },
+        { value: "technic", text: translate("forms.createLocation.services.technic") },
+        { value: "copy", text: translate("forms.createLocation.services.copy") },
+        { value: "catering", text: translate("forms.createLocation.services.catering") },
+        { value: "fridge", text: translate("forms.createLocation.services.fridge") },
+    ];   
+    // Infraestructura
+    const InfrastructreList = [
+        { value: "park", text: translate("forms.createLocation.infrastructre.park") },
+        { value: "load", text: translate("forms.createLocation.infrastructre.load") },
+        { value: "set", text: translate("forms.createLocation.infrastructre.set") },
+        { value: "backlots", text: translate("forms.createLocation.infrastructre.backlots") },
+        { value: "closet", text: translate("forms.createLocation.infrastructre.closet") },
+        { value: "bath", text: translate("forms.createLocation.infrastructre.bath") },
+        { value: "office", text: translate("forms.createLocation.infrastructre.office") },
+        { value: "security", text: translate("forms.createLocation.infrastructre.security") },
+        { value: "signals", text: translate("forms.createLocation.infrastructre.signals") },
+        { value: "garden", text: translate("forms.createLocation.infrastructre.garden") },
+        { value: "out", text: translate("forms.createLocation.infrastructre.out") },
+        { value: "roof", text: translate("forms.createLocation.infrastructre.roof") },
+        { value: "pool", text: translate("forms.createLocation.infrastructre.pool") },
+        { value: "events", text: translate("forms.createLocation.infrastructre.events") },
+    ];
+    // Accesos
+    const AccessList = [
+        { value: "privat", text: translate("forms.createLocation.access.privat") },
+        { value: "tin", text: translate("forms.createLocation.access.tin") },
+        { value: "rock", text: translate("forms.createLocation.access.rock") },
+        { value: "center", text: translate("forms.createLocation.access.center") },
+        { value: "pav", text: translate("forms.createLocation.access.pav") },
+        { value: "old", text: translate("forms.createLocation.access.old") },
+        { value: "main", text: translate("forms.createLocation.access.main") },
+        { value: "natural", text: translate("forms.createLocation.access.natural") },
+    ]; 
+  
     // Category
     const categoryList = [
         { value: "parque", name: translate("forms.createLocation.fields.category.park","Parques"), icon: <PiPark /> },
@@ -157,7 +201,14 @@ const LocationForm = ({type, register, setValue, formLoading, handleSubmit, onFi
                 sx={{ mt: 2 }}
                 onChange={handleInputChange}
             />
-            <h2 className='font-medium text-xl mt-2'>
+{/* ------------- Fotos */}
+            <DropFileInput
+                fileList={fileList}
+                fileRemove={fileRemove}
+                onFileDrop={onFileDrop}
+                photoList={photoList}
+            />               
+            <h2 className='font-medium text-xl mt-2 w-full'>
                 {translate( "forms.createLocation.subtitle.location","Ubicación")}
             </h2>
 {/* ------------- Address */}
@@ -175,92 +226,39 @@ const LocationForm = ({type, register, setValue, formLoading, handleSubmit, onFi
                 startAdornment: <BsPinMap className="mx-2 text-lg"/>,
                 }}
                 sx={{ mt: 2 }}
-            />
+            />         
 {/* ------------- Coordinates */}
             <h2 className='font-light'>
                 {translate( "forms.createLocation.subtitle.coordinates","Coordenadas")}
             </h2>
             <AddLocation location={location} setLocation={setLocation}/>
-            <h2 className='font-medium text-xl mt-2'>
-                {translate( "forms.createLocation.subtitle.information","Información")}
-            </h2>
-{/* ------------- Tiempo */}
-            <TextField
-                {...register("time")}
-                id="time"
-                name="time"
-                margin="normal"
-                fullWidth
-                label={translate( "forms.createLocation.fields.time.label","Horarios")}
-                placeholder={translate( "forms.createLocation.fields.time.placeholder","Escribe aquí los horarios")}
-                InputProps={{
-                startAdornment: <IoTimeOutline className="mx-2 text-lg"/>,
-                }}
-                sx={{ mt: 2 }}
-            />
 {/* ------------- Servicios */}
-            <TextField
-                {...register("services")}
-                id="services"
-                name="services"
-                margin="normal"
-                fullWidth
-                label={translate( "forms.createLocation.fields.services.label","Servicios")}
-                placeholder={translate( "forms.createLocation.fields.services.placeholder","Escribe aquí los servicios")}
-                InputProps={{
-                startAdornment: <MdOutlineLightbulb className="mx-2 text-lg"/>,
-                }}
-                sx={{ mt: 2 }}
-            />
+            <h2 className='font-medium text-xl mt-2 w-full'>
+                {translate( "forms.createLocation.fields.services.label","Servicios")}
+            </h2> 
+            {ServicesList.map((item, index) => (
+                <FormGroup key={index}>
+                    <FormControlLabel control={<Checkbox {...register(item.value)}/>} label={item.text} />
+                </FormGroup>
+            ))}
 {/* ------------- Infraestructura */}
-            <TextField
-                {...register("infrastructure")}
-                id="infrastructure"
-                name="infrastructure"
-                margin="normal"
-                fullWidth
-                label={translate( "forms.createLocation.fields.infrastructure.label","Infraestructura")}
-                placeholder={translate( "forms.createLocation.fields.infrastructure.placeholder","Escribe aquí la infraestructura")}
-                InputProps={{
-                startAdornment: <FaRegBuilding className="mx-2 text-lg"/>,
-                }}
-                sx={{ mt: 2 }}
-            />
-{/* ------------- Actividades de temporada */}
-            <TextField
-                {...register("seasons")}
-                id="seasons"
-                name="seasons"
-                margin="normal"
-                fullWidth
-                label={translate( "forms.createLocation.fields.seasons.label","Actividades de temporada")}
-                placeholder={translate( "forms.createLocation.fields.seasons.placeholder","Escribe aquí si hay actividades de temporada")}
-                InputProps={{
-                startAdornment: <BiParty className="mx-2 text-lg"/>,
-                }}
-                sx={{ mt: 2 }}
-            />
+            <h2 className='font-medium text-xl mt-2 w-full'>
+                {translate( "forms.createLocation.fields.infrastructure.label","Infraestructura")}
+            </h2> 
+            {InfrastructreList.map((item, index) => (
+                <FormGroup key={index}>
+                    <FormControlLabel control={<Checkbox {...register(item.value)}/>} label={item.text} />
+                </FormGroup>
+            ))}
 {/* ------------- Accesos */}
-            <TextField
-                {...register("access")}
-                id="access"
-                name="access"
-                margin="normal"
-                fullWidth
-                label={translate( "forms.createLocation.fields.access.label","Accesos")}
-                placeholder={translate( "forms.createLocation.fields.access.placeholder","Escribe los accesos")}
-                InputProps={{
-                startAdornment: <MdOutlineDoorFront className="mx-2 text-lg"/>,
-                }}
-                sx={{ mt: 2 }}
-            />
-{/* ------------- Fotos */}
-            <DropFileInput
-                fileList={fileList}
-                fileRemove={fileRemove}
-                onFileDrop={onFileDrop}
-                photoList={photoList}
-            />
+            <h2 className='font-medium text-xl mt-2 w-full'>
+                {translate( "forms.createLocation.fields.access.label","Accesos")}
+            </h2> 
+            {AccessList.map((item, index) => (
+                <FormGroup key={index}>
+                    <FormControlLabel control={<Checkbox {...register(item.value)}/>} label={item.text} />
+                </FormGroup>
+            ))}                        
 {/* ------------- Botón de enviar */}
             <Button type="submit" fullWidth variant="contained" sx={{ mt: "24px", borderRadius:'10px' }}>
                 {translate("forms.createLocation.title", "Nueva locación")}

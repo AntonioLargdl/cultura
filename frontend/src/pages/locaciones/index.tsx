@@ -11,7 +11,6 @@ import { FcGlobe } from "react-icons/fc";
 import { PiMapPin } from "react-icons/pi";
 import { MdOutlineFoodBank, MdOutlineLocalHotel } from 'react-icons/md';
 import { PiBag, PiBank, PiDribbbleLogo, PiFactory, PiHeartbeatBold, PiMartini, PiMaskHappy, PiMountains, PiPalette, PiPark, PiRoadHorizon, PiSuitcase } from 'react-icons/pi';  
-import { useMemo } from "react";
 
 // Category
 const categoryList = [
@@ -33,12 +32,7 @@ const categoryList = [
 
 const Locations = () => {
     // Fetch Data
-    const { tableQueryResult: {data, isLoading, isError}, 
-        current, setCurrent, 
-        setPageSize, pageCount, 
-        sorters, setSorters,
-        filters, setFilters,
-    } = useTable()
+    const { tableQueryResult: {data, isLoading, isError} } = useTable()
     const allLocations = data?.data ?? [];
     // Translation
     const translate = useTranslate();
@@ -55,19 +49,6 @@ const Locations = () => {
         }      
         return null; // Manejar el caso en el que no se encuentra el ícono
     };
-    // Filtros
-    const currentFilterValues = useMemo(() => {
-        const logicalFilters = filters.flatMap((item) =>
-            "field" in item ? item : [],
-        );
-        return {
-            title:
-                logicalFilters.find((item) => item.field === "title")?.value ||
-                "",
-        };
-    }, [filters]);
-
-
     // Loading
     if(isLoading) {
         return <Loading />
@@ -119,10 +100,10 @@ const Locations = () => {
             </div> */}
             {/* Locations */}
             <div className="mt-5 flex flex-wrap gap-2 md:justify-start justify-center">
-                {allLocations.map((item, index) => (
+                {allLocations && allLocations.map((item, index) => (
                     <Link key={index} to={`show/${item._id}`}>
-                        <div  className={`${background} w-72 shadow-xl rounded-[20px] hover:scale-95 duration-300 p-2 relative cursor-pointer`}>
-                            <img src={item.photos[0]} alt={item.name} className="rounded-[15px]"/>  
+                        <div  className={`${background} md:w-64 shadow-xl rounded-[20px] hover:scale-95 duration-300 p-2 relative cursor-pointer`}>
+                            <img src={item.photos[0]} alt={item.name} className="rounded-[15px] h-[15rem] w-full object-center object-cover"/>  
                             <div className={`text-xl p-3 shadow-xl ${iconBg} rounded-lg absolute top-4 right-4 bg-opacity-80`}>
                                 {getCategoryIcon(item.category)}
                             </div>

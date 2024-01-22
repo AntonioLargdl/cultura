@@ -160,6 +160,89 @@
     "logout": "Déconnexion"
   },
   "forms": {
+    "createDirectory": {
+      "title": "Nouveau profil",
+      "buttons": {
+        "talent": "Talent",
+        "crew": "Équipe",
+        "submit": "Créer un nouveau profil"
+      },
+      "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Entrez le nom ici"
+        },
+        "semblance": {
+          "label": "Ressemblance / Description",
+          "placeholder": "Entrez votre description ici"
+        },
+        "age": {
+          "label": "Âge",
+          "placeholder": "(Ans)"
+        },
+        "height": {
+          "label": "Taille",
+          "placeholder": "(cm)"
+        },
+        "weight": {
+          "label": "Poids",
+          "placeholder": "(kg)"
+        },
+        "portfolio": {
+          "label": "Portfolio",
+          "placeholder": "Lien Youtube avec vidéo de portfolio"
+        },
+        "linkedin": {
+          "label": "LinkedIn",
+          "placeholder": "Lien vers le profil"
+        },
+        "web": {
+          "label": "Site Web",
+          "placeholder": "Entrez le lien ici"
+        },
+        "facebook": {
+          "label": "Facebook",
+          "placeholder": "Lien vers le profil"
+        },
+        "instagram": {
+          "label": "Instagram",
+          "placeholder": "Lien vers le profil"
+        },
+        "tiktok": {
+          "label": "TikTok",
+          "placeholder": "Lien vers le profil"
+        }
+      },
+      "category": {
+        "script": "Scénaristes",
+        "rights": "Droits d'auteur et propriété intellectuelle",
+        "translators": "Traducteurs et localisation de contenu",
+        "creative": "Développement créatif",
+        "casting": "Casting et sélection d'acteurs",
+        "academies": "Académies d'acteurs et formation",
+        "actors": "Acteurs, actrices et figurants",
+        "voice": "Voix, doublage et locution",
+        "models": "Mannequins et artistes du divertissement",
+        "production": "Production et logistique",
+        "direction": "Direction et assistance technique",
+        "photography": "Photographie et son",
+        "design": "Conception et costumes",
+        "makeup": "Maquillage et caractérisation",
+        "technicalServices": "Services techniques et de production",
+        "productionHouses": "Maisons de production et cadres",
+        "catering": "Alimentation et restauration",
+        "studios": "Studios et plateaux de tournage",
+        "insurance": "Assurance et location d'équipement",
+        "locations": "Lieux et diffusion en direct",
+        "generalServices": "Services généraux (transport, hébergement, etc.)",
+        "postProduction": "Postproduction et montage",
+        "visualEffects": "Effets visuels et animation",
+        "labs": "Laboratoires photographiques et cinématographiques",
+        "sound": "Son, musique originale et jingles",
+        "advertising": "Publicité, conception web et réseaux sociaux",
+        "distribution": "Distribution et stratégies marketing"
+      }
+    },    
     "createUsers": {
       "alert": "Veuillez sélectionner une image",
       "title": "Nouvel",
@@ -268,6 +351,47 @@
         "image": {
           "add": "Ajouter ou faire glisser des photos ici"
         }
+      },
+      "services": {
+        "water": "Eau",
+        "energy": "Électricité",
+        "internet": "Internet",
+        "tables": "Tables et Chaises",
+        "screen": "Fournitures de Bureau",
+        "workStations": "Postes de Travail",
+        "cleaning": "Services de Nettoyage",
+        "basic": "Entretien de Base",
+        "health": "Trousse de Premiers Soins",
+        "technic": "Assistance Technique",
+        "copy": "Photocopies et Impressions",
+        "catering": "Restauration",
+        "fridge": "Réfrigérateurs"
+      },
+      "infrastructure": {
+        "park": "Parking",
+        "load": "Zone de Chargement et Déchargement",
+        "set": "Plateaux",
+        "backlots": "Arrière-cours",
+        "closet": "Vestiaires",
+        "bath": "Toilettes",
+        "office": "Zone de Bureau",
+        "security": "Contrôle d'Accès",
+        "signals": "Signalisation",
+        "garden": "Jardin ou Espace Vert",
+        "out": "Cour",
+        "roof": "Terrasse",
+        "pool": "Piscine",
+        "events": "Espace Événementiel"
+      },
+      "access": {
+        "privat": "Accès Privé",
+        "tin": "Rues Étroites",
+        "rock": "Rues en Pierre",
+        "center": "Rues du Centre",
+        "pav": "Rues Pavées",
+        "old": "Chaussées en Gravier",
+        "main": "Rues Principales",
+        "natural": "Environnement Naturel"
       }
     }    
   }  

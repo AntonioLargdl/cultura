@@ -160,6 +160,89 @@
     "logout": "Logout"
   },
   "forms": {
+    "createDirectory": {
+      "title": "New Profile",
+      "buttons": {
+        "talent": "Talent",
+        "crew": "Crew",
+        "submit": "Create New Profile"
+      },
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Enter name here"
+        },
+        "semblance": {
+          "label": "Semblance / Description",
+          "placeholder": "Enter your description here"
+        },
+        "age": {
+          "label": "Age",
+          "placeholder": "(Years)"
+        },
+        "height": {
+          "label": "Height",
+          "placeholder": "(cm)"
+        },
+        "weight": {
+          "label": "Weight",
+          "placeholder": "(kg)"
+        },
+        "portfolio": {
+          "label": "Portfolio",
+          "placeholder": "Youtube link with portfolio video"
+        },
+        "linkedin": {
+          "label": "LinkedIn",
+          "placeholder": "Profile link"
+        },
+        "web": {
+          "label": "Website",
+          "placeholder": "Enter the link here"
+        },
+        "facebook": {
+          "label": "Facebook",
+          "placeholder": "Profile link"
+        },
+        "instagram": {
+          "label": "Instagram",
+          "placeholder": "Profile link"
+        },
+        "tiktok": {
+          "label": "TikTok",
+          "placeholder": "Profile link"
+        }
+      },
+      "category": {
+        "script": "Scriptwriters",
+        "rights": "Copyright and Intellectual Property Rights",
+        "translators": "Translators and Content Localization",
+        "creative": "Creative Development",
+        "casting": "Casting and Actor Selection",
+        "academies": "Actor Academies and Training",
+        "actors": "Actors, Actresses, and Extras",
+        "voice": "Voice, Dubbing, and Voiceover",
+        "models": "Models and Entertainment Artists",
+        "production": "Production and Logistics",
+        "direction": "Direction and Technical Assistance",
+        "photography": "Photography and Sound",
+        "design": "Design and Wardrobe",
+        "makeup": "Makeup and Characterization",
+        "technicalServices": "Technical and Production Services",
+        "productionHouses": "Production Houses and Executives",
+        "catering": "Food and Catering",
+        "studios": "Studios and Filming Sets",
+        "insurance": "Insurance and Equipment Rental",
+        "locations": "Locations and Live Broadcasting",
+        "generalServices": "General Services (Transport, Accommodation, etc.)",
+        "postProduction": "Postproduction and Editing",
+        "visualEffects": "Visual Effects and Animation",
+        "labs": "Photographic and Cinematographic Laboratories",
+        "sound": "Sound, Original Music, and Jingles",
+        "advertising": "Advertising, Web Design, and Social Media",
+        "distribution": "Distribution and Marketing Strategies"
+      }
+    },    
     "createUsers": {
       "alert": "Please select an image",
       "title": "New user",
@@ -268,8 +351,48 @@
         "image": {
           "add": "Add or drag photos here"
         }
+      },
+      "services": {
+        "water": "Water",
+        "energy": "Electricity",
+        "internet": "Internet",
+        "tables": "Tables and Chairs",
+        "screen": "Office Supplies",
+        "workStations": "Work Stations",
+        "cleaning": "Cleaning Services",
+        "basic": "Basic Maintenance",
+        "health": "First Aid Kit",
+        "technic": "Technical Assistance",
+        "copy": "Copying and Printing",
+        "catering": "Catering",
+        "fridge": "Refrigerators"
+      },
+      "infrastructure": {
+        "park": "Parking",
+        "load": "Loading and Unloading Zone",
+        "set": "Sets",
+        "backlots": "Backlots",
+        "closet": "Changing Rooms",
+        "bath": "Bathrooms",
+        "office": "Office Area",
+        "security": "Access Control",
+        "signals": "Signage",
+        "garden": "Garden or Green Area",
+        "out": "Courtyard",
+        "roof": "Terrace",
+        "pool": "Swimming Pool",
+        "events": "Event Area"
+      },
+      "access": {
+        "privat": "Private Access",
+        "tin": "Narrow Streets",
+        "rock": "Stone Streets",
+        "center": "Central Streets",
+        "pav": "Paved Streets",
+        "old": "Gravel Roads",
+        "main": "Main Streets",
+        "natural": "Natural Environment"
       }
     }
-    
   }
 }

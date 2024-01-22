@@ -30,6 +30,8 @@ import ShowLocations from "./pages/locaciones/show";
 import Landing from "./pages/landing";
 import Comision from "./pages/comision";
 import CreateDirectory from "./pages/directories/create";
+import LocacionesUser from "./pages/comision/locaciones";
+import DirectoriosUser from "./pages/comision/directorio";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -215,8 +217,8 @@ function App() {
                     }
                   >
                     <Route path="/cfm" element={<Comision />} />
-                    <Route path="/cfm/directorio" element={<Comision />} />
-                    <Route path="/cfm/locaciones" element={<Comision />} />
+                    <Route path="/cfm/directorio" element={<DirectoriosUser />} />
+                    <Route path="/cfm/locaciones" element={<LocacionesUser />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/update-password/:id/:token" element={<UpdatePasswordPage />} />

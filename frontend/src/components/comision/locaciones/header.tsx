@@ -7,27 +7,38 @@ import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import { useGetLocale, useSetLocale } from "@refinedev/core";
 import { RefineThemedLayoutV2HeaderProps } from "@refinedev/mui";
+import { IconButton, useTheme } from "@mui/material";
 import i18n from "i18next";
-import React from "react";
-import comision from '../../assets/comision_white.webp'
-import { IconButton } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import { FaMagnifyingGlassLocation } from "react-icons/fa6";
-import { GiFilmProjector } from "react-icons/gi";
+import React, { useContext } from "react";
 
-export const HeaderComision: React.FC<RefineThemedLayoutV2HeaderProps> = ({ sticky = true,}) => {
-  const navigate = useNavigate()
-  const changeLanguage = useSetLocale();
-  const locale = useGetLocale();
-  const currentLocale = locale();
+import { Link, useNavigate } from "react-router-dom";
+import { GiFilmProjector } from "react-icons/gi";
+import comision from '../../../assets/comision.webp'
+import comisionWhite from '../../../assets/comision_white.webp'
+import { ColorModeContext } from "../../../contexts/color-mode";
+import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+
+export const HeaderLocaciones: React.FC<RefineThemedLayoutV2HeaderProps> = ({ sticky = true,}) => {
+    const { mode, setMode } = useContext(ColorModeContext);
+
+    const navigate = useNavigate()
+    const changeLanguage = useSetLocale();
+    const locale = useGetLocale();
+    const currentLocale = locale();
+
+        //  color switcher
+    const theme = useTheme();
+    const color = theme.palette.mode === 'dark' ? 'white' : 'black';
+    const bgcolor = theme.palette.mode === 'dark' ? 'black' : 'white';
+    const logo = theme.palette.mode === 'light' ? comision : comisionWhite;
 
   return (
-    <AppBar position="fixed" sx={{background: 'none', boxShadow:'none', color:"white", padding:"20px 0"}}>
+    <AppBar position="fixed" sx={{background:bgcolor ,boxShadow:'none', color:color, padding:"20px 0"}}>
       <Toolbar>
         <Stack direction="row" width="100%" alignItems="center" >
-          <Link to="/cfm">
-            <img src={comision} alt="comision" className="w-36"/>
-          </Link>
+            <Link to="/cfm">
+                <img src={logo} alt="comision" className="w-36"/>
+            </Link>
           <Stack
             direction="row"
             width="100%"
@@ -43,9 +54,11 @@ export const HeaderComision: React.FC<RefineThemedLayoutV2HeaderProps> = ({ stic
             </IconButton>
             <IconButton
               color="inherit"
-              onClick={() => {navigate('/cfm/locaciones')}}
+              onClick={() => {
+                setMode();
+              }}
             >
-              <FaMagnifyingGlassLocation />
+              {mode === "dark" ? <LightModeOutlined /> : <DarkModeOutlined />}
             </IconButton>
             <FormControl sx={{ minWidth: 64 }}>
               <Select

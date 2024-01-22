@@ -5,7 +5,7 @@
       "subtitle": "FILM",
       "letter": "A",
       "menu": {
-        "title": "Morelia Coudad Cultura",
+        "title": "Morelia Ciudad Cultura",
         "h1": "El portal de Morelia",
         "h2": "Para la industria cinematográfica",
         "buttons": {
@@ -160,6 +160,89 @@
     "logout": "Cerrar sesión"
   },
   "forms": {
+    "createDirectory": {
+      "title": "Nuevo perfil",
+      "buttons": {
+        "talent": "Talento",
+        "crew": "Crew",
+        "submit": "Crear nuevo perfil"
+      },
+      "fields": {
+        "name": {
+          "label": "Nombre",
+          "placeholder":"Escribe el nombre aquí"
+        },
+        "semblanza": {
+          "label": "Semblanza / Descripción",
+          "placeholder":"Escribe tu descripción aquí"
+        },
+        "age": {
+          "label": "Edad",
+          "placeholder":"(Años)"
+        },
+        "height": {
+          "label": "Altura",
+          "placeholder":"(cm)"
+        },
+        "weight": {
+          "label": "Peso",
+          "placeholder":"(kg)"
+        },
+        "portfolio": {
+          "label": "Portafolio",
+          "placeholder":"Enlace de youtube con vídeo portafolio"
+        },
+        "linkedin": {
+          "label": "Linkedin",
+          "placeholder":"Enlace del perfil"
+        },
+        "web": {
+          "label": "Página Web",
+          "placeholder":"escribe aquí el enlace"
+        },
+        "facebook": {
+          "label": "Facebook",
+          "placeholder":"Enlace del perfil"
+        },
+        "instagram": {
+          "label": "Instagram",
+          "placeholder":"Enlace del perfil"
+        },
+        "tiktok": {
+          "label": "TikTok",
+          "placeholder":"Enlace del perfil"
+        }
+      },
+      "category": {
+        "script": "Guionistas",
+        "rights": "Derechos de Autor y Propiedad Intelectual",
+        "translators": "Traductores y Localización de Contenido",
+        "creative": "Desarrollo Creativo",
+        "casting": "Casting y Selección de Actores",
+        "academies": "Academias de Actores y Formación",
+        "actors": "Actores, Actrices y Figurantes",
+        "voice": "Voz, Doblaje y Locución",
+        "models": "Modelos y Artistas de Entretenimiento",
+        "production": "Producción y Logística",
+        "direction": "Dirección y Asistencia Técnica",
+        "photography": "Fotografía y Sonido",
+        "design": "Diseño y Vestuario",
+        "makeup": "Maquillaje y Caracterización",
+        "technicalServices": "Servicios Técnicos y de Producción",
+        "productionHouses": "Casas Productoras y Ejecutivos",
+        "catering": "Alimentación y Catering",
+        "studios": "Foros y Sets de Filmación",
+        "insurance": "Seguros y Renta de Equipos",
+        "locations": "Locaciones y Transmisión en Vivo",
+        "generalServices": "Servicios Generales (Transporte, Hospedaje, etc.)",
+        "postProduction": "Postproducción y Edición",
+        "visualEffects": "Efectos Visuales y Animación",
+        "labs": "Laboratorios Fotográficos y Cinematográficos",
+        "sound": "Sonido, Música Original y Jingles",
+        "advertising": "Publicidad, Diseño Web y Redes Sociales",
+        "distribution": "Distribución y Estrategias de Mercado"
+      }
+    },
     "createUsers": {
       "alert": "Por favor selecciona una imagen",
       "title": "Nuevo usuario",
@@ -268,6 +351,47 @@
         "image": {
           "add": "Agrega o arrastra photos aquí"
         }
+      },
+      "services": {
+        "water": "Agua",
+        "energy": "Electricidad",
+        "internet": "Mesas y sillas",
+        "tables": "Estaciones de trabajo",
+        "screen": "Material de oficina",
+        "workStations": "Equipo de presentación",
+        "cleaning": "Servicios de limpieza",
+        "basic": "Mantenimiento básico",
+        "health": "Botiquín",
+        "technic": "Asistencia técnica",
+        "copy": "Fotocopias e impresiones",
+        "catering": "Catering",
+        "fridge": "Refrigerios"
+      },
+      "infrastructure": {
+        "park": "Estacionamiento",
+        "load": "Zona de carga y descarga",
+        "set": "Sets",
+        "backlots": "Backlots",
+        "closet": "Vestuarios",
+        "bath": "Sanitarios",
+        "office": "Área de oficinas",
+        "security": "Control de acceso",
+        "signals": "Señalización",
+        "garden": "Jarín o área verde",
+        "out": "Patio",
+        "roof": "Terraza",
+        "pool": "Alberca",
+        "events": "Área de eventos"
+      },
+      "access": {
+        "privat": "Acceso privado",
+        "tin": "Calles angostas",
+        "rock": "Calles de piedra",
+        "center": "Calles céntricas",
+        "pav": "Calles pavimentadas",
+        "old": "Terrazería",
+        "main": "Calles principales",
+        "natural": "Entorno natural"
       }
     }
   }

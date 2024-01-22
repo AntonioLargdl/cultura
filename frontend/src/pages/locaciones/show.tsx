@@ -142,7 +142,7 @@ const ShowLocations = () => {
                 </div>
             </div>
             {/* Contenido */}
-            <div className='mt-6 m-2 flex gap-5 lg:flex-nowrap flex-wrap md:mb-0 mb-10'>
+            <div className='mt-6 m-2 flex gap-5 lg:flex-nowrap flex-wrap md:mb-0 mb-5'>
                 {/* Imágenes */}
                 <div className='lg:w-[30rem] w-full'>
                     { photo &&
@@ -198,51 +198,58 @@ const ShowLocations = () => {
                             </div>
                         </div>
                     }
-                    { location.time &&
-                        <div className='mt-3'>
-                            <div className='flex items-center gap-2 mb-1'>
-                                <IoTimeOutline className='text-xl'/>
-                                <h3 className='font-medium text-lg'>{translate("pages.locations.time", "Horarios")}</h3>
-                            </div>
-                            <p className='font-light'>{location.time}</p>
-                        </div>
-                    }
-                    { location.services &&
-                        <div className='mt-3'>
-                            <div className='flex items-center gap-2 mb-1'>
-                                <MdOutlineLightbulb className='text-xl'/>
-                                <h3 className='font-medium text-lg'>{translate("pages.locations.services", "Servicios")}</h3>
-                            </div>
-                            <p className='font-light'>{location.services}</p>
-                        </div>
-                    }
-                    { location.infrastructure &&
-                        <div className='mt-3'>
-                            <div className='flex items-center gap-2 mb-1'>
-                                <FaRegBuilding className='text-xl'/>
-                                <h3 className='font-medium text-lg'>{translate("pages.locations.infrastructure", "Infraestructura")}</h3>
-                            </div>
-                            <p className='font-light'>{location.infrastructure}</p>
-                        </div>
-                    }
-                    { location.seasons &&
-                        <div className='mt-3'>
-                            <div className='flex items-center gap-2 mb-1'>
-                                <BiParty className='text-xl'/>
-                                <h3 className='font-medium text-lg'>{translate("pages.locations.seasons", "Actividades de temporada")}</h3>
-                            </div>
-                            <p className='font-light'>{location.seasons}</p>
-                        </div>
-                    }
-                    { location.access &&
-                        <div className='mt-3'>
-                            <div className='flex items-center gap-2 mb-1'>
-                                <MdOutlineDoorFront className='text-xl'/>
-                                <h3 className='font-medium text-lg'>{translate("pages.locations.access", "Accesos")}</h3>
-                            </div>
-                            <p className='font-light'>{location.access}</p>
-                        </div>
-                    }
+                </div>
+            </div>
+            <h1 className='font-semibold text-2xl px-4 py-3 md:text-center'>{translate(`forms.createLocation.subtitle.information`)}</h1>
+{/* Servicios / Infraestructura */}
+            <div className={`flex md:gap-10 gap-7 mt-2 flex-wrap justify-center p-2`}>
+                {/* Servicios */}
+                <div className={`${background} shadow-xl p-5 rounded-2xl md:w-[18rem] w-full`}>
+                    <div className='flex items-center justify-center gap-2 mb-3'>
+                        <MdOutlineLightbulb className='text-xl'/>
+                        <h3 className='font-medium text-xl'>{translate("pages.locations.services", "Servicios")}</h3>
+                    </div>
+                    <ul className='list-disc list-inside leading-7'>
+                        {Object.entries(location?.services || {}).map(([key, value], index) => (
+                            key !== '_id' && value && (
+                            <li key={index}>
+                                {translate(`forms.createLocation.services.${key}`)}
+                            </li>
+                            )
+                        ))}
+                    </ul>
+                </div>
+                {/* Infraestructura */}
+                <div className={`${background} shadow-xl p-5 rounded-2xl md:w-[18rem] w-full`}>
+                    <div className='flex items-center justify-center gap-2 mb-3'>
+                        <FaRegBuilding className='text-xl'/>
+                        <h3 className='font-medium text-xl'>{translate("pages.locations.infrastructure", "Infraestructura")}</h3>
+                    </div>
+                    <ul className='list-disc list-inside leading-7'>
+                        {Object.entries(location?.infrastructure || {}).map(([key, value], index) => (
+                            key !== '_id' && value && (
+                            <li key={index}>
+                                {translate(`forms.createLocation.infrastructure.${key}`)}
+                            </li>
+                            )
+                        ))}
+                    </ul>
+                </div>
+                {/* Accesos */}
+                <div className={`${background} shadow-xl p-5 rounded-2xl md:w-[18rem] w-full`}>
+                    <div className='flex items-center justify-center gap-2 mb-3'>
+                        <MdOutlineDoorFront className='text-xl'/>
+                        <h3 className='font-medium text-xl'>{translate("pages.locations.access", "Accesos")}</h3>
+                    </div>
+                    <ul className='list-disc list-inside leading-7'>
+                        {Object.entries(location?.access || {}).map(([key, value], index) => (
+                            key !== '_id' && value && (
+                            <li key={index}>
+                                {translate(`forms.createLocation.access.${key}`)}
+                            </li>
+                            )
+                        ))}
+                    </ul>
                 </div>
             </div>
         </div>

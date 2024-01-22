@@ -75,20 +75,58 @@ export interface AddLocationProps {
 }
 
 // Locaciones
+// Locaciones
 export interface LocacionesProps {
-    name: string,
-    category: string,
-    phone: string,
-    email: string,
-    address: string,
+    name: string;
+    category: string;
+    phone?: string;
+    email?: string;
+    address: string;
     location: {
-        latitude: number,
-        longitude: number,
-    },
-    time: string,
-    services: string,
-    infrastructure: string,
-    seasons: string,
-    access: string,
-    photos: string [],
+        latitude: number;
+        longitude: number;
+    };
+    services?: {
+        water?: boolean;
+        energy?: boolean;
+        internet?: boolean;
+        tables?: boolean;
+        workStations?: boolean;
+        screen?: boolean;
+        cleaning?: boolean;
+        basic?: boolean;
+        health?: boolean;
+        technic?: boolean;
+        copy?: boolean;
+        catering?: boolean;
+        fridge?: boolean;
+    };
+    infrastructure?: {
+        park?: boolean;
+        load?: boolean;
+        set?: boolean;
+        backlots?: boolean;
+        closet?: boolean;
+        bath?: boolean;
+        office?: boolean;
+        security?: boolean;
+        signals?: boolean;
+        garden?: boolean;
+        out?: boolean;
+        roof?: boolean;
+        pool?: boolean;
+        events?: boolean;
+    };
+    access?: {
+        privat?: boolean;
+        tin?: boolean;
+        rock?: boolean;
+        center?: boolean;
+        pav?: boolean;
+        old?: boolean;
+        main?: boolean;
+        natural?: boolean;
+    };
+    photos: string[];
 }
+
