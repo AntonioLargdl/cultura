@@ -114,7 +114,7 @@ const LocacionesUser = () => {
             <div className='border-b-[1px] shadow-lg'>
                 <Carousel categoryList={categoryList} onSelectCategory={handleCategorySelect} />
             </div>
-            { filteredLocaciones.length === 0 &&
+            { filteredLocaciones.length === 0 && !empty &&
                 <div className='flex flex-col gap-4 items-center justify-center mt-10'>
                     <TbMapX className='text-6xl'/>
                     <p className='font-light text-center'>Lo lamento, no hay locaciones que coincidan con tu busqueda</p>
