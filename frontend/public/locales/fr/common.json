@@ -129,7 +129,24 @@
       "services": "Services",
       "infrastructure": "Infrastructure",
       "access": "Accès",
-      "seasons": "Activités saisonnières"
+      "seasons": "Activités saisonnières",
+      "options": {
+        "parque": "Parc",
+        "via": "Routes",
+        "arquitectura": "Architecture",
+        "industria": "Industrie",
+        "entretenmiento": "Divertissement",
+        "cultura": "Culture",
+        "salud": "Santé",
+        "comercio": "Commerce",
+        "deportes": "Sports",
+        "naturaleza": "Nature",
+        "recreación": "Loisirs",
+        "oficinas": "Bureaux",
+        "hoteles": "Hôtels",
+        "restaurantes": "Restaurants"
+      }
+      
     },
     "directories": {
       "title": "Répertoires"
@@ -292,6 +309,7 @@
         "category": {
           "label": "Catégorie",
           "placeholder": "Sélectionnez la catégorie",
+          "all": "Tous",
           "park": "Parc",
           "roads": "Routes",
           "architecture": "Architecture",

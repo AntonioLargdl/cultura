@@ -32,6 +32,8 @@ import Comision from "./pages/comision";
 import CreateDirectory from "./pages/directories/create";
 import LocacionesUser from "./pages/comision/locaciones";
 import DirectoriosUser from "./pages/comision/directorio";
+import LocacionUser from "./pages/comision/locaciones/show";
+import LocacionesMap from "./pages/comision/locaciones/map";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -216,9 +218,14 @@ function App() {
                       </Authenticated>
                     }
                   >
+                    {/* Comisión */}
                     <Route path="/cfm" element={<Comision />} />
+                    {/* Directorio */}
                     <Route path="/cfm/directorio" element={<DirectoriosUser />} />
+                    {/* Locaciones */}
                     <Route path="/cfm/locaciones" element={<LocacionesUser />} />
+                    <Route path="/cfm/locaciones/map" element={<LocacionesMap />} />
+                    <Route path="/cfm/locaciones/:id" element={<LocacionUser />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/update-password/:id/:token" element={<UpdatePasswordPage />} />

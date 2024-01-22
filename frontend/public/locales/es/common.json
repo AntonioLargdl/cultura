@@ -126,7 +126,23 @@
       "services": "Servicios",
       "infrastructure": "Infraestructura",
       "access": "Accesos",
-      "seasons": "Actividades de Temporada"
+      "seasons": "Actividades de Temporada",
+      "options": {
+        "parque": "Parque",
+        "via": "Vías",
+        "arquitectura": "Arquitectura",
+        "industria": "Industria",
+        "entretenmiento": "Entretenimiento",
+        "cultura": "Cultura",
+        "salud": "Salud",
+        "comercio": "Comercio",
+        "deportes": "Deportes",
+        "naturaleza": "Naturaleza",
+        "recreación": "Recreación",
+        "oficinas": "Oficinas",
+        "hoteles": "Hoteles",
+        "restaurantes": "Restaurantes"
+      }
     },
     "directories": {
       "title": "Directorios"
@@ -292,6 +308,7 @@
         "category": {
           "label": "Categoría",
           "placeholder": "Selecciona la categoría",
+          "all": "Todo",
           "park": "Parque",
           "roads": "Vías",
           "architecture": "Arquitectura",

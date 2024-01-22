@@ -77,6 +77,7 @@ export interface AddLocationProps {
 // Locaciones
 // Locaciones
 export interface LocacionesProps {
+    _id: string;
     name: string;
     category: string;
     phone?: string;

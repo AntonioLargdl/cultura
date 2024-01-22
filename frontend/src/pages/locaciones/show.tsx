@@ -14,8 +14,7 @@ import cfmWhite from "../../assets/cfm_white.webp"
 import { FcUndo } from 'react-icons/fc';
 import { MdOutlineDoorFront, MdOutlineFoodBank, MdOutlineLightbulb, MdOutlineLocalHotel } from 'react-icons/md';
 import { PiBag, PiBank, PiDribbbleLogo, PiFactory, PiHeartbeatBold, PiMapPin, PiMartini, PiMaskHappy, PiMountains, PiPalette, PiPark, PiPhone, PiRoadHorizon, PiSuitcase } from 'react-icons/pi';  
-import { IoMailOutline, IoTimeOutline } from 'react-icons/io5';
-import { BiParty } from 'react-icons/bi';
+import { IoMailOutline } from 'react-icons/io5';
 import { FaRegBuilding } from 'react-icons/fa';
 
 
@@ -70,7 +69,7 @@ const ShowLocations = () => {
         if (categoryItem) {
           return categoryItem.icon;
         }      
-        return null; // Manejar el caso en el que no se encuentra el ícono
+        return null; 
     };
 
     // Delete
@@ -165,7 +164,7 @@ const ShowLocations = () => {
                         </div>
                         <div>
                             <h1 className='font-semibold text-3xl'>{location.name}</h1>
-                            <p className='uppercase font-light'>{location.category}</p>
+                            <p className='uppercase font-light'>{translate(`pages.locations.options.${location.category}`)}</p>
                         </div>
                     </div>
                     {/* Locación */}

@@ -8,15 +8,13 @@ const DirectoriosUser = () => {
         <HeaderDirectorio />
         <div className='w-full mt-20 p-4'>
             <TextField
-                id="access"
                 fullWidth
                 margin="normal"
                 label="Buscar"
-                placeholder="Buscar Locaciones"
+                placeholder="Buscar directorio"
                 InputProps={{
                 startAdornment: <IoIosSearch className="mx-2 text-lg"/>,
                 }}
-                name="access"
                 sx={{ mt: 2 }}
                 
             />
