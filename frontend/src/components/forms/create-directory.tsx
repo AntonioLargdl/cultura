@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { Box, Button, ButtonGroup, Checkbox, FormControlLabel, FormGroup, MenuItem, Select, TextField, useTheme } from '@mui/material';
 import { useTranslate } from '@refinedev/core';
 import { Link, useNavigate } from 'react-router-dom';
@@ -66,8 +66,7 @@ const DirectoryForm = ({type, register, setValue, formLoading, handleSubmit, onF
         { value: "sound", text: translate("forms.createDirectory.category.sound") },
         { value: "advertising", text: translate("forms.createDirectory.category.advertising") },
         { value: "distribution", text: translate("forms.createDirectory.category.distribution") },
-    ];    
-
+    ];
 
     useEffect(() => {
         setValue('type', profileType)
@@ -132,11 +131,11 @@ const DirectoryForm = ({type, register, setValue, formLoading, handleSubmit, onF
             />
 {/* ------------- Semblanza */}
             <TextField
-                {...register("semblanza", {
+                {...register("es", {
                     required: true,
                 })}
-                id="semblanza"
-                name="semblanza"
+                id="es"
+                name="es"
                 margin="normal"
                 fullWidth
                 label={translate("forms.createDirectory.fields.semblanza.label")}
@@ -145,25 +144,31 @@ const DirectoryForm = ({type, register, setValue, formLoading, handleSubmit, onF
                 startAdornment: <FaRegUser className="mx-2 text-lg"/>,
                 }}
                 sx={{ mt: 2 }}
-            />
+            />      
 {/* ------------- Accesos */}
-            <h2 className='font-medium text-xl mt-2 w-full'>
-                {translate( "forms.createLocation.fields.services.label")}
-            </h2> 
-            {ServiceList.map((item, index) => (
-                <FormGroup key={index}>
-                    <FormControlLabel control={<Checkbox {...register(item.value)}/>} label={item.text} />
-                </FormGroup>
-            ))}   
+            { profileType === 'crew' &&
+                <div>
+                    <h2 className='font-medium text-xl mt-2 w-full'>
+                        {translate( "forms.createLocation.fields.services.label")}
+                    </h2> 
+                    <div className='flex gap-2 flex-wrap'>
+                        {ServiceList.map((item, index) => (
+                            <FormGroup key={index}>
+                                <FormControlLabel control={<Checkbox {...register(item.value)}/>} label={item.text} />
+                            </FormGroup>
+                        ))}   
+                    </div>
+                </div>
+            }
 {/* ------------- Edad */}
             { profileType === 'talento' &&
             <div className='w-full flex md:gap-4 gap-3'>
                 <TextField
-                    {...register("edad", {
+                    {...register("age", {
                         required: true,
                     })}
-                    id="edad"
-                    name="edad"
+                    id="age"
+                    name="age"
                     margin="normal"
                     fullWidth
                     type='number'
@@ -176,11 +181,11 @@ const DirectoryForm = ({type, register, setValue, formLoading, handleSubmit, onF
                 />  
 {/* ------------- Altura */}
                 <TextField
-                    {...register("altura", {
+                    {...register("height", {
                         required: true,
                     })}
-                    id="altura"
-                    name="altura"
+                    id="height"
+                    name="height"
                     margin="normal"
                     fullWidth
                     type='number'
@@ -193,11 +198,11 @@ const DirectoryForm = ({type, register, setValue, formLoading, handleSubmit, onF
                 />
 {/* ------------- Peso */}
                 <TextField
-                    {...register("peso", {
+                    {...register("weight", {
                         required: true,
                     })}
-                    id="peso"
-                    name="peso"
+                    id="weight"
+                    name="weight"
                     margin="normal"
                     fullWidth
                     type='number'

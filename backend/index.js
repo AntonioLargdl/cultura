@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 // Rutas
 import usuarioRouter from './routes/usuario.route.js';
 import locacionesRouter from './routes/locaciones.route.js';
+import directorioRouter from './routes/directorios.route.js';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 // Rutas
 app.use('/api/v1/usuarios', usuarioRouter)
 app.use('/api/v1/locaciones', locacionesRouter)
+app.use('/api/v1/directorios', directorioRouter)
 
 const startServer = async () => {
     try {
@@ -34,5 +36,3 @@ const startServer = async () => {
 }
 
 startServer ();
-
-// TODO: Usuarios -> Register / Update Password / Delete User / Forgot Password / Welcome Email / Update Password Email

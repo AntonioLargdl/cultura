@@ -12,7 +12,6 @@ import ErrorPage from '../../../components/error';
 import Loading from '../../../components/loading';
 import { FcUndo } from 'react-icons/fc';
 
-
 // Category
 const categoryList = [
     { value: "parque", icon: <PiPark /> },

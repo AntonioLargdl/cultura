@@ -130,3 +130,61 @@ export interface LocacionesProps {
     photos: string[];
 }
 
+
+interface Semblanza {
+    es: string;
+    en: string;
+    fr: string;
+  }
+  
+interface Services {
+    script: boolean;
+    rights: boolean;
+    translators: boolean;
+    creative: boolean;
+    casting: boolean;
+    academies: boolean;
+    actors: boolean;
+    voice: boolean;
+    models: boolean;
+    production: boolean;
+    direction: boolean;
+    photography: boolean;
+    design: boolean;
+    makeup: boolean;
+    technicalServices: boolean;
+    productionHouses: boolean;
+    catering: boolean;
+    studios: boolean;
+    insurance: boolean;
+    locations: boolean;
+    generalServices: boolean;
+    postProduction: boolean;
+    visualEffects: boolean;
+    labs: boolean;
+    sound: boolean;
+    advertising: boolean;
+    distribution: boolean;
+    }
+  
+export interface DirectorioProps {
+    _id: string;
+    type: string;
+    name: string;
+    photos: string[];
+    semblanza: Semblanza;
+    services: Services;
+    age: string;
+    height: string;
+    weight: string;
+    phone: string;
+    email: string;
+    youtube: string;
+    linkedin: string;
+    web: string;
+    fb: string;
+    ig: string;
+    tiktok?: string;
+}
+
+  

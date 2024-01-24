@@ -34,6 +34,7 @@ import LocacionesUser from "./pages/comision/locaciones";
 import DirectoriosUser from "./pages/comision/directorio";
 import LocacionUser from "./pages/comision/locaciones/show";
 import LocacionesMap from "./pages/comision/locaciones/map";
+import DirectorioId from "./pages/comision/directorio/show";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -222,6 +223,7 @@ function App() {
                     <Route path="/cfm" element={<Comision />} />
                     {/* Directorio */}
                     <Route path="/cfm/directorio" element={<DirectoriosUser />} />
+                    <Route path="/cfm/directorio/:id" element={<DirectorioId />} />
                     {/* Locaciones */}
                     <Route path="/cfm/locaciones" element={<LocacionesUser />} />
                     <Route path="/cfm/locaciones/map" element={<LocacionesMap />} />

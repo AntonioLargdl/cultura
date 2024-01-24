@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { HeaderLocaciones } from '../../../components/comision/locaciones/header'
 import { Box, Stack, useTheme } from '@mui/material';
-import ReactMapGL, { GeolocateControl, Marker, NavigationControl, Popup } from 'react-map-gl'
+import ReactMapGL, { GeolocateControl, Marker, NavigationControl } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { LocacionesProps } from '../../../interfaces/common';
 import axios from 'axios';
-import { FcHighPriority } from 'react-icons/fc';
 import { useTranslate } from '@refinedev/core';
 import { PiAperture, PiBag, PiBank, PiDribbbleLogo, PiFactory, PiHeartbeatBold, PiMapPin, PiMartini, PiMaskHappy, PiMountains, PiPalette, PiPark, PiPhone, PiRoadHorizon, PiSuitcase } from 'react-icons/pi';
 import { MdOutlineFoodBank, MdOutlineLocalHotel } from 'react-icons/md';
@@ -111,7 +110,7 @@ const LocacionesMap = () => {
             </Box>
             { locacion &&
                 <div className={`fixed z-20 bottom-7 left-1/2 transform -translate-x-1/2 w-full`}>
-                    <div className={`mx-5 ${background} flex gap-1 md:max-w-md ml-auto mr-auto rounded-xl items-center justify-between relative`}>
+                    <div className={`mx-5 ${background} flex gap-1 md:max-w-md md:ml-auto md:mr-auto rounded-xl items-center justify-between relative`}>
                         <div className='flex gap-1'>
                             <img src={locacion.photos[0]} alt="foto" loading='lazy' className='w-36 h-36 object-cover p-2 rounded-2xl'/>
                             <div className='flex flex-col items-start justify-center'>

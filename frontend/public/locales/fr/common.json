@@ -158,7 +158,18 @@
       
     },
     "directories": {
-      "title": "Répertoires"
+      "title": "Répertoires",
+      "search": {
+        "label": "Rechercher",
+        "placeholder": "Rechercher dans le répertoire"
+      },
+      "talent": "Talent",
+      "crew": "Équipe",
+      "age": "Âge",
+      "height": "Hauteur (cm)",
+      "weight": "Poids (kg)",
+      "portfolio": "Portfolio",
+      "error": "Aucune donnée trouvée dans le répertoire"
     },
     "blog": {
       "title": "Blogs"

@@ -157,7 +157,18 @@
       }      
     },    
     "directories": {
-      "title": "Directories"
+      "title": "Directories",
+      "search": {
+        "label": "Search",
+        "placeholder": "Search in the directory"
+      },
+      "talent": "Talent",
+      "crew": "Crew",
+      "age": "Age",
+      "height": "Height (cm)",
+      "weight": "Weight (kg)",
+      "portfolio": "Portfolio",
+      "error": "No data found in the directory"
     },
     "blog": {
       "title": "Blogs"

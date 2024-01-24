@@ -23,6 +23,7 @@
     "antd": "^5.12.8",
     "axios": "^1.6.5",
     "framer-motion": "^10.18.0",
+    "google-translate-api": "^2.3.0",
     "i18next": "^20.1.0",
     "i18next-browser-languagedetector": "^6.1.1",
     "i18next-xhr-backend": "^3.2.2",
@@ -42,6 +43,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/google-translate-api": "^2.3.5",
     "@types/mapbox__mapbox-gl-geocoder": "^4.7.7",
     "@types/node": "^18.16.2",
     "@types/react": "^18.0.0",

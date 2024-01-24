@@ -154,7 +154,18 @@
       }
     },
     "directories": {
-      "title": "Directorios"
+      "title": "Directorios",
+      "search": {
+        "label": "Buscar",
+        "placeholder": "Buscar en el directorio"
+      },
+      "talent": "Talento",
+      "crew": "Crew",
+      "age": "Edad",
+      "height": "Altura (cm)",
+      "weight": "Peso (kg)",
+      "portfolio": "Portafolio",
+      "error": "No se encontraron datos en el directorio"
     },
     "categories": {
       "title": "Categorías"

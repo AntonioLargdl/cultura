@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import bcrypt from "bcrypt";
-import usuarioModel from '../mongodb/models/usuario.js';
 import jwt from "jsonwebtoken";
 import * as dotenv from 'dotenv';
 import {v2 as cloudinary} from 'cloudinary';
