@@ -98,7 +98,7 @@ const LocacionUser = () => {
             {/* Imágenes */}
             <div className='lg:w-[30rem] w-full'>
                 { photo &&
-                    <img src={photo} alt='foto' className='rounded-[10px] shadow-xl lg:w-[30rem] w-full h-[14rem] md:h-[17rem] lg:h-[24rem] object-cover'/>
+                    <img src={photo} alt='foto' loading='lazy' className='rounded-[10px] shadow-xl lg:w-[30rem] w-full h-[14rem] md:h-[17rem] lg:h-[24rem] object-cover'/>
                 }
                 <div className='flex gap-3 items-center mt-4'>
                     {location.photos.map((item, index) => (

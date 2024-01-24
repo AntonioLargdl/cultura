@@ -75,7 +75,7 @@ const LocacionesUser = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:8080/api/v1/locaciones');
+            const response = await axios.get('https://culltura.onrender.com/locaciones');
             setEmpty(false)
             setLocaciones(response.data);
             setLoading(false)
@@ -94,15 +94,15 @@ const LocacionesUser = () => {
             <Link to="/cfm/locaciones/map" className='fixed z-20 bottom-7 left-1/2 transform -translate-x-1/2 hover:scale-105 duration-200'>
                 <button type='button' className={`${background} shadow-xl px-6 py-4 rounded-2xl uppercase flex gap-2 items-center`}>
                     <FcGlobe className='text-xl'/>
-                    <p className='text-sm'>Ver Mapa</p>
+                    <p className='text-sm'>{translate("pages.locations.maps")}</p>
                 </button>
             </Link>
             <div className='w-full mt-20 px-4 pt-4'>
                 <TextField
                     fullWidth
                     margin="normal"
-                    label="Buscar"
-                    placeholder="Buscar Locaciones"
+                    label={translate("pages.locations.search.label")}
+                    placeholder={translate("pages.locations.search.placeholder")}
                     InputProps={{
                     startAdornment: <IoIosSearch className="mx-2 text-lg"/>,
                     }}
@@ -114,10 +114,10 @@ const LocacionesUser = () => {
             <div className='border-b-[1px] shadow-lg'>
                 <Carousel categoryList={categoryList} onSelectCategory={handleCategorySelect} />
             </div>
-            { filteredLocaciones.length === 0 && !empty &&
+            { filteredLocaciones.length === 0 && !empty && !loading &&
                 <div className='flex flex-col gap-4 items-center justify-center mt-10'>
                     <TbMapX className='text-6xl'/>
-                    <p className='font-light text-center'>Lo lamento, no hay locaciones que coincidan con tu busqueda</p>
+                    <p className='font-light text-center'>{translate("pages.locations.error.404")}</p>
                 </div>
             }
             <div className='px-4'>
@@ -128,10 +128,10 @@ const LocacionesUser = () => {
                     : empty ?
                     <div className='flex flex-col gap-4 items-center justify-center mt-10'>
                         <TbMapX className='text-6xl'/>
-                        <p className='font-light text-center'>Lo lamento, no hay locaciones disponibles por el momento</p>
+                        <p className='font-light text-center'>{translate("pages.locations.error.401")}</p>
                     </div>
                     :
-                    <div className="mt-5 flex flex-wrap gap-2 md:justify-start justify-center min-h-[100vh]">
+                    <div className="mt-5 flex flex-wrap gap-8 md:justify-start justify-center mb-32">
                         {filteredLocaciones.map((item, index) => (
                             <Link key={index} to={`/cfm/locaciones/${item._id}`}>
                                 <div  className={`${background} md:w-64 shadow-xl rounded-[20px] hover:scale-95 duration-300 p-2 relative cursor-pointer`}>

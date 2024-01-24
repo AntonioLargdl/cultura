@@ -44,8 +44,9 @@ const LocacionesMap = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-            const response = await axios.get('http://localhost:8080/api/v1/locaciones');
+            const response = await axios.get('https://culltura.onrender.com/locaciones');
             setLocaciones(response.data);
+            console.log(locaciones)
             } catch (error) {
             console.error('Error al obtener datos:', error);
             }
@@ -91,23 +92,6 @@ const LocacionesMap = () => {
                 {locaciones.map((item, index) => (
                     <Stack key={index} >
                         <Stack>
-                            {/* {selectedMarker === item._id && (
-                            <Popup
-                                latitude={item.ultimaUbicacion.latitud}
-                                longitude={item.ultimaUbicacion.longitud}
-                                closeButton={true}
-                                closeOnClick={false}
-                                onClose={handleCloseClick}
-                                anchor="top-right"
-                            >
-                                <Box style={{display:'flex', alignItems:'center', flexDirection:'column', gap:'4px'}}>
-                                <Typography textAlign='center' fontSize='14px' fontWeight={600}>{item.nombre}</Typography>
-                                    <a href={`/${item._id}`}><img src={item.photo} alt={item._id} style={{width:'90px', height:'50px', borderRadius:'10px', objectFit:'cover'}}/></a> 
-                                <Typography textAlign='center' fontSize='10px'>Fecha de reporte <br /> <b style={{fontSize:'15px'}}>{item.fechaReporte}</b></Typography>
-                                <Typography textAlign='center' fontSize='10px'>Tel. de emergencia <br /> <b><a href={`tel:${item.telEmergencia}`} style={{fontSize:'15px'}}>{item.telEmergencia}</a></b></Typography>
-                                </Box>
-                            </Popup>
-                            )} */}
                             <Marker
                             longitude={item.location.longitude}
                             latitude={item.location.latitude}
@@ -127,9 +111,9 @@ const LocacionesMap = () => {
             </Box>
             { locacion &&
                 <div className={`fixed z-20 bottom-7 left-1/2 transform -translate-x-1/2 w-full`}>
-                    <div className={`mx-5 ${background} flex gap-1 max-w-md ml-auto mr-auto rounded-xl items-center justify-between relative`}>
+                    <div className={`mx-5 ${background} flex gap-1 md:max-w-md ml-auto mr-auto rounded-xl items-center justify-between relative`}>
                         <div className='flex gap-1'>
-                            <img src={locacion.photos[0]} alt="foto" className='w-36 h-36 object-cover p-2 rounded-2xl'/>
+                            <img src={locacion.photos[0]} alt="foto" loading='lazy' className='w-36 h-36 object-cover p-2 rounded-2xl'/>
                             <div className='flex flex-col items-start justify-center'>
                                 <h2 className='font-medium text-xl'>{locacion.name}</h2>
                                 <div className='flex gap-2 items-center'>
@@ -137,8 +121,12 @@ const LocacionesMap = () => {
                                     <p className='uppercase font-light'>{translate(`pages.locations.options.${locacion.category}`)}</p>
                                 </div>
                                 <div className='flex gap-2 mt-2'>
-                                    <a className="bg-[#67B7F7] text-white p-2 rounded-lg" href={`tel:${locacion.phone}`}><IoMailOutline /> </a>
-                                    <a className="bg-[#67B7F7] text-white p-2 rounded-lg" href={`mailto:${locacion.email}`}><PiPhone /></a>
+                                    { locacion.phone &&
+                                        <a className="bg-[#67B7F7] text-white p-2 rounded-lg" href={`tel:${locacion.phone}`}><IoMailOutline /> </a>
+                                    }
+                                    { locacion.email &&
+                                        <a className="bg-[#67B7F7] text-white p-2 rounded-lg" href={`mailto:${locacion.email}`}><PiPhone /></a>
+                                    }
                                     <a className="bg-[#67B7F7] text-white p-2 rounded-lg" href={`https://maps.google.com/?q=${locacion.location.latitude},${locacion.location.longitude}`}><PiMapPin/></a>
                                 </div>
                             </div>

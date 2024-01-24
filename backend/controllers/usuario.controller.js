@@ -114,7 +114,7 @@ const forgotPassword = async (req,res) => {
 // ------------------------------ Registro de Usuarios ------------------------------
 const createUser = async (req, res) => {
   try {
-    const { email, password, createdAt } = req.body;
+    const { email, password, username, rol, image } = req.body;
     // Verificar correo único
     const existingEmail = await usuarioModel.findOne({ email });
     if (existingEmail) {
@@ -129,7 +129,9 @@ const createUser = async (req, res) => {
     const newUser = new usuarioModel({
       email,
       password: hashedPassword, 
-      createdAt,
+      username,
+      rol,
+      image: photoUrl
     });
     const savedUser = await newUser.save();
     //  Enviar correo de bienvenida
@@ -172,31 +174,38 @@ const loginUser = async (req, res) => {
   let existingUser
 
   try {
-    const { email, password } = req.body;
+    const { access, password } = req.body;
     
-    const existingUser = await usuarioModel.findOne({ email });
-
+    existingUser = await usuarioModel.findOne({ email: access });
     if (!existingUser) {
-        return res.status(401).json({ success: false, message: "correo" });
+      existingUser = await usuarioModel.findOne({ username: access });
+      if (!existingUser) {
+        return res.status(401).json({ success: false, message: "El correo o usuario no está registrado" });
+      }
     }
-    const validPassword = await bcrypt.compare(password, existingUser.password);
 
+    const validPassword = await bcrypt.compare(password, existingUser.password);
     if (!validPassword) {
       return res.status(401).json({ success: false, message: "password" });
     }
 
-    const emailToken = jwt.sign(
+    const { email, username, rol, image } = existingUser;
+
+    const accessToken = jwt.sign(
       { userId: existingUser._id },
       process.env.JWT_KEY,
-      { expiresIn: "100h" } 
+      { expiresIn: "5000h" } 
     );
 
     return res.status(200).json({
       success: true,
       message: "Inicio de sesión exitoso",
-      emailToken,
+      accessToken,
       user: {
         email,
+        username,
+        rol,
+        image
       }
     });
   } catch (error) {
@@ -208,52 +217,22 @@ const loginUser = async (req, res) => {
   }
 };
 
-// ------------------------------ Perfil de Usuario ------------------------------
-const updateProfile = async (req,res) => {
+// ------------------------------ Obtener Perfiles ------------------------------
+const getProfiles = async (req,res) => {
   try {
-    const {email, visible, name, lastname, phone, phoneTwo, adress} = req.body
-    const user = await usuarioModel.findOne({email})
+    const usuarios = await usuarioModel.find().select('-password')
 
-    await usuarioModel.findByIdAndUpdate(
-      user._id, 
-        {$set: { 
-          'visible': visible, 
-          'profile.name': name, 
-          'profile.lastname': lastname, 
-          'profile.phone': phone, 
-          'profile.phoneTwo': phoneTwo, 
-          'profile.adress': adress
-        }});
-
-    res.status(200).json({success: true, message: 'Ediciones realizadas exitosamente'})
-  } catch(error) {
-    res.status(500).json({success: false, message: error.message})
-  }
-}
-// ------------------------------ Obtener Perfil ------------------------------
-const getProfile = async (req,res) => {
-  try {
-    const  email  = req.query.email;
-
-    const user = await usuarioModel
-      .findOne({email})
-      .select('-password')
-
-      if(!user) {
-          res.status(200).json("Usuario no encontrado")
-      }
-
-    res.status(200).json(user)
+    res.status(200).json(usuarios)
   } catch (error) {
     res.status(500).json({success: false, message: error.message})
   }
 }
 
 export {
-    getProfile,
-    updateProfile,
-    createUser,
     loginUser,
+    getProfiles,
+    // TODO: Actualizar las siguientes funciones / Delete User
+    createUser,
     forgotPassword,
     updatePassword,
 }

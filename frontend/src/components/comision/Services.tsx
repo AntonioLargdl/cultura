@@ -52,7 +52,7 @@ const Services = () => {
         >
           <div className='flex items-center gap-2'>
             <img src={ciudad} alt="comision" className='w-36 mb-5'/>
-            <TypingText title={`| ${t("pages.comision.services.text4")}`} textStyles="text-left" />
+            <TypingText title={`| ${t("pages.comision.do.subtitle")}`} textStyles="text-left" />
           </div>
           <TitleText title={t("pages.comision.services.title")} textStyles="text-left" />
           <div className="mt-[48px] flex flex-wrap justify-between gap-[24px]">

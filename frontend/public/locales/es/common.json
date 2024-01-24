@@ -127,6 +127,15 @@
       "infrastructure": "Infraestructura",
       "access": "Accesos",
       "seasons": "Actividades de Temporada",
+      "search": {
+        "label": "Buscar",
+        "placeholder": "Buscar locaciones"
+      },
+      "maps": "Ver mapa",
+      "error": {
+        "404": "Lo lamento, no hay locaciones que coincidan con tu busqueda",
+        "401": "Lo lamento, no hay locaciones disponibles por el momento"
+      },
       "options": {
         "parque": "Parque",
         "via": "Vías",

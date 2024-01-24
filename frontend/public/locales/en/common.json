@@ -130,6 +130,15 @@
       "infrastructure": "Infrastructure",
       "access": "Access",
       "seasons": "Seasonal Activities",
+      "search": {
+        "label": "Search",
+        "placeholder": "Search locations"
+      },      
+      "maps": "View map",
+      "error": {
+        "404": "I'm sorry, there are no locations that match your search",
+        "401": "I'm sorry, there are no locations available at the moment"
+      },
       "options": {
         "parque": "Park",
         "via": "Roads",

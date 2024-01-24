@@ -5,11 +5,8 @@ import helmet from 'helmet';
 import connectDB from './mongodb/connect.js';
 import cookieParser from 'cookie-parser';
 // Rutas
-import codigoRouter from './routes/codigo.route.js';
-import socioRouter from './routes/socio.route.js';
 import usuarioRouter from './routes/usuario.route.js';
-import tagRouter from './routes/tag.route.js';
-import petRouter from './routes/pet.route.js';
+import locacionesRouter from './routes/locaciones.route.js';
 
 dotenv.config();
 
@@ -24,11 +21,8 @@ app.get('/', (req, res) => {
     res.send({ message : 'Hello World!' })
 })
 // Rutas
-app.use('/api/v1/codigos', codigoRouter)
-app.use('/api/v1/socios', socioRouter)
 app.use('/api/v1/usuarios', usuarioRouter)
-app.use('/api/v1/tag', tagRouter)
-app.use('/api/v1/pet', petRouter)
+app.use('/api/v1/locaciones', locacionesRouter)
 
 const startServer = async () => {
     try {
@@ -40,3 +34,5 @@ const startServer = async () => {
 }
 
 startServer ();
+
+// TODO: Usuarios -> Register / Update Password / Delete User / Forgot Password / Welcome Email / Update Password Email

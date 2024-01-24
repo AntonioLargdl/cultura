@@ -11,11 +11,10 @@ import cfmWhite from "../../assets/cfm_white.webp"
 
 import { AiOutlineMail } from 'react-icons/ai';
 import { FcGlobe, FcUndo } from 'react-icons/fc';
-import { IoLocationOutline, IoTimeOutline } from 'react-icons/io5';
-import { BiCategory, BiParty } from 'react-icons/bi';
+import { IoLocationOutline } from 'react-icons/io5';
+import { BiCategory } from 'react-icons/bi';
 import { BsPinMap } from 'react-icons/bs';
-import { FaRegBuilding } from 'react-icons/fa';
-import { MdOutlineDoorFront, MdOutlineFoodBank, MdOutlineLightbulb, MdOutlineLocalHotel } from 'react-icons/md';
+import { MdOutlineFoodBank, MdOutlineLocalHotel } from 'react-icons/md';
 import { PiBag, PiBank, PiDribbbleLogo, PiFactory, PiHeartbeatBold, PiMartini, PiMaskHappy, PiMountains, PiPalette, PiPark, PiPhone, PiRoadHorizon, PiSuitcase } from 'react-icons/pi';  
 import DropFileInput from '../drop-file-input';
 
@@ -50,20 +49,20 @@ const LocationForm = ({type, register, setValue, formLoading, handleSubmit, onFi
     ];   
     // Infraestructura
     const InfrastructreList = [
-        { value: "park", text: translate("forms.createLocation.infrastructre.park") },
-        { value: "load", text: translate("forms.createLocation.infrastructre.load") },
-        { value: "set", text: translate("forms.createLocation.infrastructre.set") },
-        { value: "backlots", text: translate("forms.createLocation.infrastructre.backlots") },
-        { value: "closet", text: translate("forms.createLocation.infrastructre.closet") },
-        { value: "bath", text: translate("forms.createLocation.infrastructre.bath") },
-        { value: "office", text: translate("forms.createLocation.infrastructre.office") },
-        { value: "security", text: translate("forms.createLocation.infrastructre.security") },
-        { value: "signals", text: translate("forms.createLocation.infrastructre.signals") },
-        { value: "garden", text: translate("forms.createLocation.infrastructre.garden") },
-        { value: "out", text: translate("forms.createLocation.infrastructre.out") },
-        { value: "roof", text: translate("forms.createLocation.infrastructre.roof") },
-        { value: "pool", text: translate("forms.createLocation.infrastructre.pool") },
-        { value: "events", text: translate("forms.createLocation.infrastructre.events") },
+        { value: "park", text: translate("forms.createLocation.infrastructure.park") },
+        { value: "load", text: translate("forms.createLocation.infrastructure.load") },
+        { value: "set", text: translate("forms.createLocation.infrastructure.set") },
+        { value: "backlots", text: translate("forms.createLocation.infrastructure.backlots") },
+        { value: "closet", text: translate("forms.createLocation.infrastructure.closet") },
+        { value: "bath", text: translate("forms.createLocation.infrastructure.bath") },
+        { value: "office", text: translate("forms.createLocation.infrastructure.office") },
+        { value: "security", text: translate("forms.createLocation.infrastructure.security") },
+        { value: "signals", text: translate("forms.createLocation.infrastructure.signals") },
+        { value: "garden", text: translate("forms.createLocation.infrastructure.garden") },
+        { value: "out", text: translate("forms.createLocation.infrastructure.out") },
+        { value: "roof", text: translate("forms.createLocation.infrastructure.roof") },
+        { value: "pool", text: translate("forms.createLocation.infrastructure.pool") },
+        { value: "events", text: translate("forms.createLocation.infrastructure.events") },
     ];
     // Accesos
     const AccessList = [
@@ -157,7 +156,7 @@ const LocationForm = ({type, register, setValue, formLoading, handleSubmit, onFi
                 <MenuItem value="" disabled className='flex gap-2'>
                     <Box display="flex" alignItems="center" gap={2}>
                         <BiCategory />
-                        <span>{translate( "forms.createLocation.fields.category.placeholder","Nombre")}</span>
+                        <span>{translate( "forms.createLocation.fields.category.placeholder")}</span>
                     </Box>
                 </MenuItem>
                 {categoryList.map((item,index) => (

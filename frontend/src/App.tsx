@@ -55,7 +55,7 @@ function App() {
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider>
               <Refine
-                dataProvider={dataProvider("http://localhost:8080/api/v1")}
+                dataProvider={dataProvider("https://culltura.onrender.com")}
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 i18nProvider={i18nProvider}
@@ -210,7 +210,7 @@ function App() {
 {/*  Error -------------- */}
                     <Route path="*" element={<ErrorPage />} />
                   </Route>
-{/* -------------- Autenticación -------------- */}
+{/* -------------- Public -------------- */}
                   <Route
                     element={
                       <Authenticated key="authenticated-outer" fallback={<Outlet />} >
@@ -226,6 +226,7 @@ function App() {
                     <Route path="/cfm/locaciones" element={<LocacionesUser />} />
                     <Route path="/cfm/locaciones/map" element={<LocacionesMap />} />
                     <Route path="/cfm/locaciones/:id" element={<LocacionUser />} />
+                    {/* Auth */}
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/update-password/:id/:token" element={<UpdatePasswordPage />} />

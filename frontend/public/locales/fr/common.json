@@ -130,6 +130,15 @@
       "infrastructure": "Infrastructure",
       "access": "Accès",
       "seasons": "Activités saisonnières",
+      "search": {
+        "label": "Rechercher",
+        "placeholder": "Rechercher des lieux"
+      },
+      "maps": "Voir la carte",
+      "error": {
+        "404": "Je suis désolé, il n'y a pas de lieux qui correspondent à votre recherche",
+        "401": "Je suis désolé, il n'y a pas de lieux disponibles pour le moment"
+      },
       "options": {
         "parque": "Parc",
         "via": "Routes",
