@@ -55,7 +55,7 @@ function App() {
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider>
               <Refine
-                dataProvider={dataProvider("https://culltura.onrender.com")}
+                dataProvider={dataProvider("https://culltura.onrender.com/api/v1")}
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 i18nProvider={i18nProvider}

@@ -76,7 +76,7 @@ const ShowLocations = () => {
     const handleConfirm = async ({id}:{id:string}) => {
         setLoading(true);
         try {
-            const response = await axios.delete(`https://culltura.onrender.com/usuarios/eliminar/${id}`);
+            const response = await axios.delete(`https://culltura.onrender.com/api/v1/usuarios/eliminar/${id}`);
             if (response.data.success) {
             navigate('/usuarios')
             setLoading(false);
