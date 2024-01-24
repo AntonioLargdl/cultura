@@ -102,7 +102,7 @@ const DirectoriosUser = () => {
                 <p className='font-light text-center'>{translate("pages.directories.error")}</p>
             </div>
             :
-            <div className='flex flex-col lg:flex-row px-4 flex-wrap gap-5 justify-center'>
+            <div className='flex px-4 flex-wrap gap-5 md:gap-10 md:justify-center justify-between'>
               {filteredDirectory.map((item, index) => (
                 <Link to={`/cfm/directorio/${item._id}`} key={index} className={`${background} rounded-lg shadow-xl hover:bg-[#67B7F7] hover:text-white font-medium hover:font-light duration-300 w-40`}>
                   <img src={item.photos[0]} alt="foto" className='w-40 h-20 hover:h-40 object-cover rounded-lg filter brightness-75 grayscale blur-[1px] hover:grayscale-0 hover:blur-[0px] duration-300'/>
