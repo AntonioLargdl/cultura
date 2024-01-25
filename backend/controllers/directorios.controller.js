@@ -133,7 +133,7 @@ const createDirectorio = async (req,res) => {
             semblanza: {
                 es, en, fr,
             },
-            servicios: {
+            services: {
                 script, rights, translators, creative, casting, academies, actors, voice, models, production, direction, photography, design, makeup, technicalServices, productionHouses, catering, studios, insurance, locations, generalServices, postProduction, visualEffects, labs, sound, advertising, distribution,
             },
             age,

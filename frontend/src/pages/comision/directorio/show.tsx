@@ -11,7 +11,7 @@ import { IoIosArrowBack, IoIosCalendar } from 'react-icons/io';
 import { TbWeight } from 'react-icons/tb';
 import { PlayCircle } from '@mui/icons-material';
 import { FaFacebookF, FaLinkedinIn, FaTiktok } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
+import { MdEmail, MdOutlineLightbulb } from 'react-icons/md';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { RiGlobalLine } from 'react-icons/ri';
 import { AiFillInstagram } from 'react-icons/ai';
@@ -33,6 +33,7 @@ const DirectorioId = () => {
     // Use State
     const [photo, setPhoto] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    // Value
 
     useEffect(() => {
         if (directorio.photos && directorio.photos.length > 0) {
@@ -53,7 +54,6 @@ const DirectorioId = () => {
         )
     }
 
-
     return (
         <>
             <HeaderDirectorio />
@@ -61,9 +61,9 @@ const DirectorioId = () => {
                 {/* Imágenes */}
                 <div className='w-full mt-24 lg:mt-20'>
                     { photo &&
-                        <div className='ml-auto lg:mr-auto lg:w-[30vw] h-[50vh] w-[90vw] relative shadow-2xl rounded-bl-3xl lg:rounded-b-3xl'>
+                        <div className='ml-auto lg:mr-auto lg:w-[350px] h-[50vh] w-[90vw] relative shadow-2xl rounded-bl-3xl lg:rounded-b-3xl'>
                             <img src={photo} alt='foto' loading='lazy' className='rounded-bl-3xl w-[90vw] h-[50vh] object-cover lg:rounded-b-3xl lg:object-top'/>
-                            <div className='absolute bottom-0 left-0 z-10 rounded-bl-3xl rounded-tr-3xl bg-orange-700 p-6'>
+                            <div className={`absolute bottom-0 left-0 z-10 rounded-bl-3xl rounded-tr-3xl ${directorio.type === 'talento' ? 'bg-orange-700' : 'bg-orange-500'}  p-6`}>
                                 <GiFilmProjector  className='text-3xl text-white'/>
                             </div>
                             <Link to="/cfm/directorio" className={`absolute top-20 -left-5 z-10 rounded-full p-2 shadow-xl ${background}`}>
@@ -82,31 +82,48 @@ const DirectorioId = () => {
                 {/* Contenido */}
                 <div className='lg:mt-28 ml-6 mt-3 p-4 mb-10 flex flex-col items-start'>
                     <h1 className='font-medium text-3xl'>{directorio.name}</h1>
+                    { directorio.type === 'talento' &&
+                        <div className='flex mt-8 gap-10'>
+                            <div className='flex flex-col gap-1 items-center'>
+                                <div className='flex items-center'>
+                                    <p className='text-4xl'>{directorio.age}</p>
+                                    <IoIosCalendar className='text-3xl'/>
+                                </div>
+                                <p className='font-light text-sm'>{translate("pages.directories.age")}</p>
+                            </div>
+                            <div className='flex flex-col gap-1 items-center'>
+                                <div className='flex items-center'>
+                                    <p className='text-4xl'>{directorio.height}</p>
+                                    <GiBodyHeight className='text-3xl'/>
+                                </div>
+                                <p className='font-light text-sm'>{translate("pages.directories.height")}</p>
+                            </div>
+                            <div className='flex flex-col gap-1 items-center'>
+                                <div className='flex items-center'>
+                                    <p className='text-4xl'>{directorio.weight}</p>
+                                    <TbWeight className='text-3xl'/>
+                                </div>
+                                <p className='font-light text-sm'>{translate("pages.directories.weight")}</p>
+                            </div>
+                        </div>
+                    }
                     {/* Edad / Peso / Altura */}
-                    <div className='flex mt-8 gap-10'>
-                        <div className='flex flex-col gap-1 items-center'>
-                            <div className='flex items-center'>
-                                <p className='text-4xl'>{directorio.age}</p>
-                                <IoIosCalendar className='text-3xl'/>
-                            </div>
-                            <p className='font-light text-sm'>{translate("pages.directories.age")}</p>
-                        </div>
-                        <div className='flex flex-col gap-1 items-center'>
-                            <div className='flex items-center'>
-                                <p className='text-4xl'>{directorio.height}</p>
-                                <GiBodyHeight className='text-3xl'/>
-                            </div>
-                            <p className='font-light text-sm'>{translate("pages.directories.height")}</p>
-                        </div>
-                        <div className='flex flex-col gap-1 items-center'>
-                            <div className='flex items-center'>
-                                <p className='text-4xl'>{directorio.weight}</p>
-                                <TbWeight className='text-3xl'/>
-                            </div>
-                            <p className='font-light text-sm'>{translate("pages.directories.weight")}</p>
-                        </div>
-                    </div>
                     <p className='font-light mt-10 pr-4'>{currentLocale === 'fr' ? directorio.semblanza.fr : currentLocale === 'en' ? directorio.semblanza.en : directorio.semblanza.es}</p>
+                    <div className='mt-10'>
+                        <div className='flex items-center justify-start gap-2 mb-3'>
+                            <MdOutlineLightbulb className='text-2xl'/>
+                            <h3 className='font-medium text-2xl'>{translate("pages.locations.services", "Servicios")}</h3>
+                        </div>
+                        <ul className='list-disc list-inside leading-7 font-light'>
+                            {Object.entries(directorio?.services || {}).map(([key, value], index) => (
+                                key !== '_id' && value && (
+                                <li key={index}>
+                                    {translate(`forms.createDirectory.category.${key}`)}
+                                </li>
+                                )
+                            ))}
+                        </ul>
+                    </div>
                     { directorio.youtube &&
                         <a href={directorio.youtube} target='_blank' rel='noreferrer' className='flex gap-2 mt-5 bg-red-700 rounded-full items-center hover:bg-red-500'>
                             <p className='font-light text-white pl-4'>{translate("pages.directories.portfolio")}</p>

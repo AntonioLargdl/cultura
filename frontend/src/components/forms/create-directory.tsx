@@ -145,7 +145,7 @@ const DirectoryForm = ({type, register, setValue, formLoading, handleSubmit, onF
                 }}
                 sx={{ mt: 2 }}
             />      
-{/* ------------- Accesos */}
+{/* ------------- Services */}
             { profileType === 'crew' &&
                 <div>
                     <h2 className='font-medium text-xl mt-2 w-full'>
