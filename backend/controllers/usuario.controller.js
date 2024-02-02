@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import usuarioModel from '../mongodb/models/usuario.js';
 import jwt from "jsonwebtoken";
@@ -9,6 +9,8 @@ import fs from 'fs';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { Readable } from 'stream';
+import sharp from 'sharp';
 
 dotenv.config();
 
@@ -70,30 +72,32 @@ const forgotPassword = async (req,res) => {
       }
       const token = jwt.sign({ userId: user._id }, process.env.JWT_KEY, { expiresIn: '1h' }); 
       const tokenEncoded = base64UrlEncode(token);
-      const link = `http://mi.dukes.mx/update-password/${user._id}/${tokenEncoded}`
+      const link = `https://cultura.morelia.gob.mx/update-password/${user._id}/${tokenEncoded}`
 
-      // Aquí inicia el envío de correo electrónico
+      //  Enviar correo de bienvenida
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = dirname(__filename);
+
+      const emailTemplatePath = path.join(__dirname, '../mailer/password.html');
+      const emailTemplate = fs.readFileSync(emailTemplatePath, 'utf8');
+
+      // Reemplazar los marcadores de posición en la plantilla con datos reales
+      const personalizedEmail = emailTemplate
+      .replace('%link%', link);
+
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: process.env.GMAIL_USER, 
-          pass: process.env.GMAIL_PASSWORD,
+          user: process.env.GMAIL_USER, // Tu dirección de correo
+          pass: process.env.GMAIL_PASSWORD, // Tu contraseña
         },
       });
 
       const mailOptions = {
         from: process.env.GMAIL_USER,
         to: email,
-        subject: 'Recupera la contraseña de tu cuenta',
-        html: 
-        `
-          <h3><b>Hola,</h3>
-          <p> Da click en el siguiente botón para actualizar tu contraseña<p>
-          <a href="${link}" target="_blank" rel="noreferrer">
-              <img src='https://res.cloudinary.com/dblv4yokz/image/upload/v1695921842/source/password_rw2qvr.png' alt='dukes' width='250px'/>
-          </a> 
-          <a href="${link}" target="_blank" rel="noreferrer" download>${link}"</a>
-        `,
+        subject: 'Restablecer contrasela',
+        html: personalizedEmail,
       }
 
       transporter.sendMail(mailOptions, function (error, info) {
@@ -102,7 +106,8 @@ const forgotPassword = async (req,res) => {
         } else {
           console.log('Email enviado:' + info.response);
         }
-      });
+      })
+
 
       res.status(200).json({success: true, message: 'Correo de restablecimiento de contraseña enviado' });
   } catch {
@@ -114,7 +119,7 @@ const forgotPassword = async (req,res) => {
 // ------------------------------ Registro de Usuarios ------------------------------
 const createUser = async (req, res) => {
   try {
-    const { email, password, username, rol, image } = req.body;
+    const { email, password, username, rol, photo } = req.body;
     // Verificar correo único
     const existingEmail = await usuarioModel.findOne({ email });
     if (existingEmail) {
@@ -125,45 +130,114 @@ const createUser = async (req, res) => {
     }
     // Encriptar contraseña
     const hashedPassword = await bcrypt.hash(password, 10);
-    // Crear Usuario
-    const newUser = new usuarioModel({
-      email,
-      password: hashedPassword, 
-      username,
-      rol,
-      image: photoUrl
-    });
-    const savedUser = await newUser.save();
-    //  Enviar correo de bienvenida
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = dirname(__filename);
-    const emailTemplatePath = path.join(__dirname, '../mailer/welcome.html');
-    const emailTemplate = fs.readFileSync(emailTemplatePath, 'utf8');
+    let photoUrl = null; 
+    if(photo){
+      // Convertir la imagen a un objeto buffer
+      const photoBuffer = Buffer.from(photo.replace(/^data:image\/\w+;base64,/, ''), 'base64');
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_USER, // Tu dirección de correo
-        pass: process.env.GMAIL_PASSWORD, // Tu contraseña
-      },
-    });
+      // Comprimir la imagen antes de subirla a Cloudinary
+      let compressedImageBuffer = await sharp(photoBuffer)
+      .resize({ width: 250 })
+      .png({ quality: 80 })
+      .toBuffer();
 
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: email,
-      subject: 'Bienvenido a mi Dukes, tu nuevo microchip inteligente',
-      html: emailTemplate,
+      // Obtener la orientación EXIF de la imagen
+      const exifData = await sharp(photoBuffer).metadata();
+
+      // Calcular la rotación necesaria basada en la orientación EXIF
+      let rotation = 0;
+      if (exifData && exifData.orientation) {
+          switch (exifData.orientation) {
+              case 3:
+              rotation = 180;
+              break;
+              case 6:
+              rotation = 90;
+              break;
+              case 8:
+              rotation = -90;
+              break;
+          }
+      }
+
+      // Rotar la imagen si es necesario
+      if (rotation !== 0) {
+      compressedImageBuffer = await sharp(compressedImageBuffer)
+          .rotate(rotation)
+          .toBuffer();
+      }
+
+      // Convertir el buffer en un stream de lectura
+      const readablePhotoStream = new Readable();
+      readablePhotoStream.push(compressedImageBuffer);
+      readablePhotoStream.push(null);
+
+      // Subir la imagen a Cloudinary
+      photoUrl = await new Promise((resolve, reject) => {
+        const cloudinaryStream = cloudinary.uploader.upload_stream(
+        {
+            resource_type: 'image',
+            public_id: username,
+            format: 'png',
+        },
+        (error, result) => {
+            if (error) {
+            reject(error);
+            } else {
+            resolve(result.secure_url);
+            }
+        }
+        );
+        readablePhotoStream.pipe(cloudinaryStream);
+      });
+      // Crear Usuario
+      const newUser = new usuarioModel({
+        email,
+        password: hashedPassword, 
+        username,
+        rol,
+        image: photoUrl
+      });
+
+      const savedUser = await newUser.save();
+
+      //  Enviar correo de bienvenida
+      const __filename = fileURLToPath(import.meta.url);
+      const __dirname = dirname(__filename);
+
+      const emailTemplatePath = path.join(__dirname, '../mailer/welcome.html');
+      const emailTemplate = fs.readFileSync(emailTemplatePath, 'utf8');
+
+      // Reemplazar los marcadores de posición en la plantilla con datos reales
+      const personalizedEmail = emailTemplate
+      .replace('%USERNAME%', username)
+      .replace('%PASSWORD%', password);
+
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.GMAIL_USER, // Tu dirección de correo
+          pass: process.env.GMAIL_PASSWORD, // Tu contraseña
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.GMAIL_USER,
+        to: email,
+        subject: 'Bienvenido a Morelia Ciudad Cultura',
+        html: personalizedEmail,
+      }
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email enviado:' + info.response);
+        }
+      });
     }
 
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email enviado:' + info.response);
-      }
-    });
-
-    res.status(201).json({ success: true, message: "Usuario Creado exitosamente", user: savedUser });
+    res.status(201).json({ success: true, message: "Usuario Creado exitosamente" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -228,10 +302,38 @@ const getProfiles = async (req,res) => {
   }
 }
 
+
+// ------------------------------ Eliminar Usuario ------------------------------
+const deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params
+
+    const usuario = await usuarioModel.findOne({ _id: id })
+
+    if(!usuario) {
+      return res.status(401).json({ success: false, message: "El usuario no existe" });
+    }
+    // Eliminar imágenes de cloudinary
+    try {
+      await cloudinary.uploader.destroy(usuario.username);
+    } catch (cloudinaryError) {
+      console.error('Error al eliminar la imagen de Cloudinary:', cloudinaryError);
+    }
+    
+    await usuario.deleteOne({_id: id});
+    
+    return res.status(200).json({ success: true, message: 'Usuario eliminado correctamente' });
+  } catch(error) {
+    res.status(500).json({success: false, error: error})
+  }
+}
+
+
 export {
     loginUser,
     getProfiles,
-    // TODO: Actualizar las siguientes funciones / Delete User
+    deleteUser,
+    // TODO: Actualizar las siguientes funciones
     createUser,
     forgotPassword,
     updatePassword,

@@ -1,12 +1,12 @@
 import express from 'express';
-import { createLocaciones, getLocacion, getLocaciones } from '../controllers/locaciones.controller.js';
+import { createLocaciones, deleteLocation, getLocacion, getLocaciones } from '../controllers/locaciones.controller.js';
 
 const router = express.Router();
 
-// Autenticación
 router.route('/')
     .get(getLocaciones)
     .post(createLocaciones)
 router.route('/show/:id').get(getLocacion)    
+router.route('/delete/:id').delete(deleteLocation)    
 
 export default router; 

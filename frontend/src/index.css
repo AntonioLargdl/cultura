@@ -7,6 +7,25 @@
     font-family: 'Poppins'!important;
 }
 
+/* Creativa Parallax */
+
+.background-creativa {
+  background: #ffffff;
+}
+
+.body-creativa {
+  padding: 0;
+  margin: 0;
+  height: 200vh;
+  background: #ffffff;
+}
+
+.gradient-creativa {
+  background: linear-gradient(rgba(103, 103, 103, 0.5) 50%, rgb(255, 255, 255));
+}
+
+/* Parallax */
+
 .background-cfm {
     background: #000;
 }
@@ -49,6 +68,8 @@
     background: linear-gradient(rgba(14, 62, 151, 0.5) 50%, black);
   }
   
+/* General Styles */
+
   .gradient-01 {
     background-image: linear-gradient(
       270deg,

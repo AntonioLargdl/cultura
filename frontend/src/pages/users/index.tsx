@@ -38,25 +38,23 @@ const Users = () => {
           const response = await axios.delete(`https://culltura.onrender.com/api/v1/usuarios/eliminar/${id}`);
           if (response.data.success) {
             navigate('/usuarios')
+            handleClose()
             setLoading(false);
             notification.success({
                 message: "¡Listo!",
                 description: `Usuario eliminado exitosamente`,
                 placement: 'bottomRight',
             });
-          } else {
-            notification.success({
+          }
+        } catch (error) {
+            notification.error({
                 message: "Error",
                 description: `No pudimos borrar el usuario de nuevo más tarde`,
                 placement: 'bottomRight',
             });
-            handleClose()
+            console.error(error);
             setLoading(false);
-          }
-        } catch (error) {
-          console.error(error);
-          setLoading(false);
-          handleClose()
+            handleClose()
         }
     };
 

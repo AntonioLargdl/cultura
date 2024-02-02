@@ -159,6 +159,7 @@
     },
     "directories": {
       "title": "Répertoires",
+      "button": "Créer un Nouvel",
       "search": {
         "label": "Rechercher",
         "placeholder": "Rechercher dans le répertoire"
@@ -175,10 +176,57 @@
       "title": "Blogs"
     },
     "billboards": {
-      "title": "Panneaux publicitaires"
+      "title": "Affiches",
+      "fields": {
+        "month": "Mois",
+        "year": "Année",
+        "options": {
+          "january": "Janvier",
+          "february": "Février",
+          "march": "Mars",
+          "april": "Avril",
+          "may": "Mai",
+          "june": "Juin",
+          "july": "Juillet",
+          "august": "Août",
+          "september": "Septembre",
+          "october": "Octobre",
+          "november": "Novembre",
+          "december": "Décembre"
+        }
+      },
+      "error": "Désolé, il n'y a pas d'événements pour la période sélectionnée"
     },
     "portfolios": {
-      "title": "Portefeuilles"
+      "title": "Portfolios",
+      "group": "Groupe / Bande",
+      "solo": "Artiste Solo",
+      "about": "À propos de",
+      "video": "Regarder la vidéo",
+      "pdf": "Voir le portfolio",
+      "awards": "Apparitions",
+      "profile": "Nouveau profil",
+      "fields": {
+        "gender": {
+          "label": "Genre",
+          "placeholder": "Entrez le genre ici"
+        },
+        "cv": {
+          "label": "Présentations pertinentes",
+          "placeholder": "Écrivez un résumé ici"
+        },
+        "video": {
+          "label": "Vidéo",
+          "placeholder": "Lien vidéo"
+        },
+        "youtube": {
+          "placeholder": "Lien vers la chaîne Youtube"
+        },
+        "pdf": {
+          "label": "Portfolio",
+          "placeholder": "Entrez le lien du document"
+        }
+      }
     }
   },
   "navigation": {
@@ -197,6 +245,22 @@
     "logout": "Déconnexion"
   },
   "forms": {
+    "createBillboard": {
+      "title": "Nouvel événement",
+      "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Nom de l'événement"
+        },
+        "location": {
+          "label": "Emplacement",
+          "placeholder": "Adresse de l'événement"
+        },
+        "date": "Date de l'événement",
+        "begin": "Heure de début",
+        "end": "Heure de fin"
+      }
+    },    
     "createDirectory": {
       "title": "Nouveau profil",
       "buttons": {
@@ -209,7 +273,7 @@
           "label": "Nom",
           "placeholder": "Entrez le nom ici"
         },
-        "semblance": {
+        "semblanza": {
           "label": "Ressemblance / Description",
           "placeholder": "Entrez votre description ici"
         },
@@ -282,6 +346,7 @@
     },    
     "createUsers": {
       "alert": "Veuillez sélectionner une image",
+      "button": "Crear Nuevo",
       "title": "Nouvel",
       "fields": {
         "email": {

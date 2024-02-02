@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom';
 import { PiPersonArmsSpread } from 'react-icons/pi';
 import { RiTeamLine, RiUserUnfollowLine } from 'react-icons/ri';
 import Lottie from 'react-lottie';
-import LoadingAnimation from '../../../assets/loading.json';
+import LoadingAnimationWhite from '../../../assets/loading.json';
+import LoadingAnimationBlack from '../../../assets/loading-black.json';
 import { Close } from '@mui/icons-material';
 
 const DirectoriosUser = () => {
@@ -17,15 +18,15 @@ const DirectoriosUser = () => {
   const [category, setCategory] = useState('');
   const [loading, setLoading] = useState(true);
   const [empty, setEmpty] = useState(false);
+  // Theme
+  const theme = useTheme();
+  const LoadingAnimation = theme.palette.mode === 'dark' ? LoadingAnimationWhite : LoadingAnimationBlack;
   // Lottie
   const defaultOptions = {
     loop: true, 
     autopaly: true,
     animationData: LoadingAnimation
   }
-  // Theme
-  const theme = useTheme();
-  const background = theme.palette.mode === 'light' ? 'bg-neutral-100' : 'bg-neutral-900';
   // Translation
   const translate = useTranslate()
   //  Fetch Data
@@ -93,7 +94,7 @@ const DirectoriosUser = () => {
             </div>
           }
           { loading ?
-            <div className='flex items-center justify-center h-full min-h-screen'>
+            <div className='flex items-center justify-center h-full'>
               <Lottie options={defaultOptions}/>
             </div>
             : empty ?
@@ -102,7 +103,7 @@ const DirectoriosUser = () => {
                 <p className='font-light text-center'>{translate("pages.directories.error")}</p>
             </div>
             :
-            <div className='flex px-4 flex-wrap gap-4 justify-center mb-10'>
+            <div className='flex md:px-4 flex-wrap gap-4 justify-center mb-10'>
               {filteredDirectory.map((item, index) => (
                 <Link to={`/cfm/directorio/${item._id}`} key={index} className={`w-full max-w-sm flex p-2 gap-2 rounded-lg border-[1px] justify-between items-center`}>
                   <div className='flex gap-4'>

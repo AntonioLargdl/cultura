@@ -66,7 +66,7 @@
       },
       "buttons": {
         "submit": "Login",
-        "forgotPassword": "Forgot your password?"
+        "login": "Forgot your password?"
       }
     },
     "forgotPassword": {
@@ -158,6 +158,7 @@
     },    
     "directories": {
       "title": "Directories",
+      "button": "Create New",
       "search": {
         "label": "Search",
         "placeholder": "Search in the directory"
@@ -174,11 +175,58 @@
       "title": "Blogs"
     },
     "billboards": {
-      "title": "Billboards"
-    },
+      "title": "Billboards",
+      "fields": {
+        "month": "Month",
+        "year": "Year",
+        "options": {
+          "january": "January",
+          "february": "February",
+          "march": "March",
+          "april": "April",
+          "may": "May",
+          "june": "June",
+          "july": "July",
+          "august": "August",
+          "september": "September",
+          "october": "October",
+          "november": "November",
+          "december": "December"
+        }
+      },
+      "error": "Sorry, there are no events in the selected period"
+    },    
     "portfolios": {
-      "title": "Portfolios"
-    }
+      "title": "Portfolios",
+      "group": "Group / Band",
+      "solo": "Solo Artist",
+      "about": "About",
+      "video": "Watch Video",
+      "pdf": "View Portfolio",
+      "awards": "Appearances",
+      "profile": "New Profile",
+      "fields": {
+        "gender": {
+          "label": "Gender",
+          "placeholder": "Enter the gender here"
+        },
+        "cv": {
+          "label": "Relevant Presentations",
+          "placeholder": "Write a summary here"
+        },
+        "video": {
+          "label": "Video",
+          "placeholder": "Video link"
+        },
+        "youtube": {
+          "placeholder": "Link to Youtube channel"
+        },
+        "pdf": {
+          "label": "Portfolio",
+          "placeholder": "Enter the document link"
+        }
+      }
+    }  
   },
   "navigation": {
     "menu": "Menu",
@@ -196,6 +244,22 @@
     "logout": "Logout"
   },
   "forms": {
+    "createBillboard": {
+      "title": "New Event",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Event Name"
+        },
+        "location": {
+          "label": "Location",
+          "placeholder": "Event Address"
+        },
+        "date": "Event Date",
+        "begin": "Start Time",
+        "end": "End Time"
+      }
+    },    
     "createDirectory": {
       "title": "New Profile",
       "buttons": {
@@ -208,7 +272,7 @@
           "label": "Name",
           "placeholder": "Enter name here"
         },
-        "semblance": {
+        "semblanza": {
           "label": "Semblance / Description",
           "placeholder": "Enter your description here"
         },

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { BaseRecord, useOne, useTranslate } from '@refinedev/core';
+import { useOne, useTranslate } from '@refinedev/core';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, useTheme } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogTitle, IconButton, useTheme } from '@mui/material';
 import { notification } from 'antd';
 import axios from 'axios';
 
@@ -16,6 +16,7 @@ import { MdOutlineDoorFront, MdOutlineFoodBank, MdOutlineLightbulb, MdOutlineLoc
 import { PiBag, PiBank, PiDribbbleLogo, PiFactory, PiHeartbeatBold, PiMapPin, PiMartini, PiMaskHappy, PiMountains, PiPalette, PiPark, PiPhone, PiRoadHorizon, PiSuitcase } from 'react-icons/pi';  
 import { IoMailOutline } from 'react-icons/io5';
 import { FaRegBuilding } from 'react-icons/fa';
+import { Delete } from '@mui/icons-material';
 
 
 // Category
@@ -55,7 +56,6 @@ const ShowLocations = () => {
     const [photo, setPhoto] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
-    const [row, setRow] = useState<BaseRecord>();
 
     useEffect(() => {
         if (location.photos && location.photos.length > 0) {
@@ -73,28 +73,25 @@ const ShowLocations = () => {
     };
 
     // Delete
-    const handleConfirm = async ({id}:{id:string}) => {
+    const handleConfirm = async () => {
         setLoading(true);
         try {
-            const response = await axios.delete(`https://culltura.onrender.com/api/v1/usuarios/eliminar/${id}`);
+            const response = await axios.delete(`https://culltura.onrender.com/api/v1/locaciones/delete/${id}`);
             if (response.data.success) {
-            navigate('/usuarios')
-            setLoading(false);
-            notification.success({
-                message: "¡Listo!",
-                description: `Locación eliminada exitosamente`,
-                placement: 'bottomRight',
-            });
-            } else {
-            notification.success({
+                navigate('/locaciones')
+                setLoading(false);
+                notification.success({
+                    message: "¡Listo!",
+                    description: `Locación eliminada exitosamente`,
+                    placement: 'bottomRight',
+                });
+            }
+        } catch (error) {
+            notification.error({
                 message: "Error",
                 description: `No pudimos borrar la locación`,
                 placement: 'bottomRight',
             });
-            handleClose()
-            setLoading(false);
-            }
-        } catch (error) {
             console.error(error);
             setLoading(false);
             handleClose()
@@ -102,9 +99,8 @@ const ShowLocations = () => {
     };
 
     // Dialog
-    const handleOpen = ({user}:{user:BaseRecord}) => {
+    const handleOpen = () => {
         setOpen(true);
-        setRow(user)
     };
     const handleClose = () => {
         setOpen(false);
@@ -125,7 +121,7 @@ const ShowLocations = () => {
     return (
         <div>
             {/* Header */}
-            <div className="flex justify-between md:items-center md:flex-row flex-col">
+            <div className="flex justify-between items-center">
                 <div className="flex gap-4 items-center">
                     <div className="flex items-center">
                         <Link to="/locaciones" className="flex items-center">
@@ -139,6 +135,9 @@ const ShowLocations = () => {
                         <img src={logo} alt="secretaria" className="w-24 h-auto"/>
                     </div>
                 </div>
+                <IconButton color="inherit" sx={{width:'50px', height:'50px'}} onClick={() => handleOpen()}>
+                    <Delete sx={{color:'red', width:'30px', height:'30px'}}/>
+                </IconButton>
             </div>
             {/* Contenido */}
             <div className='mt-6 m-2 flex gap-5 lg:flex-nowrap flex-wrap md:mb-0 mb-5'>
@@ -251,6 +250,17 @@ const ShowLocations = () => {
                     </ul>
                 </div>
             </div>
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>{translate("pages.users.delete.title", "¿Estás seguro que deseas eliminar a")} {location.name}?</DialogTitle>
+                <DialogActions>
+                <Button onClick={handleClose} color="primary">
+                    {translate("pages.users.delete.cancel", "Cancelar")} 
+                </Button>
+                <Button onClick={() => handleConfirm()} color="primary">
+                    {translate("pages.users.delete.accept", "Confirmar")} 
+                </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     )
 }

@@ -10,9 +10,8 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import sharp from 'sharp';
 import { Readable } from 'stream';
-import directoriosModel from '../mongodb/models/directorios.js';
-
 import { Translate } from "@google-cloud/translate/build/src/v2/index.js";
+import portafoliosModel from '../mongodb/models/portafolio.js';
 
 dotenv.config();
 
@@ -42,24 +41,32 @@ const translate = new Translate({
     keyFilename: process.env.GOOGLE_TRANSLATE_KEY_FILE,
 });
 
-// ------------------------------ Crear Directorio ------------------------------
-const createDirectorio = async (req,res) => { 
+// ------------------------------ Crear Portafolio ------------------------------
+const createPortafolio = async (req,res) => { 
     try {
         const {
-            type, name, photos, es,
-            script, rights, translators, creative, casting, academies, actors, voice, models, production, direction, photography, design, makeup, technicalServices, productionHouses, catering, studios, insurance, locations, generalServices, postProduction, visualEffects, labs, sound, advertising, distribution,
-            age, height, weight, phone, email, youtube, linkedin, web, fb, ig, tiktok
+            name, type, gender, es, esCV, photos, phone, email, video,
+            youtube, pdf, web, ig, fb, tiktok, 
+            spotify, apple, amazon
         } = req.body
         const photoUrls = [];
 
+        // Traducir Semblanza
         // Traduce el texto al inglés
         const enResult = await translate.translate(es, 'en');
-        const en = enResult[0];  // El resultado se encuentra en la primera posición del array
-
+        const en = enResult[0];  
         // Traduce el texto al francés
         const frResult = await translate.translate(es, 'fr');
-        const fr = frResult[0];  // El resultado se encuentra en la primera posición del array
-        
+        const fr = frResult[0];  
+
+        // Traducir CV
+        // Traduce el texto al inglés
+        const enResult2 = await translate.translate(esCV, 'en');
+        const enCV = enResult2[0];  
+        // Traduce el texto al francés
+        const frResult2 = await translate.translate(esCV, 'fr');
+        const frCV = frResult2[0];  
+
         for (const photo of photos) {
             let photoUrl = null; 
             if(photo){
@@ -68,8 +75,8 @@ const createDirectorio = async (req,res) => {
     
                 // Comprimir la imagen antes de subirla a Cloudinary
                 let compressedImageBuffer = await sharp(photoBuffer)
-                .resize({ width: 350 })
-                .png({ quality: 75 })
+                .resize({ width: 450 })
+                .png({ quality: 90 })
                 .toBuffer();
     
                 // Obtener la orientación EXIF de la imagen
@@ -127,84 +134,88 @@ const createDirectorio = async (req,res) => {
         
 // Termina subir fotos ------------------------------ 
 
-        const newDirectorio = await directoriosModel.create({
-            type, 
+        const newPortfolio = await portafoliosModel.create({
             name,
+            type, 
+            gender,
             semblanza: {
                 es, en, fr,
             },
-            services: {
-                script, rights, translators, creative, casting, academies, actors, voice, models, production, direction, photography, design, makeup, technicalServices, productionHouses, catering, studios, insurance, locations, generalServices, postProduction, visualEffects, labs, sound, advertising, distribution,
+            cv: {
+                es: esCV, en: enCV, fr: frCV
             },
-            age,
-            height, 
-            weight,
             phone,
             email,
-            youtube,
-            linkedin,
-            web,
-            fb,
-            ig,
-            tiktok,
+            social: {
+                ig,
+                fb,
+                tiktok,
+                youtube,
+                pdf,
+                web,
+                spotify,
+                apple,
+                amazon,
+            },
+            video,
             photos: photoUrls
         })
 
-        const savedDirectorio = await newDirectorio.save();
+        const savedPortfolio = await newPortfolio.save();
   
-        res.status(200).json({success:true, message: "Usuario creado exitosamente" });
+        res.status(200).json({success:true, message: "Portafolio creada exitosamente" });
     } catch (error) {
       res.status(500).json({success: false, message: error.message})
     }    
 }
 
-// ------------------------------ Obtener Directorios ------------------------------
-const getDirectorios = async (req,res) => {
+// ------------------------------ Obtener Portafolios ------------------------------
+const getPortafolios = async (req,res) => {
     try {
-      const directorios = await directoriosModel.find()
+      const portafolios = await portafoliosModel.find()
 
-      if(!directorios) {
-        return res.status(404).json({ success: false, message: "no se encontraron directorios" });
+      if(!portafolios) {
+        return res.status(404).json({ success: false, message: "no se encontraron portafolios" });
       }
   
-      res.status(200).json(directorios)
+      res.status(200).json(portafolios)
     } catch (error) {
       res.status(500).json({success: false, message: error.message})
     }
 }
 
-// ------------------------------ Obtener Directorio ------------------------------
-const getDirectorio = async (req,res) => {
+// ------------------------------ Obtener Portafolio ------------------------------
+const getPortafolio = async (req,res) => {
     try {
         const {id} = req.params
 
-        const directorio = await directoriosModel.findOne({_id: id})
+        const portafolio = await portafoliosModel.findOne({_id: id})
 
-        if(!directorio){
-            return res.status(404).json({ success: false, message: "directorio no encontrado" });
+        if(!portafolio){
+            return res.status(404).json({ success: false, message: "portafolio no encontrado" });
         }
   
-        res.status(200).json(directorio)
+        res.status(200).json(portafolio)
     } catch (error) {
       res.status(500).json({success: false, message: error.message})
     }
 }
 
-// ------------------------------ Eliminar Directorio ------------------------------
-const deleteProfile = async (req, res) => {
+// ------------------------------ Eliminar Portafolio ------------------------------
+const deletePortafolio = async (req, res) => {
     try {
         const { id } = req.params
     
-        const directorio = await directoriosModel.findOne({ _id: id })
+        const portafolio = await portafoliosModel.findOne({ _id: id })
 
-        if(!directorio) {
-            return res.status(401).json({ success: false, message: "La locación no existe" });
+        if(!portafolio) {
+            return res.status(401).json({ success: false, message: "El portafolio no existe" });
         }
         
         // Obtener public id de las fotos
         const partesDeseadas = [];
-        if(directorio.photos){
-            directorio.photos.forEach((enlace) => {
+        if(portafolio.photos){
+            portafolio.photos.forEach((enlace) => {
                 // Dividir la URL usando '/' como separador y obtener la última parte
                 const partesEnlace = enlace.split('/');
                 const ultimaParte = partesEnlace[partesEnlace.length - 1];
@@ -224,17 +235,17 @@ const deleteProfile = async (req, res) => {
             }
         }
       
-      await directorio.deleteOne({_id: id});
+      await portafolio.deleteOne({_id: id});
       
-      return res.status(200).json({ success: true, message: 'Perfil eliminado correctamente' });
+      return res.status(200).json({ success: true, message: 'Portafolio eliminado correctamente' });
     } catch(error) {
       res.status(500).json({success: false, error: error.message})
     }
 }
 
 export {
-    getDirectorios,
-    getDirectorio,
-    createDirectorio,
-    deleteProfile,
+    createPortafolio,
+    getPortafolios,
+    getPortafolio,
+    deletePortafolio,
 }

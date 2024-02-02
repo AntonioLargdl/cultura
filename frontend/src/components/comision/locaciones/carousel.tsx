@@ -31,7 +31,7 @@ const Carousel: React.FC<CarouselProps> = ({ categoryList, onSelectCategory }) =
             {categoryList.map((category) => (
                 <div
                     key={category.value}
-                    className="cursor-pointer px-3"
+                    className="cursor-pointer px-2 w-full"
                     onClick={() => {
                         onSelectCategory(category.value)
                         setValue(category.value)

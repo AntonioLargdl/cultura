@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Lottie from 'react-lottie';
 import Carousel from '../../../components/comision/locaciones/carousel';
-import LoadingAnimation from '../../../assets/loading.json';
+import LoadingAnimationWhite from '../../../assets/loading.json';
+import LoadingAnimationBlack from '../../../assets/loading-black.json';
 
 import { IoIosSearch } from 'react-icons/io'
 import { PiAperture, PiBag, PiBank, PiDribbbleLogo, PiFactory, PiHeartbeatBold, PiMapPin, PiMartini, PiMaskHappy, PiMountains, PiPalette, PiPark, PiPhone, PiRoadHorizon, PiSuitcase } from 'react-icons/pi';  
@@ -34,6 +35,7 @@ const LocacionesUser = () => {
     const theme = useTheme();
     const background = theme.palette.mode === 'light' ? 'bg-neutral-100' : 'bg-neutral-900';
     const iconBg = theme.palette.mode === 'light' ? 'bg-white' : 'bg-black';
+    const LoadingAnimation = theme.palette.mode === 'dark' ? LoadingAnimationWhite : LoadingAnimationBlack;
     // Translation
     const translate = useTranslate()
     // Category
@@ -122,7 +124,7 @@ const LocacionesUser = () => {
             }
             <div className='px-4'>
                 { loading ?
-                    <div className='flex items-center justify-center h-full min-h-screen'>
+                    <div className='flex items-center justify-center h-full'>
                         <Lottie options={defaultOptions}/>
                     </div>
                     : empty ?

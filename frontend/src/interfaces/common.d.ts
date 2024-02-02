@@ -1,4 +1,4 @@
-import { UseFormWatch } from "react-hook-form";
+import { Control, FieldValue, FieldValues, UseFormWatch } from "react-hook-form";
 
 export interface FormLocationProps {
     type: string,
@@ -187,4 +187,79 @@ export interface DirectorioProps {
     tiktok?: string;
 }
 
-  
+// Cartelera
+export interface FormCarteleraProps {
+    type: string,
+    register: any,
+    onFinish: (values: FieldValues) => Promise<void | CreateResponse<BaseRecord> | UpdateResponse<BaseRecord>>,
+    formLoading: boolean,
+    handleSubmit: FormEventHandler<HTMLFormElement> | undefined,
+    handleImageChange: (file) => void,
+    onFinishHandler: (data: FieldValues) => Promise<void> | void,
+    userImage: { name: string, url: string },
+    setValue: UseFormSetValue<FieldValues>,
+    control: Control<FieldValues>;
+}
+
+export interface CarteleraProps {
+    _id: string,
+    date: string,
+    begin: string,
+    end: string,
+    image: string,
+    name: string,
+    location: string,
+}
+
+// Portafolio
+
+export interface FormPortafolioProps {
+    type: string,
+    register: any,
+    onFinish: (values: FieldValues) => Promise<void | CreateResponse<BaseRecord> | UpdateResponse<BaseRecord>>,
+    formLoading: boolean,
+    handleSubmit: FormEventHandler<HTMLFormElement> | undefined,
+    onFinishHandler: (data: FieldValues) => Promise<void> | void,
+    setValue: UseFormSetValue<FieldValues>;
+    fileRemove: (file: File) => void;
+    onFileDrop: (file: File) => void;
+    fileList: File[];
+    photoList: String[];
+}
+
+interface SemblanzaPortfolio {
+    es: string;
+    en: string;
+    fr: string;
+}
+
+interface Cv {
+    es: string;
+    en: string;
+    fr: string;
+}
+
+interface Social {
+    ig?: string;
+    fb?: string;
+    tiktok?: string;
+    youtube?: string;
+    pdf?: string;
+    web?: string;
+    spotify?: string;
+    apple?: string;
+    amazon?: string;
+}
+
+export interface PortafolioProps {
+    name: string;
+    type: string;
+    gender: string;
+    semblanza: SemblanzaPortfolio;
+    cv: Cv;
+    phone?: string;
+    email?: string;
+    video?: string;
+    social?: Social;
+    photos?: string[];
+}

@@ -178,8 +178,52 @@ const getLocacion = async (req,res) => {
     }
 }
 
+// ------------------------------ Eliminar Locación ------------------------------
+const deleteLocation = async (req, res) => {
+    try {
+        const { id } = req.params
+    
+        const location = await locacionesModel.findOne({ _id: id })
+
+        if(!location) {
+            return res.status(401).json({ success: false, message: "La locación no existe" });
+        }
+        
+        // Obtener public id de las fotos
+        const partesDeseadas = [];
+        if(location.photos){
+            location.photos.forEach((enlace) => {
+                // Dividir la URL usando '/' como separador y obtener la última parte
+                const partesEnlace = enlace.split('/');
+                const ultimaParte = partesEnlace[partesEnlace.length - 1];
+                // Dividir la última parte usando '.' como separador y obtener la primera parte
+                const partesUltimaParte = ultimaParte.split('.');
+                const parteDeseada = partesUltimaParte[0];
+                partesDeseadas.push(parteDeseada);
+            });
+        }
+
+        // Eliminar imágenes de Cloudinary
+        for (const name of partesDeseadas) {
+            try {
+                await cloudinary.uploader.destroy(name);
+            } catch (cloudinaryError) {
+                console.error('Error al eliminar la imagen de Cloudinary:', cloudinaryError);
+            }
+        }
+      
+      await location.deleteOne({_id: id});
+      
+      return res.status(200).json({ success: true, message: 'Loación eliminada correctamente' });
+    } catch(error) {
+      res.status(500).json({success: false, error: error.message})
+    }
+}
+  
+
 export {
     getLocaciones,
     getLocacion,
     createLocaciones,
+    deleteLocation,
 }  

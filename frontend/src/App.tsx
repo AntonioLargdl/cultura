@@ -35,6 +35,12 @@ import DirectoriosUser from "./pages/comision/directorio";
 import LocacionUser from "./pages/comision/locaciones/show";
 import LocacionesMap from "./pages/comision/locaciones/map";
 import DirectorioId from "./pages/comision/directorio/show";
+import ShowDirectorio from "./pages/directories/show";
+import CreateCartelera from "./pages/carteleras/create";
+import CarteleraShow from "./pages/carteleras/show";
+import CreatePortfolio from "./pages/portfolios/create";
+import ShowPortfolios from "./pages/portfolios/show";
+import MoreliaCreativa from "./pages/creativa";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -189,6 +195,7 @@ function App() {
                       <Route path="/directorios">
                         <Route index element={<Directories />} />
                         <Route path="create" element={<CreateDirectory />} />
+                        <Route path="show/:id" element={<ShowDirectorio />} />
                       </Route>
 {/*  Categorías -------------- */}
                     <Route path="/categorias">
@@ -202,11 +209,15 @@ function App() {
                     {/* { (user?.rol === 'admin' || user?.rol === 'cultura' || "") && */}
                     <Route path="/carteleras">
                       <Route index element={<Carteleras />} />
+                      <Route path="create" element={<CreateCartelera />} />
+                      <Route path="show/:id" element={<CarteleraShow />} />
                     </Route>
 {/*  Portafolios -------------- */}
                     {/* { (user?.rol === 'admin' || user?.rol === 'cultura' || "") && */}
                       <Route path="/portafolios">
                         <Route index element={<Portfolios />} />
+                        <Route path="create" element={<CreatePortfolio />} />
+                        <Route path="show/:id" element={<ShowPortfolios />} />
                       </Route>
 {/*  Error -------------- */}
                     <Route path="*" element={<ErrorPage />} />
@@ -219,7 +230,11 @@ function App() {
                       </Authenticated>
                     }
                   >
-                    {/* Comisión */}
+                    {/* --------------- Creativa */}
+                    <Route path="/creativa" element={<MoreliaCreativa />} />
+                    <Route path="/creativa/talento" element={<DirectoriosUser />} />
+                    <Route path="/creativa/talento/:id" element={<DirectorioId />} />
+                    {/* --------------- Comisión */}
                     <Route path="/cfm" element={<Comision />} />
                     {/* Directorio */}
                     <Route path="/cfm/directorio" element={<DirectoriosUser />} />
@@ -228,7 +243,7 @@ function App() {
                     <Route path="/cfm/locaciones" element={<LocacionesUser />} />
                     <Route path="/cfm/locaciones/map" element={<LocacionesMap />} />
                     <Route path="/cfm/locaciones/:id" element={<LocacionUser />} />
-                    {/* Auth */}
+                    {/* --------------- Auth */}
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/update-password/:id/:token" element={<UpdatePasswordPage />} />

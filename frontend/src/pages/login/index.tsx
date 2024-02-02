@@ -10,7 +10,8 @@ import logoDark from '../../assets/logo.webp'
 import logoLight from '../../assets/logo_white.webp'
 import secretaria from '../../assets/secretaria_white.webp'
 import catedral from '../../assets/catedral.webp'
-import LoadingAnimation from '../../assets/loading.json';
+import LoadingAnimationWhite from '../../assets/loading.json';
+import LoadingAnimationBlack from '../../assets/loading-black.json';
 
 import { AiOutlineUser } from 'react-icons/ai'
 import { RiLockPasswordLine } from 'react-icons/ri'
@@ -33,9 +34,10 @@ export const Login = () => {
   // Translate
   const translate = useTranslate();
 
-  // Accesibilidad
+  // Theme
   const theme = useTheme();
   const logo = theme.palette.mode === 'dark' ? logoLight : logoDark;
+  const LoadingAnimation = theme.palette.mode === 'dark' ? LoadingAnimationWhite : LoadingAnimationBlack;
 
   // Lottie Animation
   const defaultOptions = {

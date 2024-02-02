@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useForm } from "@refinedev/react-hook-form";
 import { FieldValues } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import DirectoryForm from "../../components/forms/create-directory";
+import PortafolioForm from "../../components/forms/create-portafolio";
 
-const CreateDirectory = () => {
+const CreatePortfolio = () => {
     const navigate = useNavigate();
 
     const { refineCore: {onFinish, formLoading}, setValue, register, handleSubmit, watch } = useForm({
@@ -73,11 +73,11 @@ const CreateDirectory = () => {
     // Finish
     const onFinishHandler = async (data: FieldValues) => {
         await onFinish({ ...data, photos: photoList });
-        navigate('/directorios'); 
+        navigate('/portafolios'); 
     }
 
     return (
-        <DirectoryForm
+        <PortafolioForm
         type = "Create"
         register={register}
         onFinish={onFinish}
@@ -93,4 +93,4 @@ const CreateDirectory = () => {
     )
 }
 
-export default CreateDirectory
+export default CreatePortfolio
