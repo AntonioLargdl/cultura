@@ -22,7 +22,7 @@ export const AdvancedBannerTopCreativa = () => {
     expanded: false,
     children: (
       <div className="inset center">
-        <h1 className="headline white text-center tracking-wider lg:text-[8vw] text-[12vw] md:mt-0 mt-44">DESCUBRE <br /> <span className="font-medium">MORELIA</span></h1>
+        <h1 className="headline white text-center tracking-wider lg:text-[8vw] text-[12vw] md:mt-0 mt-44">{t("pages.creative.banner")} <br /> <span className="font-medium">MORELIA</span></h1>
       </div>
     )
   };

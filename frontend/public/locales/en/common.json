@@ -1,5 +1,24 @@
 {
   "pages": {
+    "creative": {
+      "banner": "DISCOVER",
+      "nav": "for the creative industry",
+      "solo": "Solo Artists",
+      "soloText": "Explore individual art from Morelia",
+      "group": "Groups / Bands",
+      "groupText": "Discover the collective sound from Morelia",
+      "description": "The UNESCO Creative Cities Network was established in 2004 to promote cooperation among cities that recognize creativity as a strategic factor for sustainable urban development. This network covers seven creative fields: digital arts, film, design, gastronomy, literature, music, crafts, and folk art.",
+      "description2": "In October 2017, the City of Morelia was declared by UNESCO as the first Creative City of Music in Mexico, reaffirming and positioning itself as the cultural powerhouse it has historically been at the national and international levels.",
+      "culture": "Morelia City of Culture",
+      "city": "Morelia Creative City",
+      "unesco": "Double designation by UNESCO",
+      "unescoText": "In the world, only 40 cities have a double designation by UNESCO, and Mexico has four, with Morelia being the first in the country in the creative field of music. Morelia joined the UNESCO Creative Cities Network, which promotes cooperation among cities that have identified creativity as a strategic factor for sustainable urban development.",
+      "red": "Mexican Network of Creative Cities",
+      "redText": "The Mexican Network of UNESCO Creative Cities, composed of Mexico City, Ensenada, Guadalajara, Mérida, Morelia, Puebla, Querétaro, and San Cristóbal de las Casas, formalized its formation in January 2020 through the signing of a Letter of Intent with the UNESCO Office in Mexico. This provides technical assistance and specialized support to strengthen cooperation ties among the cities.",
+      "register": "Sign Up",
+      "opinion": "We want to get to know you",
+      "footer": "Discover Morelia, Explore Your Creativity, Create Magic"
+    },    
     "comision": {
       "title": "MORELIA",
       "subtitle": "FILM",

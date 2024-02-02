@@ -1,5 +1,24 @@
 {
   "pages": {
+    "creative": {
+      "banner":"DESCUBRE",
+      "nav": "para la industria creativa",
+      "solo": "Solistas",
+      "soloText": "Explora el arte individual moreliano",
+      "group": "Grupos / Bandas",
+      "groupText": "Descubre el sonido colectivo moreliano",
+      "description": "La Red de Ciudades Creativas de la UNESCO se creó en 2004 para promover la cooperación entre las ciudades que identifiquen la creatividad como factor estratégico de desarrollo urbano sostenible. Esta Red cubre siete ámbitos creativos: artes digitales, cine, diseño, gastronomía, literatura, música, artesanías y artes populares.",
+      "description2": "En octubre de 2017 la Ciudad de Morelia fue declarada por la UNESCO como la primera Ciudad Creativa de la Música en México, reafirmando y posicionando como la potencia cultural que históricamente ha sido a nivel nacional e internacional.",
+      "culture": "Morelia Ciudad Cultura",
+      "city": "Morelia Ciudad Creativa",
+      "unesco": "Doble nombramiento por la UNESCO",
+      "unescoText": "En el mundo, solo 40 ciudades tienen doble nombramiento por la UNESCO y México cuenta con cuatro, siendo Morelia la primera en el país en el campo creativo de la música. Morelia se integró a la Red de Ciudades Creativas de la UNESCO, que promueve la cooperación entre ciudades que han identificado la creatividad como un factor estratégico para el desarrollo urbano sostenible.",
+      "red": "Red Mexicana de Ciudades Creativas",
+      "redText": "La Red Mexicana de Ciudades Creativas de la UNESCO, integrada por Ciudad de México, Ensenada, Guadalajara, Mérida, Morelia, Puebla, Querétaro y San Cristóbal de las Casas, formalizó su conformación en enero de 2020 mediante la firma de una Carta de Intención con la Oficina en México de la UNESCO, la cual proporciona asistencia técnica y acompañamiento especializado para fortalecer los lazos de cooperación entre las ciudades.",
+      "register":"Regístrate",
+      "opinion": "Te queremos conocer",
+      "footer": "Descubre Morelia, Explora tu Creatividad, Crea Magia"
+    },
     "comision": {
       "title": "MORELIA",
       "subtitle": "FILM",

@@ -1,5 +1,24 @@
 {
   "pages": {
+    "creative": {
+      "banner": "DÉCOUVRIR",
+      "nav": "pour l'industrie créative",
+      "solo": "Artistes Solo",
+      "soloText": "Explorez l'art individuel de Morelia",
+      "group": "Groupes / Bandes",
+      "groupText": "Découvrez le son collectif de Morelia",
+      "description": "Le Réseau des Villes Créatives de l'UNESCO a été créé en 2004 pour promouvoir la coopération entre les villes qui reconnaissent la créativité comme un facteur stratégique de développement urbain durable. Ce réseau couvre sept domaines créatifs : arts numériques, cinéma, design, gastronomie, littérature, musique, artisanat et art populaire.",
+      "description2": "En octobre 2017, la ville de Morelia a été déclarée par l'UNESCO première Ville Créative de la Musique au Mexique, se réaffirmant et se positionnant comme la puissance culturelle qu'elle a historiquement été aux niveaux national et international.",
+      "culture": "Morelia Ville de la Culture",
+      "city": "Morelia Ville Créative",
+      "unesco": "Double désignation par l'UNESCO",
+      "unescoText": "Dans le monde, seules 40 villes ont une double désignation par l'UNESCO, et le Mexique en compte quatre, Morelia étant la première du pays dans le domaine créatif de la musique. Morelia a rejoint le Réseau des Villes Créatives de l'UNESCO, qui promeut la coopération entre les villes ayant identifié la créativité comme un facteur stratégique pour le développement urbain durable.",
+      "red": "Réseau Mexicain des Villes Créatives",
+      "redText": "Le Réseau Mexicain des Villes Créatives de l'UNESCO, composé de Mexico, Ensenada, Guadalajara, Mérida, Morelia, Puebla, Querétaro et San Cristóbal de las Casas, a formalisé sa formation en janvier 2020 par la signature d'une lettre d'intention avec le Bureau de l'UNESCO au Mexique. Cela fournit une assistance technique et un soutien spécialisé pour renforcer les liens de coopération entre les villes.",
+      "register": "S'inscrire",
+      "opinion": "Nous voulons vous connaître",
+      "footer": "Découvrez Morelia, Explorez votre créativité, Créez de la magie"
+    },    
     "comision": {
       "title": "MORELIA",
       "subtitle": "FILM",

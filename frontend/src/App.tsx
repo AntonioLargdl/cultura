@@ -41,6 +41,8 @@ import CarteleraShow from "./pages/carteleras/show";
 import CreatePortfolio from "./pages/portfolios/create";
 import ShowPortfolios from "./pages/portfolios/show";
 import MoreliaCreativa from "./pages/creativa";
+import TalentoDirectorio from "./pages/creativa/talento";
+import TalentoShow from "./pages/creativa/talento/show";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -232,8 +234,8 @@ function App() {
                   >
                     {/* --------------- Creativa */}
                     <Route path="/creativa" element={<MoreliaCreativa />} />
-                    <Route path="/creativa/talento" element={<DirectoriosUser />} />
-                    <Route path="/creativa/talento/:id" element={<DirectorioId />} />
+                    <Route path="/creativa/talento" element={<TalentoDirectorio />} />
+                    <Route path="/creativa/talento/:id" element={<TalentoShow />} />
                     {/* --------------- Comisión */}
                     <Route path="/cfm" element={<Comision />} />
                     {/* Directorio */}

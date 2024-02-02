@@ -252,6 +252,7 @@ interface Social {
 }
 
 export interface PortafolioProps {
+    _id: string;
     name: string;
     type: string;
     gender: string;
@@ -261,5 +262,5 @@ export interface PortafolioProps {
     email?: string;
     video?: string;
     social?: Social;
-    photos?: string[];
+    photos: string[];
 }

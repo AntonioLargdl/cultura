@@ -1,26 +1,21 @@
 import { useGetLocale, useOne, useTranslate } from '@refinedev/core';
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { PortafolioProps } from '../../interfaces/common';
-import { IconButton, useTheme } from '@mui/material';
-
-import logoWhite from "../../assets/secretaria_white.webp"
-import logoBlack from "../../assets/secretaria.webp"
-import { useEffect, useState } from 'react';
-import ErrorPage from '../../components/error';
-import Loading from '../../components/loading';
-import { notification } from 'antd';
-import axios from 'axios';
-import { FcUndo } from 'react-icons/fc';
-import { Delete } from '@mui/icons-material';
+import { PortafolioProps } from '../../../interfaces/common';
+import { useTheme } from '@mui/material';
+import { HeaderTalento } from '../../../components/creativa/talento/header';
+import Loading from '../../../components/loading';
+import ErrorPage from '../../../components/error';
+import { GiFilmProjector, GiGrandPiano, GiMusicalScore } from 'react-icons/gi';
+import { IoIosArrowBack } from 'react-icons/io';
 import { MdEmail, MdMusicNote, MdOutlineLibraryMusic } from 'react-icons/md';
-import { GiGrandPiano, GiMusicalScore } from 'react-icons/gi';
-import { BsFillTelephoneFill } from 'react-icons/bs';
-import { RiGlobalLine } from 'react-icons/ri';
+import { FaRegCirclePlay } from 'react-icons/fa6';
 import { FaAmazon, FaApple, FaFacebookF, FaSpotify, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
-import { FaRegCirclePlay } from 'react-icons/fa6';
+import { RiGlobalLine } from 'react-icons/ri';
+import { BsFillTelephoneFill } from 'react-icons/bs';
 
-const ShowPortfolios = () => {
+const TalentoShow = () => {
     const { id } = useParams();
     const { data, isLoading, isError } = useOne({
         resource: "portafolios/show",
@@ -33,7 +28,7 @@ const ShowPortfolios = () => {
     const translate = useTranslate();
     // Theme
     const theme = useTheme();
-    const logo = theme.palette.mode === 'dark' ? logoWhite : logoBlack;
+    const background = theme.palette.mode === 'light' ? 'bg-neutral-100' : 'bg-neutral-900';
     // Use State
     const [photo, setPhoto] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
@@ -46,38 +41,6 @@ const ShowPortfolios = () => {
             setPhoto(portafolio.photos[0]);
         }
     }, [data, location]);
-    // Dialog
-    const handleOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
-    // Delete
-    const handleConfirm = async () => {
-        setLoading(true);
-        try {
-            const response = await axios.delete(`https://culltura.onrender.com/api/v1/portafolios/delete/${id}`);
-            if (response.data.success) {
-                navigate('/directorios')
-                setLoading(false);
-                notification.success({
-                    message: "¡Listo!",
-                    description: `Perfil eliminado exitosamente`,
-                    placement: 'bottomRight',
-                });
-            }
-        } catch (error) {
-            notification.error({
-                message: "Error",
-                description: `No pudimos borrar el perfil`,
-                placement: 'bottomRight',
-            });
-            console.error(error);
-            setLoading(false);
-            handleClose()
-        }
-    };
 
     if(isLoading || loading) {
         return  (
@@ -90,41 +53,26 @@ const ShowPortfolios = () => {
             <ErrorPage />
         )
     }
-    
+
     return (
         <div>
-            {/* Header */}
-            <div className="flex justify-between items-center">
-                <div className="flex gap-4 items-center">
-                    <div className="flex items-center">
-                        <Link to="/portafolios" className="flex items-center">
-                            <div className="m-2 shadow-lg p-4 rounded-2xl border-[1px]">
-                                <FcUndo className="text-3xl"/>
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <h1 className="font-semibold text-xl">{translate("pages.portfolios.title", "Portafolios")}</h1>
-                        <img src={logo} alt="secretaria" className="w-24 h-auto"/>
-                    </div>
-                </div>
-                <IconButton color="inherit" sx={{width:'50px', height:'50px'}} onClick={() => handleOpen()}>
-                    <Delete sx={{color:'red', width:'30px', height:'30px'}}/>
-                </IconButton>
-            </div>
+            <HeaderTalento />
             <div className='lg:p-4 lg:flex gap-2 overflow-hidden'>
                 {/* Imágenes */}
-                <div className='w-full mt-2'>
+                <div className='w-full mt-24 lg:mt-20'>
                     { photo &&
-                        <div className='ml-auto lg:mr-auto lg:w-[350px] h-[50vh] w-[90vw] relative  rounded-3xl lg:rounded-3xl'>
-                            <img src={photo} alt='foto' loading='lazy' className='rounded-3xl w-[90vw] h-[50vh] object-cover lg:rounded-3xl lg:object-top'/>
-                            <div className={`absolute bottom-0 left-0 z-10 rounded-bl-3xl rounded-tr-3xl ${portafolio.type === 'group' ? 'bg-orange-700' : 'bg-orange-500'}  p-6`}>
+                        <div className='ml-auto lg:mr-auto lg:w-[350px] h-[50vh] w-[90vw] relative shadow-2xl rounded-bl-3xl lg:rounded-b-3xl'>
+                            <img src={photo} alt='foto' loading='lazy' className='rounded-bl-3xl w-[90vw] h-[50vh] object-cover lg:rounded-b-3xl lg:object-top'/>
+                            <div className={`absolute bottom-0 left-0 z-10 rounded-bl-3xl rounded-tr-3xl ${portafolio.type === 'talento' ? 'bg-orange-700' : 'bg-orange-500'}  p-6`}>
                                 <GiGrandPiano  className='text-3xl text-white'/>
                             </div>
+                            <Link to="/creativa/talento" className={`absolute top-20 -left-5 z-10 rounded-full p-2 shadow-xl ${background}`}>
+                                <IoIosArrowBack className='text-xl'/>
+                            </Link>
                         </div>
                     }
                     <div className='flex gap-4 items-center justify-center mt-4'>
-                        {portafolio?.photos?.map((item, index) => (
+                        {portafolio.photos.map((item, index) => (
                             <button key={index} onClick={() => setPhoto(item)}>
                                 <img src={item} className={`md:w-10 md:h-10 w-6 h-6 object-cover rounded-full ${item === photo && 'border-4 border-blue-500'}`}/>
                             </button>
@@ -226,9 +174,8 @@ const ShowPortfolios = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
 
-export default ShowPortfolios
+export default TalentoShow
