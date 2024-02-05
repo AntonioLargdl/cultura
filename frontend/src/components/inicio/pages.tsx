@@ -16,11 +16,11 @@ const ButtonsPages = () => {
 
   return (
     <div className='my-10 mt-24 lg:p-8 p-4'>
-      <div className='flex md:items-center md:justify-evenly justify-center flex-wrap md:mb-14 mb-10'>
-        <img src={logo} alt="Morelia Ciudad Cultural" className='md:w-56 w-40'/>
-        <div className='flex items-center gap-4 md:mt-0 mt-5'>
-          <img src={ayuntamiento} className='w-32 lg:w-44'/>
-          <img src={morelia} className='w-32 lg:w-44'/>
+      <div className='flex md:items-center md:justify-evenly items-start justify-between flex-wrap md:mb-14 mb-10'>
+        <img src={logo} alt="Morelia Ciudad Cultural" className='md:w-56 w-36'/>
+        <div className='flex items-center gap-4 md:mt-0'>
+          <img src={ayuntamiento} className='w-20 lg:w-44'/>
+          <img src={morelia} className='w-20 lg:w-44'/>
         </div>
       </div>
       <div className='flex justify-evenly gap-8 md:flex-nowrap flex-wrap'>
