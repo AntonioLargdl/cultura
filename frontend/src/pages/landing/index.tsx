@@ -10,9 +10,9 @@ const Landing = () => {
     <div>
       <HeaderInicio />
       <Logos />
-      <Secretaria />
       <CarteleraCultural />
       <ButtonsPages />
+      <Secretaria />
       <FooterInicio />
     </div>
   )

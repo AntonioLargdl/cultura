@@ -15,7 +15,6 @@ i18n
     ns: ["common"],
     defaultNS: "common",
     fallbackLng: ["es", "en", "fr"],
-    // overloadTranslationOptionHandler: autoTranslate
   });
 
 export default i18n;

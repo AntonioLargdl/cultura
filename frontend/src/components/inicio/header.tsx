@@ -36,7 +36,7 @@ export const HeaderInicio: React.FC<RefineThemedLayoutV2HeaderProps> = ({ sticky
     <AppBar position="fixed" sx={{background:bgcolor ,boxShadow:'none', color:color, padding:"20px 0"}}>
       <Toolbar>
         <Stack direction="row" width="100%" alignItems="center" >
-            <Link to="/cfm">
+            <Link to="/inicio">
                 <img src={logo} alt="comision" className="w-36"/>
             </Link>
           <Stack
