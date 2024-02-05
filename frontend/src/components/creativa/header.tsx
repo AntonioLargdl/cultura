@@ -24,7 +24,7 @@ export const HeaderCreativa: React.FC<RefineThemedLayoutV2HeaderProps> = ({ stic
     <AppBar position="fixed" sx={{background: 'none', boxShadow:'none', color:"white", padding:"20px 0"}}>
       <Toolbar>
         <Stack direction="row" width="100%" alignItems="center" >
-          <Link to="/cfm">
+          <Link to="/creativa">
             <img src={comision} alt="comision" className="w-20"/>
           </Link>
           <Stack

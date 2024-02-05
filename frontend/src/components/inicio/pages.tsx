@@ -16,12 +16,12 @@ const ButtonsPages = () => {
     <div className='my-10 lg:p-8 p-4'>
       <img src={logo} alt="Morelia Ciudad Cultural" className='ml-auto mr-auto mb-20 w-56'/>
       <div className='flex justify-evenly gap-8 md:flex-nowrap flex-wrap'>
-          <Link to='/creativa' >
+          <a href='/creativa' >
               <img src={creativa} alt='Morelia Ciudad Creativa' className='shadow-2xl rounded-2xl hover:scale-95 duration-300'/>
-          </Link>
-          <Link to='/cfm'>
+          </a>
+          <a href='/cfm'>
               <img src={comision} alt='Comisión Fílmica' className='shadow-2xl rounded-2xl hover:scale-95 duration-300'/>
-          </Link>
+          </a>
       </div>
       <img src={city} alt="Morelia Ciudad Cultural" className='ml-auto mr-auto mt-20 w-56'/>
     </div>
