@@ -10,6 +10,7 @@ import locacionesRouter from './routes/locaciones.route.js';
 import directorioRouter from './routes/directorios.route.js';
 import carteleraRouter from './routes/cartelera.route.js';
 import portafoliosRouter from './routes/portafolio.route.js';
+import categoriasRouter from './routes/categorias.route.js';
 
 dotenv.config();
 
@@ -29,6 +30,7 @@ app.use('/api/v1/locaciones', locacionesRouter)
 app.use('/api/v1/directorios', directorioRouter)
 app.use('/api/v1/carteleras', carteleraRouter)
 app.use('/api/v1/portafolios', portafoliosRouter)
+app.use('/api/v1/categorias', categoriasRouter)
 
 const startServer = async () => {
     try {

@@ -45,7 +45,7 @@ const FooterInicio = () => {
     <footer
       className={`${styles.xPaddings} py-8 relative overflow-hidden`}
     >
-      <div className="footer-gradient" />
+      <div className="footer-gradient-2" />
       <div className={`${styles.innerWidth} mx-auto flex flex-col gap-8`}>
         <div className="flex items-center justify-between flex-wrap gap-5">
           <a href="mailto:culturamrl@gmail.com' rel='noopener noreferrer" className="flex items-center h-fit py-4 px-6 bg-[#8657b6] rounded-[32px] gap-[12px] hover:bg-purple-700">

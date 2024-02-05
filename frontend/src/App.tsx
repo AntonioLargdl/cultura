@@ -45,6 +45,7 @@ import TalentoDirectorio from "./pages/creativa/talento";
 import TalentoShow from "./pages/creativa/talento/show";
 import CarteleraPage from "./pages/landing/cartelera";
 import CarteleraID from "./components/inicio/carteleraShow";
+import CreateCategoria from "./pages/categories/create";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -116,7 +117,7 @@ function App() {
                     },
                   },
                   {
-                    name: 'Categorías',
+                    name: 'Categorias',
                     list: "/categorias",
                     create: "/categorias/create",
                     edit: "/categorias/edit/:id",
@@ -204,8 +205,10 @@ function App() {
 {/*  Categorías -------------- */}
                     <Route path="/categorias">
                       <Route index element={<Categories />} />
+                      <Route path="create" element={<CreateCategoria />} />
                     </Route>                    
 {/*  Blogs -------------- */}
+                    {/* TODO: Blog */}
                     <Route path="/blog">
                       <Route index element={<Blogs />} />
                     </Route>
@@ -234,8 +237,9 @@ function App() {
                       </Authenticated>
                     }
                   >
-                    {/* --------------- TODO: Cultura */}
+                    {/* --------------- Cultura */}
                     <Route path="/inicio" element={<Landing />} />
+                    {/* TODO: Blog */}
                     <Route path="/inicio/blog" element={<Landing />} />
                     <Route path="/inicio/blog/:id" element={<Landing />} />
                     <Route path="/inicio/cartelera" element={<CarteleraPage />} />

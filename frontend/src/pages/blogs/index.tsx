@@ -2,7 +2,8 @@ import { useTranslate } from "@refinedev/core"
 import { FcEditImage } from "react-icons/fc";
 import logoBlack from "../../assets/secretaria.webp"
 import logoWhite from "../../assets/secretaria_white.webp"
-import { useTheme } from "@mui/material";
+import { Button, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Blogs = () => {
     const translate = useTranslate();
@@ -22,6 +23,11 @@ const Blogs = () => {
                     <img src={logo} alt="secretaria" className="w-24 h-auto"/>
                 </div>
             </div>
+            <Link to="/blogs/create">
+                <Button type="button" fullWidth variant="contained" sx={{ mt: "24px", borderRadius:'10px' }}>
+                    {translate("pages.directories.button")}
+                </Button>
+            </Link>
         </div>
     )
 }

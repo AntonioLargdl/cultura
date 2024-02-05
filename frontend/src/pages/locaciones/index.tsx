@@ -148,7 +148,7 @@ const Locations = () => {
             }
             <div className='px-4'>
                 { isLoading ?
-                    <div className='flex items-center justify-center max-w-sm'>
+                    <div className='max-w-sm mt-10 ml-auto mr-auto'>
                         <Lottie options={defaultOptions}/>
                     </div>
                     : empty ?

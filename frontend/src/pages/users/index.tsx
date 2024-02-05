@@ -49,7 +49,7 @@ const Users = () => {
         } catch (error) {
             notification.error({
                 message: "Error",
-                description: `No pudimos borrar el usuario de nuevo más tarde`,
+                description: `No pudimos borrar el usuario, inténtalo de nuevo`,
                 placement: 'bottomRight',
             });
             console.error(error);
@@ -67,11 +67,7 @@ const Users = () => {
         setOpen(false);
     };
 
-    if(loading) {
-        return <Loading />
-    }
-
-    if(isLoading) {
+    if(loading || isLoading) {
         return <Loading />
     }
 

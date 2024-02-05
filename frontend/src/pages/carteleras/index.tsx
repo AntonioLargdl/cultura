@@ -174,10 +174,10 @@ const Carteleras = () => {
                 </Select>
             </div>
             { loading ?
-                <div className='flex items-center justify-center max-w-sm'>
+                <div className='max-w-sm mt-10 ml-auto mr-auto'>
                     <Lottie options={defaultOptions}/>
                 </div>
-                : empty ?
+                : empty && !loading?
                 <div className='flex flex-col gap-4 items-center justify-center mt-10'>
                     <PiMaskSad className='text-6xl'/>
                     <p className='font-light text-center'>{translate("pages.billboards.error")}</p>

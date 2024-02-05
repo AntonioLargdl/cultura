@@ -170,7 +170,7 @@ const CarteleraPage = () => {
             {/* Contenido */}
             <div className='flex flex-wrap md:justify-evenly gap-4 mt-5'>
                     { loading ?
-                    <div className='flex items-center justify-center max-w-sm'>
+                    <div className='max-w-sm mt-10 ml-auto mr-auto'>
                         <Lottie options={defaultOptions}/>
                     </div>
                     : empty ?

@@ -164,3 +164,14 @@
     background: #65c4fa;
     filter: blur(150px);
   }
+
+  .footer-gradient-2 {
+    position: absolute;
+    width: 500px;
+    height:70px;
+    left: 37%;
+    bottom: 0;
+  
+    background: #8657b6;
+    filter: blur(150px);
+  }

@@ -91,15 +91,15 @@ const Directories = () => {
                 </div>
             </div>
             <div>
-                { filteredDirectory.length === 0 && !empty &&
+                { filteredDirectory.length === 0 && !empty && !isLoading &&
                     <div className='flex flex-col gap-4 items-center justify-center mt-10'>
                     <RiUserUnfollowLine className='text-6xl'/>
                     <p className='font-light text-center'>{translate("pages.directories.error")}</p>
                     </div>
                 }
                 { isLoading ?
-                    <div className='flex items-center justify-center max-w-sm'>
-                    <Lottie options={defaultOptions}/>
+                    <div className='max-w-sm mt-10 ml-auto mr-auto'>
+                        <Lottie options={defaultOptions} />
                     </div>
                     :
                     empty ?

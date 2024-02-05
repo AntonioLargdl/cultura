@@ -7,7 +7,7 @@ const NameCategory = new mongoose.Schema({
 })
 
 const CategoriaSchema = new mongoose.Schema({ 
-    name: {type: NameCategory, required:true},
+    name: {type: NameCategory, required:true, unique: true},
     slug: {type: String, required:true},
     type: {type: String, required:true},
     user: [{type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'}],

@@ -264,3 +264,14 @@ export interface PortafolioProps {
     social?: Social;
     photos: string[];
 }
+
+// Cartelera
+export interface FormCategoriaProps {
+    type: string,
+    register: any,
+    onFinish: (values: FieldValues) => Promise<void | CreateResponse<BaseRecord> | UpdateResponse<BaseRecord>>,
+    formLoading: boolean,
+    handleSubmit: FormEventHandler<HTMLFormElement> | undefined,
+    onFinishHandler: (data: FieldValues) => Promise<void> | void,
+    setValue: UseFormSetValue<FieldValues>,
+}

@@ -14,7 +14,7 @@ const Loading = () => {
   }
 
   return (
-    <div className='flex items-center justify-center h-full p-10'>
+    <div className='flex items-center justify-center p-10'>
          <Lottie options={defaultOptions}/>
     </div>
   )

@@ -137,7 +137,7 @@ export const Login = () => {
             </Button>
         </Box>
         :
-        <div className="ml-auto mr-auto">
+        <div className="ml-auto mr-auto max-w-sm">
           <Lottie options={defaultOptions} />
         </div>
         }
