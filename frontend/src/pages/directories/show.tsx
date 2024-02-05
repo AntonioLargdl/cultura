@@ -228,16 +228,16 @@ const ShowDirectorio = () => {
                     </div>
                 </div>
                 <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>{translate("pages.users.delete.title", "¿Estás seguro que deseas eliminar a")} {directorio.name}?</DialogTitle>
-                <DialogActions>
-                <Button onClick={handleClose} color="primary">
-                    {translate("pages.users.delete.cancel", "Cancelar")} 
-                </Button>
-                <Button onClick={() => handleConfirm()} color="primary">
-                    {translate("pages.users.delete.accept", "Confirmar")} 
-                </Button>
-                </DialogActions>
-            </Dialog>
+                    <DialogTitle>{translate("pages.users.delete.title", "¿Estás seguro que deseas eliminar a")} {directorio.name}?</DialogTitle>
+                    <DialogActions>
+                        <Button onClick={handleClose} color="primary">
+                            {translate("pages.users.delete.cancel", "Cancelar")} 
+                        </Button>
+                        <Button onClick={() => handleConfirm()} color="primary">
+                            {translate("pages.users.delete.accept", "Confirmar")} 
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </div>
         </>
     )

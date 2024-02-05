@@ -24,13 +24,12 @@ const SocialSchema = new mongoose.Schema({
     amazon: {type: String, required:false},
 })
 
-
 const PortafolioSchema = new mongoose.Schema({ 
     name: {type: String, required:true},
     type: {type: String, required:true},
     gender: {type: String, required:true},
     semblanza: {type: SemblanzaSchema, required:true},
-    cv: {type: CvSchema, required:true},
+    cv: {type: CvSchema, required:false},
     phone: {type: String, required:false},
     email: {type: String, required:false},
     video: {type: String, required:false},

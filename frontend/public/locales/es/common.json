@@ -295,6 +295,10 @@
           "label": "Semblanza / Descripción",
           "placeholder":"Escribe tu descripción aquí"
         },
+        "awards": {
+          "label": "Apariciones",
+          "placeholder": "Escribe aquí las apariciones y/o presentaciones"
+        },
         "age": {
           "label": "Edad",
           "placeholder":"(Años)"

@@ -94,7 +94,7 @@ const DirectoriosUser = () => {
             </div>
           }
           { loading ?
-            <div className='flex items-center justify-center h-full'>
+            <div className='flex items-center justify-center max-w-sm'>
               <Lottie options={defaultOptions}/>
             </div>
             : empty ?

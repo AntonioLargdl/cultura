@@ -96,7 +96,7 @@ const TalentoDirectorio = () => {
                     </div>
                 }
                 { loading ?
-                    <div className='flex items-center justify-center h-full min-h-screen'>
+                    <div className='flex items-center justify-center max-w-sm'>
                     <Lottie options={defaultOptions}/>
                     </div>
                     :
@@ -113,7 +113,7 @@ const TalentoDirectorio = () => {
                                 <img src={item.photos[0]} alt="foto" className='w-20 h-20 rounded-lg object-top object-cover'/>
                                 <div className='flex flex-col gap-1 justify-center'>
                                 <p className='font-medium'>{item.name}</p>
-                                <div className='flex gap-1'>
+                                <div className='flex gap-2 items-start'>
                                     <div className={`p-1 ${item.type === 'group' ? 'bg-orange-700' : 'bg-orange-500'} text-white rounded-lg`}>
                                     {item.type === 'group' ? <GiMusicalNotes /> : <MdMusicNote />}
                                     </div>

@@ -1,22 +1,21 @@
-import { useTranslate } from "@refinedev/core"
-import { Box, Button, MenuItem, Select, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { HeaderInicio } from "../../components/inicio/header"
+import { useTranslate } from '@refinedev/core';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { CarteleraProps } from '../../interfaces/common';
+import { Link } from 'react-router-dom';
+import { PiCalendarBlank, PiClock, PiMapPin, PiMaskSad } from 'react-icons/pi';
+import { Box, MenuItem, Select, useTheme } from '@mui/material';
 
 import LoadingAnimationWhite from '../../assets/loading.json';
 import LoadingAnimationBlack from '../../assets/loading-black.json';
-import logoBlack from "../../assets/secretaria.webp"
-import logoWhite from "../../assets/secretaria_white.webp"
-
-import { FcPlus } from "react-icons/fc";
-import { useEffect, useState } from "react";
-import { CarteleraProps } from "../../interfaces/common";
+import morelia from '../../assets/brilla.webp'
+import ayuntamiento from '../../assets/ayuntamiento.webp'
 import { FaRegCalendar } from "react-icons/fa";
-import { PiCalendarBlank, PiClock, PiMapPin, PiMaskSad } from "react-icons/pi";
 import Lottie from "react-lottie";
 
 
-const Carteleras = () => {
+const CarteleraPage = () => {
     // Translation
     const translate = useTranslate()
     const dates = [
@@ -33,29 +32,30 @@ const Carteleras = () => {
         { value: 11, text: translate("pages.billboards.fields.options.november") },
         { value: 12, text: translate("pages.billboards.fields.options.december") }
     ];
-      
     const years = [ {year: 2024}, {year: 2025}, {year: 2026}, {year: 2027}, {year: 2028}, {year: 2029}, {year: 2030} ]
-    // Theme
-    const theme = useTheme();
-    const logo = theme.palette.mode === 'dark' ? logoWhite : logoBlack;
-    const background = theme.palette.mode === 'light' ? 'bg-neutral-100' : 'bg-neutral-900';
-    const LoadingAnimation = theme.palette.mode === 'dark' ? LoadingAnimationWhite : LoadingAnimationBlack;
-    // Date
+
     const fechaActual = new Date();
     const mesActual = fechaActual.getMonth() + 1; 
+    const mesActualText = dates.find((item) => item.value === mesActual)?.text;
     const añoActual = fechaActual.getFullYear();
-    // UseState
+    // Date
     const [cartelera, setCartelera] = useState<CarteleraProps[]>([]);
     const [month, setMonth] = useState(mesActual);
     const [year, setYear] = useState(añoActual);
     const [loading, setLoading] = useState(true);
     const [empty, setEmpty] = useState(false);
+    // Theme
+    const theme = useTheme();
+    const background = theme.palette.mode === 'light' ? 'bg-neutral-100' : 'bg-neutral-900';
+    const LoadingAnimation = theme.palette.mode === 'dark' ? LoadingAnimationWhite : LoadingAnimationBlack;
     // Lottie
     const defaultOptions = {
-      loop: true, 
-      autopaly: true,
-      animationData: LoadingAnimation
+        loop: true, 
+        autopaly: true,
+        animationData: LoadingAnimation
     }
+
+
     //  Fetch Data
     useEffect(() => {
         const fetchData = async () => {
@@ -77,6 +77,7 @@ const Carteleras = () => {
         };
         fetchData();
     }, [month, year]);
+
     // Función para obtener Fecha
     function formatearFecha(fecha: string) {
         const fechaObj = new Date(fecha);
@@ -91,10 +92,10 @@ const Carteleras = () => {
         const fechaObj = new Date(fecha);
         const horas = fechaObj.getHours().toString().padStart(2, '0');
         const minutos = fechaObj.getMinutes().toString().padStart(2, '0');
-      
+        
         return `${horas}:${minutos}`;
     }
-      
+
     const handleChange = (event: any) => {
         // Convierte el valor a número si es necesario
         const selectedMonth = parseInt(event.target.value, 10);
@@ -106,26 +107,19 @@ const Carteleras = () => {
         const selectedYear = parseInt(event.target.value, 10);
         setYear(selectedYear);
     };
-  
     return (
-        <div className="lg:p-0 md:p-4 p-2">
-            <div className="flex justify-between md:items-center md:flex-row flex-col">
-                <div className="flex gap-4 items-center">
-                    <div className="flex items-center">
-                        <div className="m-2 shadow-lg p-4 rounded-2xl border-[1px]">
-                            <FcPlus className="text-3xl"/>
-                        </div>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <h1 className="font-semibold text-xl">{translate("pages.billboards.title", "Blogs")}</h1>
-                        <img src={logo} alt="secretaria" className="w-24 h-auto"/>
-                    </div>
+        <div className='my-10 mt-20 lg:p-8 p-4'>
+            <HeaderInicio />
+            {/* Título */}
+            <div className="flex md:justify-between md:items-start flex-wrap justify-center gap-5">
+                <div className='flex flex-col md:text-left text-center justify-center gap-2'>
+                    <h2 className='text-5xl font-bold leading-[3.5rem]'>Cartelera <br /><span className='font-normal'>Cultural</span></h2>
+                    <h3 className='mt-2 md:text-left text-center text-2xl text-[#8657b6] font-medium'>{mesActualText} {añoActual}</h3>
                 </div>
-                <Link to="/carteleras/create">
-                    <Button type="button" fullWidth variant="contained" sx={{ mt: "24px", borderRadius:'10px' }}>
-                        {translate("pages.directories.button")}
-                    </Button>
-                </Link>
+                <div className="flex gap-2">
+                    <img src={ayuntamiento} className='w-24'/>
+                    <img src={morelia} className='w-24'/>
+                </div>
             </div>
             <div className="flex gap-4 items-center mt-5 justify-center">
                 <Select
@@ -173,45 +167,45 @@ const Carteleras = () => {
                     ))}
                 </Select>
             </div>
-            { loading ?
-                <div className='flex items-center justify-center max-w-sm'>
-                    <Lottie options={defaultOptions}/>
-                </div>
-                : empty ?
-                <div className='flex flex-col gap-4 items-center justify-center mt-10'>
-                    <PiMaskSad className='text-6xl'/>
-                    <p className='font-light text-center'>{translate("pages.billboards.error")}</p>
-                </div>
-                :
-                <div className="flex gap-4 items-center mt-5 flex-wrap justify-center">
-                    {cartelera && cartelera.map((item,index) => (
-                        <Link to={`/carteleras/show/${item._id}`} key={index} className={`flex w-[34rem] shadow-xl gap-3 rounded-2xl p-4 items-center ${background} hover:scale-95 duration-300`}>
-                            <img src={item.image} className="w-[10rem] h-[10rem] object-cover rounded-tr-3xl flex-1 border-[1px]"/>
-                            <div className="flex-1 flex flex-col gap-1">
-                                <p className="font-medium text-lg mb-1">{item.name}</p>
-                                { item.date &&
-                                    <div className="flex gap-2 items-center">
-                                        <PiCalendarBlank />
-                                        <p className="font-extralight">{formatearFecha(item.date)}</p>
-                                    </div>
-                                }
-                                { item.begin &&
-                                    <div className="flex gap-2 items-center">
-                                        <PiClock />
-                                        <p className="font-extralight">{obtenerHora(item.begin)} {item.end && "-"} {item.end && (obtenerHora(item.end))}</p>
-                                    </div>
-                                }
-                                <div className="flex gap-2 items-start">
-                                    <PiMapPin className="mt-1"/>
-                                    <p className="font-light flex-1">{item.location}</p>
+            {/* Contenido */}
+            <div className='flex flex-wrap md:justify-evenly gap-4 mt-5'>
+                    { loading ?
+                    <div className='flex items-center justify-center max-w-sm'>
+                        <Lottie options={defaultOptions}/>
+                    </div>
+                    : empty ?
+                    <div className='flex flex-col gap-4 items-center justify-center mt-10'>
+                        <PiMaskSad className='text-6xl'/>
+                        <p className='font-light text-center'>{translate("pages.billboards.error")}</p>
+                    </div>
+                    : cartelera && cartelera && cartelera.map((item,index) => (
+                    <Link to={`/inicio/cartelera/${item._id}`} key={index} className={`flex flex-col md:w-auto md:max-w-[25rem] w-full shadow-xl gap-3 rounded-2xl p-4 items-center ${background} hover:scale-95 duration-300`}>
+                        <img src={item.image} className="w-full h-[14rem] object-cover rounded-tr-3xl border-[1px]"/>
+                        <div className="flex-1 flex flex-col gap-1">
+                            <p className="font-medium text-lg mb-1">{item.name}</p>
+                            { item.date &&
+                                <div className="flex gap-2 items-center">
+                                    <PiCalendarBlank />
+                                    <p className="font-extralight">{formatearFecha(item.date)}</p>
                                 </div>
+                            }
+                            { item.begin &&
+                                <div className="flex gap-2 items-center">
+                                    <PiClock />
+                                    <p className="font-extralight">{obtenerHora(item.begin)} {item.end && "-"} {item.end && (obtenerHora(item.end))}</p>
+                                </div>
+                            }
+                            <div className="flex gap-2 items-start">
+                                <PiMapPin className="mt-1"/>
+                                <p className="font-light flex-1">{item.location}</p>
                             </div>
-                        </Link>
-                    ))}
-                </div>
-            }
+                        </div>
+                    </Link>
+                ))}
+            </div>
         </div>
     )
 }
 
-export default Carteleras
+
+export default CarteleraPage

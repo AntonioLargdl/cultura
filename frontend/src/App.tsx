@@ -43,6 +43,8 @@ import ShowPortfolios from "./pages/portfolios/show";
 import MoreliaCreativa from "./pages/creativa";
 import TalentoDirectorio from "./pages/creativa/talento";
 import TalentoShow from "./pages/creativa/talento/show";
+import CarteleraPage from "./pages/landing/cartelera";
+import CarteleraID from "./components/inicio/carteleraShow";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -165,7 +167,7 @@ function App() {
                 <Routes>
 {/* -------------- Dashboard -------------- */}
                   <Route
-                    element={ <Authenticated key="authenticated-inner" fallback={<CatchAllNavigate to="/cfm" />} >
+                    element={ <Authenticated key="authenticated-inner" fallback={<CatchAllNavigate to="/inicio" />} >
                         <ThemedLayoutV2
                           Header={() => <Header sticky />}
                           Title={({ collapsed }) => (<AppIcon collapsed={collapsed}/>)}
@@ -232,6 +234,12 @@ function App() {
                       </Authenticated>
                     }
                   >
+                    {/* --------------- TODO: Cultura */}
+                    <Route path="/inicio" element={<Landing />} />
+                    <Route path="/inicio/blog" element={<Landing />} />
+                    <Route path="/inicio/blog/:id" element={<Landing />} />
+                    <Route path="/inicio/cartelera" element={<CarteleraPage />} />
+                    <Route path="/inicio/cartelera/:id" element={<CarteleraID />} />
                     {/* --------------- Creativa */}
                     <Route path="/creativa" element={<MoreliaCreativa />} />
                     <Route path="/creativa/talento" element={<TalentoDirectorio />} />

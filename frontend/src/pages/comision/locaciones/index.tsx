@@ -124,7 +124,7 @@ const LocacionesUser = () => {
             }
             <div className='px-4'>
                 { loading ?
-                    <div className='flex items-center justify-center h-full'>
+                    <div className='flex items-center justify-center max-sm'>
                         <Lottie options={defaultOptions}/>
                     </div>
                     : empty ?

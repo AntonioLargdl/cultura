@@ -295,6 +295,10 @@
           "label": "Semblance / Description",
           "placeholder": "Enter your description here"
         },
+        "awards": {
+          "label": "Appearances",
+          "placeholder": "Enter here the appearances and/or performances"
+        },        
         "age": {
           "label": "Age",
           "placeholder": "(Years)"

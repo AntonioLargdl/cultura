@@ -1,25 +1,19 @@
-import { useEffect, useState } from 'react';
-import { Box, Button, FormControlLabel, Radio, RadioGroup, TextField, useTheme } from '@mui/material';
+import { Box, Button, MenuItem,  Select, TextField, useTheme } from '@mui/material';
 import { useTranslate } from '@refinedev/core';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { FormPortafolioProps } from '../../interfaces/common'
 import Loading from '../loading';
 import logoBlack from "../../assets/secretaria.webp"
 import logoWhite from "../../assets/secretaria_white.webp"
-
 import { AiOutlineMail } from 'react-icons/ai';
-import { FcBusinessContact, FcFilmReel, FcUndo } from 'react-icons/fc';
-import { FaAmazon, FaApple, FaFacebookF, FaInstagram, FaLinkedin, FaRegUser, FaSpotify, FaTiktok, FaYoutube } from 'react-icons/fa';
-import {  PiPersonArmsSpread, PiPhone } from 'react-icons/pi';  
+import { FcBusinessContact, FcUndo } from 'react-icons/fc';
+import { FaAmazon, FaApple, FaFacebookF, FaInstagram, FaRegUser, FaSpotify, FaTiktok, FaYoutube } from 'react-icons/fa';
+import { PiPhone } from 'react-icons/pi';  
 import DropFileInput from '../drop-file-input';
-import { RiTeamLine } from 'react-icons/ri';
-import { IoIosCalendar } from 'react-icons/io';
-import { GiBodyHeight, GiMusicalScore } from 'react-icons/gi';
-import { TbWeight } from 'react-icons/tb';
+import { GiMusicalNotes, GiMusicalScore } from 'react-icons/gi';
 import { TfiWorld } from 'react-icons/tfi';
 import { BiCategory } from 'react-icons/bi';
-import { MdLibraryMusic } from 'react-icons/md';
+import { MdLibraryMusic, MdMusicNote } from 'react-icons/md';
 import { IoTrophy } from 'react-icons/io5';
 import { GrDocumentPdf } from 'react-icons/gr';
 import { FaCirclePlay } from 'react-icons/fa6';
@@ -77,18 +71,37 @@ const PortafolioForm = ({type, register, setValue, formLoading, handleSubmit, on
                 }}
                 sx={{ mt: 2 }}
             />
-{/* ------------- Type */}            
-            <RadioGroup
-                {...register("type", {
-                    required: true,
-                })}
-                row
-                aria-labelledby="demo-row-radio-buttons-group-label"
-                name="type"
-            >
-                <FormControlLabel value="group" control={<Radio />} label={translate("pages.portfolios.group")} />
-                <FormControlLabel value="solo" control={<Radio />} label={translate("pages.portfolios.solo")} />
-            </RadioGroup>
+{/* ------------- Type */}    
+            <div className='w-full'>                
+                <Select
+                    {...register('type', {
+                        required: true
+                    })}
+                    sx={{ width: "100%", }}
+                    color="info"
+                    displayEmpty
+                    defaultValue=""
+                >
+                    <MenuItem value="" disabled className='flex gap-2'>
+                        <Box display="flex" alignItems="center" gap={2}>
+                            <BiCategory />
+                            <span>{translate( "forms.createLocation.fields.category.placeholder")}</span>
+                        </Box>
+                    </MenuItem>
+                    <MenuItem value="solo" className='flex gap-2'>
+                        <Box display="flex" alignItems="center" gap={2}>
+                            <MdMusicNote />
+                            <span>{translate("pages.portfolios.solo")} </span>
+                        </Box>
+                    </MenuItem>
+                    <MenuItem value="group"  className='flex gap-2'>
+                        <Box display="flex" alignItems="center" gap={2}>
+                            <GiMusicalNotes />
+                            <span>{translate("pages.portfolios.group")}</span>
+                        </Box>
+                    </MenuItem>
+                </Select>
+            </div>
 {/* ------------- Gender */}
             <TextField
                 {...register("gender", {
@@ -123,15 +136,13 @@ const PortafolioForm = ({type, register, setValue, formLoading, handleSubmit, on
             /> 
 {/* ------------- CV */}
             <TextField
-                {...register("esCV", {
-                    required: true,
-                })}
+                {...register("esCV")}
                 id="esCV"
                 name="esCV"
                 margin="normal"
                 fullWidth
-                label={translate("pages.portfolios.fields.gender.label")}
-                placeholder={translate("pages.portfolios.fields.gender.placeholder")}
+                label={translate("forms.createDirectory.fields.awards.label")}
+                placeholder={translate("forms.createDirectory.fields.awards.placeholder")}
                 InputProps={{
                 startAdornment: <IoTrophy className="mx-2 text-lg"/>,
                 }}

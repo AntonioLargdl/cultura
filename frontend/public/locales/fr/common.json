@@ -296,6 +296,10 @@
           "label": "Ressemblance / Description",
           "placeholder": "Entrez votre description ici"
         },
+        "awards": {
+          "label": "Apparitions",
+          "placeholder": "Entrez ici les apparitions et/ou performances"
+        },        
         "age": {
           "label": "Âge",
           "placeholder": "(Ans)"

@@ -168,10 +168,12 @@ const TalentoShow = () => {
                         }
                     </div>
                     {/* Apariciones */}
-                    <div className='mt-2 text-left'>
-                        <h2 className='text-xl text-left mt-5 mb-2'>{translate("pages.portfolios.awards")}</h2>
-                        <p className='font-light'>{currentLocale === 'fr' ? portafolio.cv.fr : currentLocale === 'en' ? portafolio.cv.en : portafolio.cv.es}</p>
-                    </div>
+                    { portafolio.cv &&
+                        <div className='mt-2 text-left'>
+                            <h2 className='text-xl text-left mt-5 mb-2'>{translate("pages.portfolios.awards")}</h2>
+                            <p className='font-light'>{currentLocale === 'fr' ? portafolio.cv.fr : currentLocale === 'en' ? portafolio.cv.en : portafolio.cv.es}</p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>

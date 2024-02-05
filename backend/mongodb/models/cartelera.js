@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const CarteleraSchema = new mongoose.Schema({
     name: {type: String, required:true, unique: true},
-    date: {type: String, required:true, unique: true},
+    date: {type: String, required:true },
     begin: {type: String, required:true, unique: false},
     end: {type: String, required:true, unique: false},
     location: {type: String, required:true},

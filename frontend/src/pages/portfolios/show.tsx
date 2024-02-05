@@ -1,15 +1,14 @@
 import { useGetLocale, useOne, useTranslate } from '@refinedev/core';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { PortafolioProps } from '../../interfaces/common';
-import { IconButton, useTheme } from '@mui/material';
-
+import { Dialog, DialogActions, DialogTitle, IconButton, useTheme } from '@mui/material';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import logoWhite from "../../assets/secretaria_white.webp"
 import logoBlack from "../../assets/secretaria.webp"
-import { useEffect, useState } from 'react';
 import ErrorPage from '../../components/error';
 import Loading from '../../components/loading';
-import { notification } from 'antd';
-import axios from 'axios';
+import { Button, notification } from 'antd';
 import { FcUndo } from 'react-icons/fc';
 import { Delete } from '@mui/icons-material';
 import { MdEmail, MdMusicNote, MdOutlineLibraryMusic } from 'react-icons/md';
@@ -59,7 +58,7 @@ const ShowPortfolios = () => {
         try {
             const response = await axios.delete(`https://culltura.onrender.com/api/v1/portafolios/delete/${id}`);
             if (response.data.success) {
-                navigate('/directorios')
+                navigate('/portafolios')
                 setLoading(false);
                 notification.success({
                     message: "¡Listo!",
@@ -220,13 +219,25 @@ const ShowPortfolios = () => {
                         }
                     </div>
                     {/* Apariciones */}
-                    <div className='mt-2 text-left'>
-                        <h2 className='text-xl text-left mt-5 mb-2'>{translate("pages.portfolios.awards")}</h2>
-                        <p className='font-light'>{currentLocale === 'fr' ? portafolio.cv.fr : currentLocale === 'en' ? portafolio.cv.en : portafolio.cv.es}</p>
-                    </div>
+                    { portafolio.cv &&
+                        <div className='mt-2 text-left'>
+                            <h2 className='text-xl text-left mt-5 mb-2'>{translate("pages.portfolios.awards")}</h2>
+                            <p className='font-light'>{currentLocale === 'fr' ? portafolio.cv.fr : currentLocale === 'en' ? portafolio.cv.en : portafolio.cv.es}</p>
+                        </div>
+                    }
                 </div>
             </div>
-
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>{translate("pages.users.delete.title", "¿Estás seguro que deseas eliminar a")} {portafolio.name}?</DialogTitle>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        {translate("pages.users.delete.cancel", "Cancelar")} 
+                    </Button>
+                    <Button onClick={() => handleConfirm()} color="primary">
+                        {translate("pages.users.delete.accept", "Confirmar")} 
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     )
 }
