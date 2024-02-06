@@ -23,7 +23,7 @@ const Blogs = () => {
                     <img src={logo} alt="secretaria" className="w-24 h-auto"/>
                 </div>
             </div>
-            <Link to="/blogs/create">
+            <Link to="/blog/create">
                 <Button type="button" fullWidth variant="contained" sx={{ mt: "24px", borderRadius:'10px' }}>
                     {translate("pages.directories.button")}
                 </Button>

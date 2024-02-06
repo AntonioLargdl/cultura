@@ -46,6 +46,7 @@ import TalentoShow from "./pages/creativa/talento/show";
 import CarteleraPage from "./pages/landing/cartelera";
 import CarteleraID from "./components/inicio/carteleraShow";
 import CreateCategoria from "./pages/categories/create";
+import CreateBlog from "./pages/blogs/create";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -128,7 +129,7 @@ function App() {
                     },
                   },
                   {
-                    name: "blogs",
+                    name: "blog",
                     list: "/blog",
                     create: "/blog/create",
                     edit: "/blog/edit/:id",
@@ -211,6 +212,7 @@ function App() {
                     {/* TODO: Blog */}
                     <Route path="/blog">
                       <Route index element={<Blogs />} />
+                      <Route path="create" element={<CreateBlog />} />
                     </Route>
 {/*  Carteleras -------------- */}
                     {/* { (user?.rol === 'admin' || user?.rol === 'cultura' || "") && */}
@@ -241,7 +243,9 @@ function App() {
                     <Route path="/inicio" element={<Landing />} />
                     {/* TODO: Blog */}
                     <Route path="/inicio/blog" element={<Landing />} />
-                    <Route path="/inicio/blog/:id" element={<Landing />} />
+                    <Route path="/inicio/blog/:category" element={<Landing />} />
+                    <Route path="/inicio/blog/show/:id" element={<Landing />} />
+                    {/* Cartelera */}
                     <Route path="/inicio/cartelera" element={<CarteleraPage />} />
                     <Route path="/inicio/cartelera/:id" element={<CarteleraID />} />
                     {/* --------------- Creativa */}

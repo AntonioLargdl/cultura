@@ -11,6 +11,7 @@ const CategoriaSchema = new mongoose.Schema({
     slug: {type: String, required:true},
     type: {type: String, required:true},
     user: [{type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'}],
+    blogs: [{type: mongoose.Schema.Types.ObjectId, ref: 'Blog'}],
 })
 
 const categoriasModel = mongoose.model('Categorias', CategoriaSchema);

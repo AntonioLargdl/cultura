@@ -70,6 +70,21 @@ const getCategorys = async (req,res) => {
     }
 }
 
+// ------------------------------ Obtener Categorías Recientes ------------------------------
+const getRecentCategorys = async (req,res) => {
+    try {
+      const categorias = await categoriasModel.find().sort({ date: -1 }).limit(4);
+
+      if(!categorias) {
+        return res.status(404).json({ success: false, message: "no se encontraron categorias" });
+      }
+  
+      res.status(200).json(categorias)
+    } catch (error) {
+      res.status(500).json({success: false, message: error.message})
+    }
+}
+
 // ------------------------------ Eliminar Categoría ------------------------------
 const deleteCategory = async (req, res) => {
     try {
@@ -92,5 +107,6 @@ const deleteCategory = async (req, res) => {
 export {
     createCategory,
     getCategorys,
+    getRecentCategorys,
     deleteCategory,
 }

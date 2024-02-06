@@ -72,7 +72,7 @@ const CarteleraCultural = () => {
     }
 
     return (
-        <div className='my-10 mt-10 lg:p-8 p-4'>
+        <div className='my-10 lg:p-8 p-4'>
             {/* Título */}
             <div className='flex md:justify-evenly gap-2 flex-wrap'>
                 <h2 className='text-5xl font-bold leading-[3.5rem]'>Cartelera <br /><span className='font-normal'>Cultural</span></h2>

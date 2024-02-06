@@ -25,7 +25,7 @@ const BlogSchema = new mongoose.Schema({
     image: {type: String, required:true},
     content: {type: ContentSchema, required:true},
     author: [{type: mongoose.Schema.Types.ObjectId, ref: 'Usuario'}],
-    type: {type: String, required:true},
+    category: [{type: mongoose.Schema.Types.ObjectId, ref: 'Categorias'}],
     date: {type: String, required:true},
     place: {type: String, required:false},
 })

@@ -119,7 +119,7 @@ const forgotPassword = async (req,res) => {
 // ------------------------------ Registro de Usuarios ------------------------------
 const createUser = async (req, res) => {
   try {
-    const { email, password, username, rol, photo } = req.body;
+    const { email, password, username, rol, photo, name } = req.body;
     // Verificar correo único
     const existingEmail = await usuarioModel.findOne({ email });
     if (existingEmail) {
@@ -196,7 +196,8 @@ const createUser = async (req, res) => {
         password: hashedPassword, 
         username,
         rol,
-        image: photoUrl
+        image: photoUrl,
+        name,
       });
 
       const savedUser = await newUser.save();

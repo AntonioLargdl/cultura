@@ -275,3 +275,37 @@ export interface FormCategoriaProps {
     onFinishHandler: (data: FieldValues) => Promise<void> | void,
     setValue: UseFormSetValue<FieldValues>,
 }
+
+export interface CategoriaProps {
+    _id: string,
+    name: {
+        es: string,
+        en: string,
+        fr: string,
+    },
+    type: string,
+    user: string,
+}
+
+export interface BlogProps {
+    _id: string,
+    title: {
+        es: string,
+        en: string,
+        fr: string,
+    }
+    image: string,
+    abstract: {
+        es: string,
+        en: string, 
+        fr: string,
+    },
+    content: {
+        es: string,
+        en: string, 
+        fr: string,
+    }
+    category: CategoriaProps[],
+    date: string,
+    place: string,
+}
