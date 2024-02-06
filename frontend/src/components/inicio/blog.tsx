@@ -79,7 +79,7 @@ const BlogsLanding = () => {
                             </div>
                         </div>
                         <Link to='/inicio/blog' className='bg-[#8657b6] text-white px-6 py-4 rounded-xl hover:bg-[#6a4590] duration-300 hover:scale-95'>
-                            Ver más
+                            <p className='text-center'>Ver más</p>
                         </Link>
                     </div>
                     }

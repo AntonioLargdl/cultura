@@ -47,6 +47,7 @@ import CarteleraPage from "./pages/landing/cartelera";
 import CarteleraID from "./components/inicio/carteleraShow";
 import CreateCategoria from "./pages/categories/create";
 import CreateBlog from "./pages/blogs/create";
+import BlogShow from "./pages/blogs/show";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -241,10 +242,10 @@ function App() {
                   >
                     {/* --------------- Cultura */}
                     <Route path="/inicio" element={<Landing />} />
+                    <Route path="/inicio/blog/show/:id" element={<Landing />} />
                     {/* TODO: Blog */}
                     <Route path="/inicio/blog" element={<Landing />} />
                     <Route path="/inicio/blog/:category" element={<Landing />} />
-                    <Route path="/inicio/blog/show/:id" element={<Landing />} />
                     {/* Cartelera */}
                     <Route path="/inicio/cartelera" element={<CarteleraPage />} />
                     <Route path="/inicio/cartelera/:id" element={<CarteleraID />} />

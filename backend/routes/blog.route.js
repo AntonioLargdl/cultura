@@ -1,5 +1,5 @@
 import express from 'express';
-import { createBlog, getRecentBlogs } from '../controllers/blog.controller.js';
+import { createBlog, getBlog, getRecentBlogs } from '../controllers/blog.controller.js';
 
 const router = express.Router();
 
@@ -7,7 +7,8 @@ const router = express.Router();
 router.route('/')
     // .get(getCategorys)
     .post(createBlog)
-router.route('/recent').get(getRecentBlogs)    
-// router.route('/delete/:id').delete(deleteCategory)    
+router.route('/show/:id').get(getBlog)    
+router.route('/recent').get(getRecentBlogs)
+// router.route('/delete/:id').delete(deleteCategory)
 
 export default router; 

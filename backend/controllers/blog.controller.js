@@ -136,7 +136,6 @@ const createBlog = async (req, res) => {
             const cloudinaryStream = cloudinary.uploader.upload_stream(
             {
                 resource_type: 'image',
-                public_id: username,
                 format: 'png',
             },
             (error, result) => {
@@ -197,10 +196,24 @@ const getRecentBlogs = async (req, res) => {
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
     }
-  }
-  
+}
+
+// ------------------------------ Obtener Blogs ID ------------------------------
+const getBlog = async (req, res) => {
+    try {
+        const { id } = req.params
+
+        // Obtén los 3 blogs más recientes ordenados por fecha descendente
+        const blog = await blogModel.findOne({_id: id})
+    
+        res.status(200).json(blog);
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+}
 
 export {
     createBlog,
     getRecentBlogs,
+    getBlog,
 }
