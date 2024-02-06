@@ -334,7 +334,6 @@ export {
     loginUser,
     getProfiles,
     deleteUser,
-    // TODO: Actualizar las siguientes funciones
     createUser,
     forgotPassword,
     updatePassword,

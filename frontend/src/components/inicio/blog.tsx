@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BlogProps, CategoriaProps } from '../../interfaces/common';
 import { Link } from 'react-router-dom';
 import { useTheme } from '@mui/material';

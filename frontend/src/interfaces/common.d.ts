@@ -40,6 +40,7 @@ export interface FormEditProps {
 // Usuarios
 export interface UsuarioProps {
     username: string;
+    name: string;
     email: string;
     password: string; 
     image: string;
@@ -305,6 +306,7 @@ export interface BlogProps {
         en: string, 
         fr: string,
     }
+    author: UsuarioProps[],
     category: CategoriaProps[],
     date: string,
     place: string,

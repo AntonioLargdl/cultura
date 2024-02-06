@@ -242,7 +242,7 @@ function App() {
                   >
                     {/* --------------- Cultura */}
                     <Route path="/inicio" element={<Landing />} />
-                    <Route path="/inicio/blog/show/:id" element={<Landing />} />
+                    <Route path="/inicio/blog/show/:id" element={<BlogShow />} />
                     {/* TODO: Blog */}
                     <Route path="/inicio/blog" element={<Landing />} />
                     <Route path="/inicio/blog/:category" element={<Landing />} />

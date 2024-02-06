@@ -204,7 +204,7 @@ const getBlog = async (req, res) => {
         const { id } = req.params
 
         // Obtén los 3 blogs más recientes ordenados por fecha descendente
-        const blog = await blogModel.findOne({_id: id})
+        const blog = await blogModel.findOne({_id: id}).populate('author').select('-password')
     
         res.status(200).json(blog);
     } catch (error) {
