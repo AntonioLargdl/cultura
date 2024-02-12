@@ -78,6 +78,22 @@ const UserForm = ({type, register, setValue, formLoading, handleSubmit, handleIm
                 onChange={handleInputChange}
             />
             <TextField
+                {...register("name", {
+                    required: true,
+                })}
+                id="name"
+                name="name"
+                margin="normal"
+                fullWidth
+                label={translate( "forms.createUsers.fields.name.label","Nombre")}
+                placeholder={translate("forms.createUsers.fields.name.placeholder")}
+                InputProps={{
+                startAdornment: <AiOutlineUser className="mx-2 text-lg"/>,
+                }}
+                sx={{ mt: 2 }}
+                onChange={handleInputChange}
+            />
+            <TextField
                 {...register("username", {
                     required: true,
                 })}

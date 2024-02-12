@@ -5,9 +5,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
-import { useGetLocale, useSetLocale } from "@refinedev/core";
+import { useGetLocale, useSetLocale, useTranslate } from "@refinedev/core";
 import { RefineThemedLayoutV2HeaderProps } from "@refinedev/mui";
-import { IconButton, useTheme } from "@mui/material";
+import { Button, IconButton, useTheme } from "@mui/material";
 import i18n from "i18next";
 import React, { useContext } from "react";
 
@@ -25,6 +25,8 @@ export const HeaderLocaciones: React.FC<RefineThemedLayoutV2HeaderProps> = ({ st
     const changeLanguage = useSetLocale();
     const locale = useGetLocale();
     const currentLocale = locale();
+    // Translation
+    const translate = useTranslate();
 
         //  color switcher
     const theme = useTheme();
@@ -46,12 +48,22 @@ export const HeaderLocaciones: React.FC<RefineThemedLayoutV2HeaderProps> = ({ st
             alignItems="center"
             gap="10px"
           >
-            <IconButton
-              color="inherit"
-              onClick={() => {navigate('/cfm/directorio')}}
-            >
-              <GiFilmProjector />
-            </IconButton>
+            <div className="md:hidden">
+              <IconButton
+                color="inherit"
+                onClick={() => {navigate('/cfm/directorio')}}
+              >
+                <GiFilmProjector />
+              </IconButton>
+            </div>
+            <div className="md:block hidden">
+              <Button
+                  color="inherit"
+                  onClick={() => {navigate('/cfm/directorio')}}
+              >
+                {translate("pages.landing.talent")}
+              </Button>
+            </div>
             <IconButton
               color="inherit"
               onClick={() => {

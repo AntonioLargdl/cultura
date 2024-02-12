@@ -100,9 +100,9 @@ const Categories = () => {
             </div>
             <div className="flex flex-col gap-2 mt-5">
                 <div className={`grid grid-cols-4 rounded-[10px] gap-2 items-center p-2 text-center uppercase font-light`}>
-                    <p className="col-span-1">Nombre</p>
-                    <p className="col-span-1">Creador</p>
-                    <p className="col-span-1">Área</p>
+                    <p className="col-span-1">{translate("pages.categories.name")}</p>
+                    <p className="col-span-1">{translate("pages.categories.create")}</p>
+                    <p className="col-span-1">{translate("pages.categories.area")}</p>
                 </div>
                 {allCategorys.map((item,index) => (
                     <div className={`text-center grid grid-cols-4 rounded-[10px] gap-2 items-center ${background} p-4`} key={index}>

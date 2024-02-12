@@ -177,8 +177,10 @@ const createBlog = async (req, res) => {
         const savedBlog = await newBlog.save();
 
         categoryId.blogs.push(savedBlog._id)
+        usuario.blogs.push(savedBlog._id)
 
         await categoryId.save();
+        await usuario.save();
 
         res.status(201).json({ success: true, message: "Usuario Creado exitosamente" });
     } catch (error) {
@@ -212,8 +214,85 @@ const getBlog = async (req, res) => {
     }
 }
 
+// ------------------------------ Obtener Blogs Username ------------------------------
+const getBlogByUser = async (req, res) => {
+    try {
+        const { username } = req.params
+
+        const userBlogs = await usuarioModel.findOne({username}).populate('blogs')
+    
+        res.status(200).json(userBlogs);
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+}
+
+// ------------------------------ Obtener Todos los Blogs ------------------------------
+const getBlogs = async (req, res) => {
+    try {
+        const blogs = await blogModel.find().populate('author')
+
+        if(!blogs) {
+          return res.status(404).json({ success: false, message: "no se encontraron blogs" });
+        }
+    
+        res.status(200).json(blogs);
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+}
+
+// ------------------------------ Eliminar Blog ------------------------------
+const deleteBlog = async (req, res) => {
+    try {
+        const { id } = req.params
+    
+        const blog = await blogModel.findOne({ _id: id })
+    
+        if(!blog) {
+            return res.status(401).json({ success: false, message: "El usuario no existe" });
+        }
+
+        // Dividir la URL usando '/' como separador y obtener la última parte
+        const partesEnlace = blog.image.split('/');
+        const ultimaParte = partesEnlace[partesEnlace.length - 1];
+        // Dividir la última parte usando '.' como separador y obtener la primera parte
+        const publicNameArray = ultimaParte.split('.');
+        // Obtener el primer elemento del array (que es el nombre público)
+        const publicName = publicNameArray[0];
+
+        // Eliminar imágenes de cloudinary
+        try {
+            await cloudinary.uploader.destroy(publicName);
+        } catch (cloudinaryError) {
+            console.error('Error al eliminar la imagen de Cloudinary:', cloudinaryError);
+        }
+
+        // Eliminar referencia en Categorías
+        await categoriasModel.updateMany(
+            { blogs: blog._id },
+            { $pull: { blogs: blog._id } }
+        );
+
+        // Eliminar referencia en Categorías
+        await usuarioModel.updateMany(
+            { blogs: blog._id },
+            { $pull: { blogs: blog._id } }
+        );
+      
+        await blog.deleteOne({_id: id});
+      
+      return res.status(200).json({ success: true, message: 'Usuario eliminado correctamente' });
+    } catch(error) {
+      res.status(500).json({success: false, error: error})
+    }
+}
+
 export {
     createBlog,
     getRecentBlogs,
     getBlog,
+    getBlogs,
+    getBlogByUser,
+    deleteBlog
 }

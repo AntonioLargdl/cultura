@@ -15,7 +15,7 @@ export const socials = [
     {
       name: 'mail',
       icon: <IoMail className='text-2xl'/> ,
-      link: 'mailto:culturamrl@gmail.com'
+      link: 'mailto:morelia.ccm.unesco@gmail.com'
     },
     {
       name: 'location',

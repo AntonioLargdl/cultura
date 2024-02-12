@@ -46,7 +46,7 @@ const MenuCreativa = () => {
           variants={fadeIn({ direction: 'right', type: 'spring', delay: 0.1, duration: 0.5 })}
           className='w-32 ml-auto mr-auto mb-10'
         />
-        <TypingText title={`| ${t("pages.comision.menu.title")}`} textStyles="text-center" />
+        <TypingText title={`| ${t("pages.creative.city")}`} textStyles="text-center" />
         <TitleText
           title={t("pages.comision.menu.h1")}
           textStyles="text-center"

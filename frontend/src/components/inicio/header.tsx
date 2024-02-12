@@ -5,9 +5,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
-import { useGetLocale, useSetLocale } from "@refinedev/core";
+import { useGetLocale, useSetLocale, useTranslate } from "@refinedev/core";
 import { RefineThemedLayoutV2HeaderProps } from "@refinedev/mui";
-import { IconButton, useTheme } from "@mui/material";
+import { Button, IconButton, useTheme } from "@mui/material";
 import i18n from "i18next";
 import React, { useContext } from "react";
 
@@ -25,8 +25,9 @@ export const HeaderInicio: React.FC<RefineThemedLayoutV2HeaderProps> = ({ sticky
     const changeLanguage = useSetLocale();
     const locale = useGetLocale();
     const currentLocale = locale();
-
-        //  color switcher
+    // Translation
+    const translate = useTranslate();
+    //  color switcher
     const theme = useTheme();
     const color = theme.palette.mode === 'dark' ? 'white' : 'black';
     const bgcolor = theme.palette.mode === 'dark' ? 'black' : 'white';
@@ -46,12 +47,22 @@ export const HeaderInicio: React.FC<RefineThemedLayoutV2HeaderProps> = ({ sticky
             alignItems="center"
             gap="10px"
           >
-            <IconButton
-              color="inherit"
-              onClick={() => {navigate('/noticias')}}
-            >
-              <BiNews />
-            </IconButton>
+            <div className="md:hidden">
+              <IconButton
+                color="inherit"
+                onClick={() => {navigate('/noticias')}}
+              >
+                <BiNews />
+              </IconButton>
+            </div>
+            <div className="md:block hidden">
+              <Button
+                  color="inherit"
+                  onClick={() => {navigate('/noticias')}}
+              >
+                {translate("pages.landing.news")}
+              </Button>
+            </div>
             <IconButton
               color="inherit"
               onClick={() => {

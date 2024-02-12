@@ -48,6 +48,8 @@ import CarteleraID from "./components/inicio/carteleraShow";
 import CreateCategoria from "./pages/categories/create";
 import CreateBlog from "./pages/blogs/create";
 import BlogShow from "./pages/blogs/show";
+import BlogShowID from "./pages/blogs/showID";
+import BlogsInicio from "./pages/landing/blogs";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -210,9 +212,9 @@ function App() {
                       <Route path="create" element={<CreateCategoria />} />
                     </Route>                    
 {/*  Blogs -------------- */}
-                    {/* TODO: Blog */}
                     <Route path="/blog">
                       <Route index element={<Blogs />} />
+                      <Route path="show/:id" element={<BlogShowID />} />
                       <Route path="create" element={<CreateBlog />} />
                     </Route>
 {/*  Carteleras -------------- */}
@@ -243,8 +245,8 @@ function App() {
                     {/* --------------- Cultura */}
                     <Route path="/inicio" element={<Landing />} />
                     <Route path="/inicio/blog/show/:id" element={<BlogShow />} />
+                    <Route path="/inicio/blog" element={<BlogsInicio />} />
                     {/* TODO: Blog */}
-                    <Route path="/inicio/blog" element={<Landing />} />
                     <Route path="/inicio/blog/:category" element={<Landing />} />
                     {/* Cartelera */}
                     <Route path="/inicio/cartelera" element={<CarteleraPage />} />

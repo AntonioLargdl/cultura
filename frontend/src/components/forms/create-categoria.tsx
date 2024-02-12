@@ -70,8 +70,8 @@ const CategoriaForm = ({type, register, setValue, formLoading, handleSubmit, onF
                     name="es"
                     fullWidth
                     margin="normal"
-                    label="Nombre"
-                    placeholder="Nombre de la categoría"
+                    label={translate("pages.categories.fields.name.label")}
+                    placeholder={translate("pages.categories.fields.name.placeholder")}
                     InputProps={{
                     startAdornment: <PiAlignRightLight className="mx-2 text-lg"/>,
                     }}
@@ -87,8 +87,8 @@ const CategoriaForm = ({type, register, setValue, formLoading, handleSubmit, onF
                     name="slug"
                     fullWidth
                     margin="normal"
-                    label="Slug"
-                    placeholder="Slug generado automáticamente"
+                    label={translate("pages.categories.fields.slug.label")}
+                    placeholder={translate("pages.categories.fields.slug.placeholder")}
                     value={slug} // Muestra el valor del slug generado
                     InputProps={{
                     startAdornment: <PiAlignRightDuotone className="mx-2 text-lg" />,
@@ -110,7 +110,7 @@ const CategoriaForm = ({type, register, setValue, formLoading, handleSubmit, onF
                         <MenuItem value="" disabled className='flex gap-2'>
                             <Box display="flex" alignItems="center" gap={2}>
                                 <MdOutlineMenuOpen />
-                                <span>Seleccionar sección</span>
+                                <span>{translate("pages.categories.fields.options.section")}</span>
                             </Box>
                         </MenuItem>
                         <MenuItem value="cultura" className="flex gap-2">
@@ -128,7 +128,7 @@ const CategoriaForm = ({type, register, setValue, formLoading, handleSubmit, onF
                         <MenuItem value="creativa" className="flex gap-2">
                             <Box display="flex" alignItems="center" gap={2}>
                                 <PiMusicNote />
-                                <span>Ciudad Creativa</span>
+                                <span>{translate("pages.categories.fields.options.city")}</span>
                             </Box>
                         </MenuItem>
                     </Select>

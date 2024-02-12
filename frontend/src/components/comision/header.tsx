@@ -5,12 +5,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
-import { useGetLocale, useSetLocale } from "@refinedev/core";
+import { useGetLocale, useSetLocale, useTranslate } from "@refinedev/core";
 import { RefineThemedLayoutV2HeaderProps } from "@refinedev/mui";
 import i18n from "i18next";
 import React from "react";
 import comision from '../../assets/comision_white.webp'
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { FaMagnifyingGlassLocation } from "react-icons/fa6";
 import { GiFilmProjector } from "react-icons/gi";
@@ -20,6 +20,8 @@ export const HeaderComision: React.FC<RefineThemedLayoutV2HeaderProps> = ({ stic
   const changeLanguage = useSetLocale();
   const locale = useGetLocale();
   const currentLocale = locale();
+  // Translation
+  const translate = useTranslate();
 
   return (
     <AppBar position="fixed" sx={{background: 'none', boxShadow:'none', color:"white", padding:"20px 0"}}>
@@ -35,18 +37,38 @@ export const HeaderComision: React.FC<RefineThemedLayoutV2HeaderProps> = ({ stic
             alignItems="center"
             gap="10px"
           >
-            <IconButton
-              color="inherit"
-              onClick={() => {navigate('/cfm/directorio')}}
-            >
-              <GiFilmProjector />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              onClick={() => {navigate('/cfm/locaciones')}}
-            >
-              <FaMagnifyingGlassLocation />
-            </IconButton>
+            <div className="md:hidden">
+              <IconButton
+                color="inherit"
+                onClick={() => {navigate('/cfm/directorio')}}
+              >
+                <GiFilmProjector />
+              </IconButton>
+            </div>
+            <div className="md:block hidden">
+              <Button
+                  color="inherit"
+                  onClick={() => {navigate('/cfm/directorio')}}
+              >
+                {translate("pages.landing.talent")}
+              </Button>
+            </div>
+            <div className="md:hidden">
+              <IconButton
+                color="inherit"
+                onClick={() => {navigate('/cfm/locaciones')}}
+              >
+                <FaMagnifyingGlassLocation />
+              </IconButton>
+            </div>
+            <div className="md:block hidden">
+              <Button
+                  color="inherit"
+                  onClick={() => {navigate('/cfm/locaciones')}}
+              >
+                {translate("pages.landing.locations")}
+              </Button>
+            </div>
             <FormControl sx={{ minWidth: 64 }}>
               <Select
                 disableUnderline

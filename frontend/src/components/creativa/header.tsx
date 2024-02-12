@@ -5,12 +5,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
-import { useGetLocale, useSetLocale } from "@refinedev/core";
+import { useGetLocale, useSetLocale, useTranslate } from "@refinedev/core";
 import { RefineThemedLayoutV2HeaderProps } from "@refinedev/mui";
 import i18n from "i18next";
 import React from "react";
 import comision from '../../assets/creativa_white.webp'
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { MdLibraryMusic } from "react-icons/md";
 
@@ -19,6 +19,8 @@ export const HeaderCreativa: React.FC<RefineThemedLayoutV2HeaderProps> = ({ stic
   const changeLanguage = useSetLocale();
   const locale = useGetLocale();
   const currentLocale = locale();
+  // Translation
+  const translate = useTranslate();
 
   return (
     <AppBar position="fixed" sx={{background: 'none', boxShadow:'none', color:"white", padding:"20px 0"}}>
@@ -34,12 +36,22 @@ export const HeaderCreativa: React.FC<RefineThemedLayoutV2HeaderProps> = ({ stic
             alignItems="center"
             gap="10px"
           >
-            <IconButton
-              color="inherit"
-              onClick={() => {navigate('/creativa/talento')}}
-            >
-              <MdLibraryMusic />
-            </IconButton>
+            <div className="md:hidden">
+              <IconButton
+                color="inherit"
+                onClick={() => {navigate('/creativa/talento')}}
+              >
+                <MdLibraryMusic />
+              </IconButton>
+            </div>
+            <div className="md:block hidden">
+              <Button
+                  color="inherit"
+                  onClick={() => {navigate('/creativa/talento')}}
+              >
+                {translate("pages.landing.artists")}
+              </Button>
+            </div>
             <FormControl sx={{ minWidth: 64 }}>
               <Select
                 disableUnderline

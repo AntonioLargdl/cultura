@@ -1,5 +1,18 @@
 {
   "pages": {
+    "landing": {
+      "talent": "Talento",
+      "locations": "Locaciones",
+      "artists": "Artistas",
+      "categories": "Categorías",
+      "news": "Noticias",
+      "more": "Ver más",
+      "billboard": "Cartelera",
+      "culture": "Cultural",
+      "position": "Secretaria de Cultura Municipal",
+      "grade": "Doctora en gobierno y administración pública",
+      "abstract": "Su trayectoria incluye colaboraciones en proyectos académicos y vinculación social, como con la fundación Trust for the Américas y el Real Colegio Complutense at Harvard. Además, ha sido consultora en el Instituto Interamericano de Cooperación para la agricultura (IICA) y ha contribuido al ámbito académico como docente e investigadora. Actualmente, participa en talleres literarios, incluyendo el de creación literaria en Casa Lamm, Centro de Cultura."
+    },
     "creative": {
       "banner":"DESCUBRE",
       "nav": "para la industria creativa",
@@ -160,7 +173,7 @@
         "via": "Vías",
         "arquitectura": "Arquitectura",
         "industria": "Industria",
-        "entretenmiento": "Entretenimiento",
+        "entretenimiento": "Entretenimiento",
         "cultura": "Cultura",
         "salud": "Salud",
         "comercio": "Comercio",
@@ -188,7 +201,24 @@
       "error": "No se encontraron datos en el directorio"
     },
     "categories": {
-      "title": "Categorías"
+      "title": "Categorías",
+      "name": "Nombre",
+      "create": "Creador",
+      "area": "Área",
+      "fields": {
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Nombre de la categoría"
+        },
+        "slug": {
+          "label": "Slug",
+          "placeholder": "Slug generado automaticamente"
+        },
+        "options":{
+          "section": "Seleccionar sección",
+          "city": "Ciudad Creativa"
+        }
+      }
     },
     "blog": {
       "title": "Blogs"
@@ -370,6 +400,10 @@
       "alert": "Por favor selecciona una imagen",
       "title": "Nuevo usuario",
       "fields": {
+        "name": {
+          "label": "Nombre",
+          "placeholder": "Nombre y apellido o nombre de la organización"
+        },
         "email": {
           "label": "Correo electrónico",
           "placeholder": "Escribe aquí tu correo"

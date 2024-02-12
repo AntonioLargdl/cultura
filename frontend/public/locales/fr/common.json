@@ -1,5 +1,18 @@
 {
   "pages": {
+    "landing": {
+      "talent": "Talent",
+      "locations": "Emplacements",
+      "artists": "Artistes",
+      "categories": "Catégories",
+      "news": "Actualités",
+      "more": "Voir plus",
+      "billboard": "Affiche",
+      "culture": "Culturel",
+      "position": "Secrétaire de la Culture Municipale",
+      "grade": "Docteure en Gouvernement et Administration Publique",
+      "abstract": "Sa carrière comprend des collaborations sur des projets académiques et d'engagement social, tels que la fondation Trust for the Americas et le Real Colegio Complutense at Harvard. De plus, elle a travaillé en tant que consultante à l'Institut interaméricain de coopération pour l'agriculture (IICA) et a contribué au domaine académique en tant qu'enseignante et chercheuse. Actuellement, elle participe à des ateliers littéraires, dont l'atelier de création littéraire à Casa Lamm, Centre de Culture."
+    },    
     "creative": {
       "banner": "DÉCOUVRIR",
       "nav": "pour l'industrie créative",
@@ -137,8 +150,25 @@
       }
     },    
     "categories": {
-      "title": "Catégories"
-    },
+      "title": "Catégories",
+      "name": "Nom",
+      "create": "Créateur",
+      "area": "Zone",
+      "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Nom de la catégorie"
+        },
+        "slug": {
+          "label": "Slug",
+          "placeholder": "Slug généré automatiquement"
+        },
+        "options":{
+          "section": "Sélectionnez la section",
+          "city": "Ville créative"
+        }
+      }
+    },    
     "locations": {
       "title": "Emplacements",
       "button": "Créer un nouvel emplacement",
@@ -163,7 +193,7 @@
         "via": "Routes",
         "arquitectura": "Architecture",
         "industria": "Industrie",
-        "entretenmiento": "Divertissement",
+        "entretenimiento": "Divertissement",
         "cultura": "Culture",
         "salud": "Santé",
         "comercio": "Commerce",
@@ -372,6 +402,10 @@
       "button": "Crear Nuevo",
       "title": "Nouvel",
       "fields": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Nom complet ou nom de l'organisation"
+        },        
         "email": {
           "label": "Email",
           "placeholder": "Écrivez votre adresse e-mail ici"

@@ -75,11 +75,11 @@ const CarteleraCultural = () => {
         <div className='my-10 lg:p-8 p-4'>
             {/* Título */}
             <div className='flex md:justify-evenly gap-2 flex-wrap'>
-                <h2 className='text-5xl font-bold leading-[3.5rem]'>Cartelera <br /><span className='font-normal'>Cultural</span></h2>
+                <h2 className='text-5xl font-bold leading-[3.5rem]'>{translate("pages.landing.billboard")} <br /><span className='font-normal'>{translate("pages.landing.culture")}</span></h2>
                 <div className='flex flex-col md:items-center items-start gap-3'>
                     <h3 className='mt-2 text-2xl text-[#8657b6] font-medium'>{mesActualText} {añoActual}</h3>
                     <Link to='/inicio/cartelera' className='bg-[#8657b6] text-white px-6 py-4 rounded-xl hover:bg-[#6a4590] duration-300 hover:scale-95'>
-                        Ver más
+                        {translate("pages.landing.more")}
                     </Link>
                 </div>
             </div>

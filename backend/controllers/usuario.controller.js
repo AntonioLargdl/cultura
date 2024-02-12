@@ -11,6 +11,8 @@ import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { Readable } from 'stream';
 import sharp from 'sharp';
+import blogModel from "../mongodb/models/blog.js";
+import categoriasModel from "../mongodb/models/categoria.js";
 
 dotenv.config();
 
@@ -321,6 +323,18 @@ const deleteUser = async (req, res) => {
       console.error('Error al eliminar la imagen de Cloudinary:', cloudinaryError);
     }
     
+    // Eliminar referencia en Blogs
+    await blogModel.updateMany(
+      { author: usuario._id },
+      { $pull: { author: usuario._id } }
+    );
+
+    // Eliminar referencia en Categorías
+    await categoriasModel.updateMany(
+      { user: usuario._id },
+      { $pull: { user: usuario._id } }
+    );
+
     await usuario.deleteOne({_id: id});
     
     return res.status(200).json({ success: true, message: 'Usuario eliminado correctamente' });

@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import { Translate } from "@google-cloud/translate/build/src/v2/index.js";
 import categoriasModel from '../mongodb/models/categoria.js';
 import usuarioModel from '../mongodb/models/usuario.js';
+import blogModel from '../mongodb/models/blog.js';
 
 // Traducción
 const translate = new Translate({
@@ -95,6 +96,12 @@ const deleteCategory = async (req, res) => {
         if(!categoria) {
             return res.status(401).json({ success: false, message: "La categoría no existe" });
         }
+
+        // Eliminar referencia en Blogs
+        await blogModel.updateMany(
+          { category: categoria._id },
+          { $pull: { category: categoria._id } }
+        );
         
         await categoria.deleteOne({_id: id});
       

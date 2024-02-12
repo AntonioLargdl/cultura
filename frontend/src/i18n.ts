@@ -15,6 +15,9 @@ i18n
     ns: ["common"],
     defaultNS: "common",
     fallbackLng: ["es", "en", "fr"],
+    load: "all", // Cargar todos los idiomas disponibles
+    preload: ["es", "en", "fr"], // Especificar el orden de carga
   });
 
 export default i18n;
+

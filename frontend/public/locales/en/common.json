@@ -1,5 +1,18 @@
 {
   "pages": {
+    "landing": {
+      "talent": "Talent",
+      "locations": "Locations",
+      "artists": "Artists",
+      "categories": "Categories",
+      "news": "News",
+      "more": "See More",
+      "billboard": "Billboard",
+      "culture": "Cultural",
+      "position": "Municipal Culture Secretary",
+      "grade": "Doctor in Government and Public Administration",
+      "abstract": "Her career includes collaborations on academic projects and social engagement, such as with the Trust for the Americas foundation and the Real Colegio Complutense at Harvard. Additionally, she has worked as a consultant at the Inter-American Institute for Cooperation on Agriculture (IICA) and has contributed to the academic field as a teacher and researcher. Currently, she participates in literary workshops, including the literary creation workshop at Casa Lamm, Center for Culture."
+    },    
     "creative": {
       "banner": "DISCOVER",
       "nav": "for the creative industry",
@@ -137,8 +150,25 @@
       }
     },    
     "categories": {
-      "title": "Categories"
-    },
+      "title": "Categories",
+      "name": "Name",
+      "create": "Creator",
+      "area": "Area",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Category Name"
+        },
+        "slug": {
+          "label": "Slug",
+          "placeholder": "Automatically generated slug"
+        },
+        "options":{
+          "section": "Select section",
+          "city": "Creative City"
+        }
+      }
+    },    
     "locations": {
       "title": "Locations",
       "button": "Create New Location",
@@ -163,7 +193,7 @@
         "via": "Roads",
         "arquitectura": "Architecture",
         "industria": "Industry",
-        "entretenmiento": "Entertainment",
+        "entretenimiento": "Entertainment",
         "cultura": "Culture",
         "salud": "Health",
         "comercio": "Trade",
@@ -370,6 +400,10 @@
       "alert": "Please select an image",
       "title": "New user",
       "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Full Name or Organization Name"
+        },        
         "email": {
           "label": "Email",
           "placeholder": "Write here your email"

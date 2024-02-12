@@ -7,6 +7,7 @@ const UsuarioSchema = new mongoose.Schema({
     image: {type: String, required:true},
     password: {type: String, required:true},
     rol: {type: String, required:true},
+    blogs: [{type: mongoose.Schema.Types.ObjectId, ref: 'Blog'}],
 });
 
 const usuarioModel = mongoose.model('Usuario', UsuarioSchema);

@@ -6,11 +6,10 @@ import { useTheme } from '@mui/material';
 import logoBlack from "../../assets/secretaria.webp"
 import logoWhite from "../../assets/secretaria_white.webp"
 import { BlogProps, CategoriaProps } from '../../interfaces/common';
-import { PiCalendar, PiCalendarBlank, PiClock, PiMapPin } from 'react-icons/pi';
+import { PiCalendar, PiMapPin } from 'react-icons/pi';
 import { HeaderInicio } from '../../components/inicio/header';
 import cityBlack from '../../assets/ciudad.webp';
 import cityWhite from '../../assets/ciudad_white.webp';
-import FooterInicio from '../../components/inicio/footerMain';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 

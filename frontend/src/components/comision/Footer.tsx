@@ -13,7 +13,7 @@ export const socials = [
     {
       name: 'mail',
       icon: <IoMail className='text-2xl'/> ,
-      link: 'mailto:culturamrl@gmail.com'
+      link: 'mailto:comision.filmica@morelia.gob.mx'
     },
     {
       name: 'location',
