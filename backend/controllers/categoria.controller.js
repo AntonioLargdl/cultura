@@ -86,6 +86,24 @@ const getRecentCategorys = async (req,res) => {
     }
 }
 
+// ------------------------------ Obtener Categorías Recientes ------------------------------
+const getAllCategorys = async (req,res) => {
+  try {
+    const {id} = req.params
+    const categorias = await categoriasModel.find({_id: id}).populate('blogs')
+    console.log(categorias)
+
+    if(!categorias) {
+      return res.status(404).json({ success: false, message: "no se encontraron categorias" });
+    }
+
+    res.status(200).json(categorias)
+  } catch (error) {
+    res.status(500).json({success: false, message: error.message})
+  }
+}
+
+
 // ------------------------------ Eliminar Categoría ------------------------------
 const deleteCategory = async (req, res) => {
     try {
@@ -113,6 +131,7 @@ const deleteCategory = async (req, res) => {
 
 export {
     createCategory,
+    getAllCategorys,
     getCategorys,
     getRecentCategorys,
     deleteCategory,

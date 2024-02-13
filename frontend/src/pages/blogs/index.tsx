@@ -16,7 +16,7 @@ import { PiCalendar, PiMapPin, PiNewspaper } from "react-icons/pi";
 const Blogs = () => {
     const [blog, setBlog] = useState<BlogProps[] | null>(null)
     const [loading, setLoading] = useState(true);
-    const [empty, setEmpty] = useState(false);
+    const [empty, setEmpty] = useState(true);
     // User Rol
     const { data: user } = useGetIdentity<IUser>();
     //  Fetch Data
@@ -26,6 +26,9 @@ const Blogs = () => {
                 const response = await axios.get(`https://culltura.onrender.com/api/v1/blog/user/${user?.username}}`);
                 setEmpty(false)
                 setBlog(response.data);
+                if(response.data === null) {
+                    setEmpty(true)
+                }
                 setLoading(false)
             } catch (error) {
                 setEmpty(true)

@@ -60,7 +60,7 @@ const FooterCreativa = () => {
           <h4 className="font-semibold md:text-[34px] text-[24px] text-white">
             {t("pages.creative.footer")}
           </h4>
-          <a href="mailto:culturamrl@gmail.com' rel='noopener noreferrer" className="flex items-center h-fit py-4 px-6 bg-[#25618B] rounded-[32px] gap-[12px] hover:bg-purple-700">
+          <a href={`${socials[0].link}`} rel="noopener noreferrer" className="flex items-center h-fit py-4 px-6 bg-[#25618B] rounded-[32px] gap-[12px] hover:bg-purple-700">
             <MdOutlineConnectWithoutContact className='text-2xl'/>
             <span className="font-normal text-[16px] text-white">
               {t("pages.comision.footer.contact")}

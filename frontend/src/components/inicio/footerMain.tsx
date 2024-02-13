@@ -48,7 +48,7 @@ const FooterInicio = () => {
       <div className="footer-gradient-2" />
       <div className={`${styles.innerWidth} mx-auto flex flex-col gap-8`}>
         <div className="flex items-center justify-between flex-wrap gap-5">
-          <a href="mailto:culturamrl@gmail.com' rel='noopener noreferrer" className="flex items-center h-fit py-4 px-6 bg-[#8657b6] rounded-[32px] gap-[12px] hover:bg-purple-700">
+          <a href={`${socials[0].link}`} rel="noopener noreferrer" className="flex items-center h-fit py-4 px-6 bg-[#8657b6] rounded-[32px] gap-[12px] hover:bg-purple-700">
             <MdOutlineConnectWithoutContact className='text-2xl text-white'/>
             <span className="font-normal text-[16px] text-white">
               {t("pages.comision.footer.contact")}

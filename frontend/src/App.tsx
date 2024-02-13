@@ -50,6 +50,7 @@ import CreateBlog from "./pages/blogs/create";
 import BlogShow from "./pages/blogs/show";
 import BlogShowID from "./pages/blogs/showID";
 import BlogsInicio from "./pages/landing/blogs";
+import CategoriasInicio from "./pages/landing/categorys";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -246,8 +247,7 @@ function App() {
                     <Route path="/inicio" element={<Landing />} />
                     <Route path="/inicio/blog/show/:id" element={<BlogShow />} />
                     <Route path="/inicio/blog" element={<BlogsInicio />} />
-                    {/* TODO: Blog */}
-                    <Route path="/inicio/blog/:category" element={<Landing />} />
+                    <Route path="/inicio/blog/:id" element={<CategoriasInicio />} />
                     {/* Cartelera */}
                     <Route path="/inicio/cartelera" element={<CarteleraPage />} />
                     <Route path="/inicio/cartelera/:id" element={<CarteleraID />} />

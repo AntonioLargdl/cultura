@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react'
-import { BlogProps, CategoriaProps, IUser } from '../../interfaces/common';
+import { BlogProps, CategoriaProps } from '../../interfaces/common';
 import { useGetLocale, useTranslate } from '@refinedev/core';
 import axios from 'axios';
 import { HeaderInicio } from '../../components/inicio/header';
 import FooterInicio from '../../components/inicio/footerMain';
 import { useTheme } from '@mui/material';
-import logoBlack from "../../assets/secretaria.webp"
-import logoWhite from "../../assets/secretaria_white.webp"
 import cityBlack from '../../assets/ciudad.webp';
 import cityWhite from '../../assets/ciudad_white.webp';
 import { Link } from 'react-router-dom';
@@ -27,7 +25,6 @@ const BlogsInicio = () => {
   const currentLocale = locale();
   // Theme
   const theme = useTheme();
-  const logo = theme.palette.mode === 'dark' ? logoWhite : logoBlack;
   const city = theme.palette.mode === 'dark' ? cityWhite : cityBlack;
   const LoadingAnimation = theme.palette.mode === 'dark' ? LoadingAnimationWhite : LoadingAnimationBlack;
   const background = theme.palette.mode === 'light' ? 'bg-neutral-100' : 'bg-neutral-900';
@@ -71,16 +68,16 @@ const BlogsInicio = () => {
             <Lottie options={defaultOptions}/>
           </div>
         :
-        <div className='lg:mx-2 md:mx-6 mx-5 md:mt-28 mt-24 mb-10'>
+        <div className='lg:mx-20 md:mx-6 mx-5 md:mt-28 mt-24 mb-10'>
           {/* Categorías */}
-          <div className='flex flex-row-reverse gap-16 lg:flex-nowrap flex-wrap-reverse justify-center'>
+          <div className='flex flex-row-reverse md:gap-8 gap-16 lg:flex-nowrap flex-wrap-reverse justify-center'>
               <div>
-                <img src={city} alt='siente la cultura' className='w-56 mb-8'/>
+                <img src={city} alt='siente la cultura' className='w-56 mb-8 lg:mb-12'/>
                 <div className={`${background} shadow-xl p-6 rounded-xl max-w-[22rem] lg:block`}>
                     { categorias &&
                         <div className='flex flex-col justify-between h-full'>
                             <div className='flex flex-col gap-2'>
-                                <h2 className='font-semibold text-2xl'>Categorías</h2>
+                                <h2 className='font-semibold text-2xl'>{translate("pages.landing.categories")}</h2>
                                 <div className='flex flex-col gap-2 my-2 mb-2'>
                                     { categorias.map((item,index) => (
                                         <Link to={`/inicio/blog/${item._id}`} key={index}>
@@ -96,10 +93,10 @@ const BlogsInicio = () => {
               </div>
               <div className='flex flex-col gap-8'>
                 <div>
-                  <h2 className='text-4xl font-semibold'>Notas</h2>
-                  <h2 className='text-xl font-light'>Más recientes</h2>
+                  <h1 className='text-4xl font-semibold'>{translate("pages.landing.news")}</h1>
+                  <h2 className='text-xl font-light'>{translate("pages.creative.footer")}</h2>
                 </div>
-                <div className='flex gap-10 flex-wrap justify-center'>
+                <div className='flex gap-10 flex-wrap lg:justify-between justify-center'>
                   {blogs && blogs.map((item, index) => (
                       <Link to={`/inicio/blog/show/${item._id}`} key={index} className={`${background} shadow-2xl max-w-[20rem] rounded-2xl relative hover:scale-95 duration-300`}>
                           <img src={item.image} alt={item._id} className='w-[20rem] rounded-t-2xl'/>

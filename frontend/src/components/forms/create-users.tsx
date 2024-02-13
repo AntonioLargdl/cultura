@@ -91,7 +91,6 @@ const UserForm = ({type, register, setValue, formLoading, handleSubmit, handleIm
                 startAdornment: <AiOutlineUser className="mx-2 text-lg"/>,
                 }}
                 sx={{ mt: 2 }}
-                onChange={handleInputChange}
             />
             <TextField
                 {...register("username", {

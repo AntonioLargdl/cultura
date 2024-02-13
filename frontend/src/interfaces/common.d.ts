@@ -286,6 +286,7 @@ export interface CategoriaProps {
     },
     type: string,
     user: string,
+    blogs: BlogProps[]
 }
 
 export interface BlogProps {

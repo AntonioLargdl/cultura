@@ -107,7 +107,7 @@ const BlogShow = () => {
                         { categorias &&
                             <div className='flex flex-col justify-between h-full'>
                                 <div>
-                                    <h2 className='font-semibold text-2xl'>Categorías</h2>
+                                    <h2 className='font-semibold text-2xl'>{translate("pages.landing.categories")}</h2>
                                     <div className='flex flex-col gap-2 my-2 mb-8'>
                                         { categorias.map((item,index) => (
                                             <Link to={`/inicio/blog/${item._id}`} key={index}>
@@ -118,12 +118,12 @@ const BlogShow = () => {
                                     </div>
                                 </div>
                                 <Link to='/inicio/blog' className='bg-[#8657b6] text-white px-6 py-4 rounded-xl hover:bg-[#6a4590] duration-300 hover:scale-95'>
-                                    <p className='text-center'>Ver más</p>
+                                    <p className='text-center'>{translate("pages.landing.more")}</p>
                                 </Link>
                             </div>
                         }
                     </div>
-                    <h2 className='text-2xl font-semibold'>Notas recientes</h2>
+                    <h2 className='text-2xl font-semibold'>{translate("pages.landing.news")}</h2>
                     {blogs && blogs.map((item, index) => (
                         <Link to={`/inicio/blog/show/${item._id}`} key={index} className={`${background} shadow-2xl max-w-[20rem] rounded-2xl relative hover:scale-95 duration-300`}>
                             <img src={item.image} alt={item._id} className='w-[20rem] rounded-t-2xl'/>
