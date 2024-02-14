@@ -98,8 +98,7 @@ function App() {
                   },
                   {
                     name: "locaciones",
-                    list: "/locaciones",
-                    // (user?.rol === 'comision' || user?.rol === 'admin' || "") ?  "/locaciones" : "",
+                    list: user && (user.rol === 'admin' || user.rol === 'comision') ?  "/locaciones" : "",
                     create: "/locaciones/create",
                     edit: "/locaciones/edit/:id",
                     show: "/locaciones/show/:id",
@@ -110,8 +109,7 @@ function App() {
                   },
                   {
                     name: "directorios",
-                    list: "/directorios",
-                    // (user?.rol === 'comision' || user?.rol === 'admin' || "") ? "/directorios" : "",
+                    list: user && (user.rol === 'admin' || user.rol === 'comision') ?  "/directorios" : "",
                     create: "/directorios/create",
                     edit: "/directorios/edit/:id",
                     show: "/directorios/show/:id",
@@ -144,8 +142,7 @@ function App() {
                   },
                   {
                     name: "carteleras",
-                    list: "/carteleras", 
-                    // (user?.rol === 'cultura' || user?.rol === 'admin' || "") ? "/carteleras" : "",
+                    list: user && (user.rol === 'admin' || user.rol === 'cultura') ?  "/carteleras" : "",
                     create: "/carteleras/create",
                     edit: "/carteleras/edit/:id",
                     show: "/carteleras/show/:id",
@@ -156,8 +153,7 @@ function App() {
                   },
                   {
                     name: "portafolios",
-                    list: "/portafolios",
-                    // (user?.rol === 'cultura' || user?.rol === 'admin' || "") ? "/portafolios" : "",
+                    list: user && (user.rol === 'admin' || user.rol === 'cultura') ?  "/portafolios" : "",
                     create: "/portafolios/create",
                     edit: "/portafolios/edit/:id",
                     show: "/portafolios/show/:id",
