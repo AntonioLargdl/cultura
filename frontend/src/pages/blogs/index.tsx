@@ -102,7 +102,7 @@ const Blogs = () => {
                     : empty && !loading ?
                     <div className='flex flex-col gap-4 items-center justify-center mt-10'>
                         <PiNewspaper className='text-6xl'/>
-                        <p className='font-light text-center'>Aún no has creado ninguna nota</p>
+                        <p className='font-light text-center'>{translate("pages.landing.empty")}</p>
                     </div>
                     : blog && blog.map((item, index) => (
                         <Link to={`/blog/show/${item._id}`} key={index} className={`${background} shadow-2xl max-w-[20rem] rounded-2xl relative hover:scale-95 duration-300`}>

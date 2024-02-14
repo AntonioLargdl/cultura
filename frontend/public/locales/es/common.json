@@ -1,6 +1,8 @@
 {
   "pages": {
     "landing": {
+      "not": "Aún no hay notas en esta categoría, regresa más tarde",
+      "empty": "Aún no has creado ninguna nota",
       "talent": "Talento",
       "locations": "Locaciones",
       "artists": "Artistas",

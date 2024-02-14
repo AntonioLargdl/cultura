@@ -9,6 +9,8 @@ import solo from '../../assets/solistas.webp'
 import group from '../../assets/grupos.webp'
 import comision from '../../assets/creativa_white.webp'
 import { useTranslate } from '@refinedev/core';
+import { IoMdLogIn } from 'react-icons/io';
+import { RiSurveyLine } from 'react-icons/ri';
 
 const MenuCreativa = () => {
   const [active, setActive] = useState('world-2');
@@ -55,6 +57,16 @@ const MenuCreativa = () => {
           title={t("pages.creative.nav")}
           textStyles="text-center"
         />
+        <div className='my-12 flex gap-4 md:justify-between justify-center flex-wrap'>
+          <a href="https://forms.gle/5qyMYykvBGEhHwuTA" target='_blank' rel='noreferrer' className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
+            <IoMdLogIn className='text-xl'/>
+            <p className='text-lg'>{t("pages.creative.register")}</p>
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqHDdUwqzhM0H65yKqvxA6_ilmW1pZaiObIBBVhESHpsr_HA/viewform?usp=send_form" target='_blank' rel='noreferrer' className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
+            <RiSurveyLine className='text-xl'/>
+            <p className='text-lg'>{t("pages.creative.opinion")}</p>
+          </a>
+        </div>
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
           {menuList.map((menu, index) => (
             <ExploreCard

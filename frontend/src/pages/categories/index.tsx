@@ -92,11 +92,13 @@ const Categories = () => {
                         <img src={logo} alt="secretaria" className="w-24 h-auto"/>
                     </div>
                 </div>
-                <Link to="/categorias/create">
-                    <Button type="button" fullWidth variant="contained" sx={{ mt: "24px", borderRadius:'10px' }}>
-                        {translate("pages.directories.button")}
-                    </Button>
-                </Link>
+                { user?.rol !== 'blog' &&
+                    <Link to="/categorias/create">
+                        <Button type="button" fullWidth variant="contained" sx={{ mt: "24px", borderRadius:'10px' }}>
+                            {translate("pages.directories.button")}
+                        </Button>
+                    </Link>
+                }
             </div>
             <div className="flex flex-col gap-2 mt-5">
                 <div className={`grid grid-cols-4 rounded-[10px] gap-2 items-center p-2 text-center uppercase font-light`}>

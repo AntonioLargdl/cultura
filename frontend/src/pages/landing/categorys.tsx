@@ -3,7 +3,7 @@ import { HeaderInicio } from "../../components/inicio/header"
 import { Link, useParams } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import { useTheme } from '@mui/material';
-import { PiCalendar, PiMapPin } from 'react-icons/pi';
+import { PiCalendar, PiMapPin, PiNewspaper } from 'react-icons/pi';
 import { useGetLocale, useOne, useTranslate } from '@refinedev/core';
 
 import LoadingAnimationWhite from '../../assets/loading.json';
@@ -22,7 +22,7 @@ const CategoriasInicio = () => {
       id: id as string,
   });
 
-  const categorias = data?.data[0]
+  const categorias = data?.data[0] as CategoriaProps
   console.log(categorias)
 
   const [empty, setEmpty] = useState(true);
@@ -69,9 +69,10 @@ const CategoriasInicio = () => {
           {currentLocale === 'fr' ? categorias?.name.fr : currentLocale === 'en' ? categorias?.name.en : categorias?.name.es}
         </h1>
         <h2 className='text-xl font-light mt-2 mb-5'>{translate("pages.creative.footer")}</h2>
-        { categorias.blogs === 0 ?
-          <div>
-            Hola
+        { categorias.blogs.length === 0 ?
+          <div className='flex flex-col gap-4 items-center justify-center mt-10'>
+            <PiNewspaper className='text-6xl'/>
+            <p className='font-light text-center'>{translate("pages.landing.not")}</p>
           </div>
           :
           <div className='flex gap-7 flex-wrap'>

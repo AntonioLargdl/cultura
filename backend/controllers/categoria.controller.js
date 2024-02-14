@@ -91,7 +91,6 @@ const getAllCategorys = async (req,res) => {
   try {
     const {id} = req.params
     const categorias = await categoriasModel.find({_id: id}).populate('blogs')
-    console.log(categorias)
 
     if(!categorias) {
       return res.status(404).json({ success: false, message: "no se encontraron categorias" });

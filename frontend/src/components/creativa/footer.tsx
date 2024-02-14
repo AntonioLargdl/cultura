@@ -8,8 +8,6 @@ import { GrInstagram } from 'react-icons/gr';
 import { FaFacebookF } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { useTranslate } from '@refinedev/core';
-import { IoMdLogIn } from 'react-icons/io';
-import { RiSurveyLine } from 'react-icons/ri';
 
 export const socials = [
     {
@@ -44,16 +42,6 @@ const FooterCreativa = () => {
       whileInView="show"
       className={`${styles.xPaddings} py-8 relative overflow-hidden bg-[#121212] pt-20`}
     >
-      <div className='my-12 flex gap-4 justify-between flex-wrap'>
-      <a href="https://forms.gle/5qyMYykvBGEhHwuTA" target='_blank' rel='noreferrer' className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
-          <IoMdLogIn className='text-xl'/>
-          <p className='text-lg'>{t("pages.creative.register")}</p>
-        </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqHDdUwqzhM0H65yKqvxA6_ilmW1pZaiObIBBVhESHpsr_HA/viewform?usp=send_form" target='_blank' rel='noreferrer' className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
-          <RiSurveyLine className='text-xl'/>
-          <p className='text-lg'>{t("pages.creative.opinion")}</p>
-        </a>
-      </div>
       <div className="footer-gradient" />
       <div className={`${styles.innerWidth} mx-auto flex flex-col gap-8`}>
         <div className="flex items-center justify-between flex-wrap gap-5">
