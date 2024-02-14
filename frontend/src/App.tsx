@@ -87,8 +87,7 @@ function App() {
                   },
                   { 
                     name: "usuarios",
-                    list: "/usuarios",
-                    // (user.rol === 'admin' || "") && "/usuarios" || "",
+                    list: user && user.rol === 'admin' ?  "/usuarios" : "",
                     create: "/usuarios/create",
                     edit: "/usuarios/edit/:id",
                     show: "/usuarios/show/:id",
@@ -188,20 +187,17 @@ function App() {
                       <Route index element={<Menu />} />
                     </Route>
 {/*  Usuarios -------------- */}
-                    {/* { (user?.rol === 'admin' || "") && */}
                       <Route path="/usuarios">
                         <Route index element={<Users />} />
                         <Route path="create" element={<CreateUsers />} />
                       </Route>
 {/*  Locaciones -------------- */}
-                    {/* { (user?.rol === 'admin' || user?.rol === 'comision' || "") && */}
                       <Route path="/locaciones">
                         <Route index element={<Locations />} />
                         <Route path="create" element={<CreateLocations />} />
                         <Route path="show/:id" element={<ShowLocations />} />
                       </Route>
 {/*  Directorios -------------- */}
-                    {/* { (user?.rol === 'admin' || user?.rol === 'comision' || "") && */}
                       <Route path="/directorios">
                         <Route index element={<Directories />} />
                         <Route path="create" element={<CreateDirectory />} />
@@ -219,14 +215,12 @@ function App() {
                       <Route path="create" element={<CreateBlog />} />
                     </Route>
 {/*  Carteleras -------------- */}
-                    {/* { (user?.rol === 'admin' || user?.rol === 'cultura' || "") && */}
                     <Route path="/carteleras">
                       <Route index element={<Carteleras />} />
                       <Route path="create" element={<CreateCartelera />} />
                       <Route path="show/:id" element={<CarteleraShow />} />
                     </Route>
 {/*  Portafolios -------------- */}
-                    {/* { (user?.rol === 'admin' || user?.rol === 'cultura' || "") && */}
                       <Route path="/portafolios">
                         <Route index element={<Portfolios />} />
                         <Route path="create" element={<CreatePortfolio />} />
