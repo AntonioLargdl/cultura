@@ -1,5 +1,8 @@
 {
   "pages": {
+    "temporal": {
+      "cfm": "Talent call"
+    },
     "landing": {
       "not": "There are no notes in this category yet, check back later",
       "empty": "You haven't created any notes yet",    

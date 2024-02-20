@@ -9,8 +9,10 @@ import locacion from '../../assets/loc.webp'
 import talento from '../../assets/dir.webp'
 import crew from '../../assets/crew.webp'
 import comision from '../../assets/comision_white.webp'
+import convocatoria from '../../assets/convocatoria-seccion-talento.pdf'
 import { useTranslate } from '@refinedev/core';
 import { IoMdLogIn } from 'react-icons/io';
+import { IoDocumentOutline } from 'react-icons/io5';
 
 const MenuLanding = () => {
   const [active, setActive] = useState('world-2');
@@ -68,6 +70,11 @@ const MenuLanding = () => {
           <a href="mailto:comision.filmica@morelia.gob.mx?subject=Solicitud de registro de talento" className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
             <IoMdLogIn className='text-xl'/>
             <p className='text-lg'>{t("pages.creative.register")}</p>
+          </a>
+          {/* TODO: Texto Temporal */}
+          <a href={convocatoria} target='_blank' rel='nonreferrer' className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
+            <IoDocumentOutline className='text-xl'/>
+            <p className='text-lg'>{t("pages.temporal.cfm")}</p>
           </a>
         </div>
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">

@@ -1,5 +1,8 @@
 {
   "pages": {
+    "temporal": {
+      "cfm": "Convocatoria de Talento"
+    },
     "landing": {
       "not": "Aún no hay notas en esta categoría, regresa más tarde",
       "empty": "Aún no has creado ninguna nota",
