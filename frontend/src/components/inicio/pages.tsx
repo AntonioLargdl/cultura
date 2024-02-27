@@ -23,7 +23,6 @@ const ButtonsPages = () => {
         <img src={secretaria} alt='Secretaría de Cultura' className='w-56 lg:w-[24rem] md:mb-0 mb-10'/>
         <img src={logo} alt="Morelia Ciudad Cultural" className='md:w-56 w-32 md:hidden'/>
         <div className='flex items-center gap-4 md:mt-0'>
-          <img src={ayuntamiento} className='md:w-20 w-14'/>
           <img src={morelia} className='md:w-20 w-14'/>
         </div>
       </div>
