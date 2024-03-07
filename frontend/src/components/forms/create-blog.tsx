@@ -40,7 +40,7 @@ const BlogForm = ({type, register, setValue, formLoading, handleSubmit, handleIm
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://culltura.onrender.com/api/v1/categorias');
+                const response = await axios.get('http://localhost:8080/api/v1/categorias');
                 setCategorias(response.data)
             } catch (error) {
                 console.error('Error al obtener datos:', error);

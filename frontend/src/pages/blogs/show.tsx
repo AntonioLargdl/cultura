@@ -47,8 +47,8 @@ const BlogShow = () => {
         const fetchData = async () => {
             try {
                 const [blogsResponse, categoriasResponse] = await Promise.all([
-                    axios.get('https://culltura.onrender.com/api/v1/blog/recent'),
-                    axios.get('https://culltura.onrender.com/api/v1/categorias/recent')
+                    axios.get('http://localhost:8080/api/v1/blog/recent'),
+                    axios.get('http://localhost:8080/api/v1/categorias/recent')
                   ]);
                   const blogsData = blogsResponse.data;
                   const categoriasData = categoriasResponse.data;

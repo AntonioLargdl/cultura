@@ -23,7 +23,7 @@ const Blogs = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`https://culltura.onrender.com/api/v1/blog/user/${user?.username}}`);
+                const response = await axios.get(`http://localhost:8080/api/v1/blog/user/${user?.username}}`);
                 setEmpty(false)
                 setBlog(response.data);
                 if(response.data === null) {
@@ -38,7 +38,7 @@ const Blogs = () => {
         };
         const fetchAllData = async () => {
             try {
-                const response = await axios.get('https://culltura.onrender.com/api/v1/blog');
+                const response = await axios.get('http://localhost:8080/api/v1/blog');
                 setEmpty(false)
                 setBlog(response.data);
                 setLoading(false)

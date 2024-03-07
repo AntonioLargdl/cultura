@@ -51,6 +51,7 @@ import BlogShow from "./pages/blogs/show";
 import BlogShowID from "./pages/blogs/showID";
 import BlogsInicio from "./pages/landing/blogs";
 import CategoriasInicio from "./pages/landing/categorys";
+import ObservatorioCultural from "./pages/creativa/observatorio";
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -72,7 +73,7 @@ function App() {
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider>
               <Refine
-                dataProvider={dataProvider("https://culltura.onrender.com/api/v1")}
+                dataProvider={dataProvider("http://localhost:8080/api/v1")}
                 notificationProvider={notificationProvider}
                 authProvider={authProvider}
                 i18nProvider={i18nProvider}
@@ -243,6 +244,7 @@ function App() {
                     <Route path="/inicio/cartelera/:id" element={<CarteleraID />} />
                     {/* --------------- Creativa */}
                     <Route path="/creativa" element={<MoreliaCreativa />} />
+                    <Route path="/creativa/observatorio" element={<ObservatorioCultural />} />
                     <Route path="/creativa/talento" element={<TalentoDirectorio />} />
                     <Route path="/creativa/talento/:id" element={<TalentoShow />} />
                     {/* --------------- Comisión */}

@@ -60,7 +60,7 @@ const CarteleraPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://culltura.onrender.com/api/v1/carteleras', {
+                const response = await axios.get('http://localhost:8080/api/v1/carteleras', {
                     params: {
                         month: month,
                         year: year

@@ -43,7 +43,7 @@ const LocacionesMap = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-            const response = await axios.get('https://culltura.onrender.com/api/v1/locaciones');
+            const response = await axios.get('http://localhost:8080/api/v1/locaciones');
             setLocaciones(response.data);
             console.log(locaciones)
             } catch (error) {

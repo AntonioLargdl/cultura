@@ -1,5 +1,14 @@
 {
   "pages": {
+    "observatory": {
+      "title": "Observatorios de espacios Creativos",
+      "description": "¡Explora Morelia de una manera creativa!",
+      "button": "Ver más",
+      "h1": "Observatorio de espacios",
+      "h2": "Creativos",
+      "about": "La Ciudad de Morelia, además de contar con un doble nombramiento por parte de la UNESCO como Patrimonio de la Humanidad (1991) y Ciudad Creativa de la Música (2017), es poseedora de uno de los abanicos de expresiones creativas y culturales más diversas del país. Por ello, el gobierno local a través de la Secretaría de Cultura, ofrece a la ciudadanía este Observatorio de Espacios Creativos con la intención de visibilizar la vocación polifacética y creativa de la ciudad, al igual que proveer una plataforma de difusión y promoción de espacios y proyectos que posicionan a la ciudad de Morelia como uno de los pilares culturales del país.",
+      "options": "Sectores Creativos"
+    },
     "temporal": {
       "cfm": "Convocatoria de Talento"
     },

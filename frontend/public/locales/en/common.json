@@ -1,5 +1,13 @@
 {
   "pages": {
+    "observatory": {
+      "title": "Creative Spaces Observatories",
+      "description": "Explore Morelia in a creative way!",
+      "button": "See more",
+      "h1": "Creative Spaces",
+      "h2": "Observatories",
+      "about": "The City of Morelia, in addition to having a dual designation by UNESCO as a World Heritage Site (1991) and Creative City of Music (2017), possesses one of the most diverse ranges of creative and cultural expressions in the country. Therefore, the local government through the Ministry of Culture offers citizens this Observatory of Creative Spaces with the intention of showcasing the multifaceted and creative vocation of the city, as well as providing a platform for the dissemination and promotion of spaces and projects that position the city of Morelia as one of the cultural pillars of the country."
+    },    
     "temporal": {
       "cfm": "Talent call"
     },

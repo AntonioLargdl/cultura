@@ -33,7 +33,7 @@ const DirectoriosUser = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://culltura.onrender.com/api/v1/directorios');
+        const response = await axios.get('http://localhost:8080/api/v1/directorios');
         setEmpty(false)
         setDirectorio(response.data);
         setLoading(false)

@@ -56,7 +56,7 @@ const ShowPortfolios = () => {
     const handleConfirm = async () => {
         setLoading(true);
         try {
-            const response = await axios.delete(`https://culltura.onrender.com/api/v1/portafolios/delete/${id}`);
+            const response = await axios.delete(`http://localhost:8080/api/v1/portafolios/delete/${id}`);
             if (response.data.success) {
                 navigate('/portafolios')
                 setLoading(false);

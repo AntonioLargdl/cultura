@@ -38,7 +38,7 @@ const Categories = () => {
     const handleConfirm = async ({id}:{id:string}) => {
         setLoading(true);
         try {
-            const response = await axios.delete(`https://culltura.onrender.com/api/v1/categorias/delete/${id}`);
+            const response = await axios.delete(`http://localhost:8080/api/v1/categorias/delete/${id}`);
             if (response.data.success) {
             navigate('/categorias')
             handleClose()

@@ -1,5 +1,13 @@
 {
   "pages": {
+    "observatory": {
+      "title": "Observatoires des espaces créatifs",
+      "description": "Explorez Morelia de manière créative !",
+      "button": "Voir plus",
+      "h1": "Observatoire des espaces",
+      "h2": "Créatifs",
+      "about": "La ville de Morelia, en plus de bénéficier d'une double désignation par l'UNESCO en tant que site du patrimoine mondial (1991) et ville créative de la musique (2017), possède l'une des gammes les plus diversifiées d'expressions créatives et culturelles du pays. C'est pourquoi, le gouvernement local, par le biais du Ministère de la Culture, propose à la population cet Observatoire des Espaces Créatifs dans le but de mettre en valeur la vocation polyvalente et créative de la ville, tout en offrant une plateforme de diffusion et de promotion des espaces et projets qui positionnent la ville de Morelia comme l'un des piliers culturels du pays."
+    },    
     "temporal": {
       "cfm": "Appel de talents"
     },

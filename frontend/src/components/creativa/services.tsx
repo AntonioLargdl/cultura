@@ -9,7 +9,7 @@ import comision from '../../assets/creativa_white.webp'
 import red from '../../assets/red.webp';
 import unesco from '../../assets/unesco.webp';
 import NewFeatures from './NewFeatures';
-
+import { FaEarthAmericas } from 'react-icons/fa6';
 
 const ServicesCreativa = () => {
   const t = useTranslate()
@@ -52,11 +52,22 @@ const ServicesCreativa = () => {
           </div>
         </motion.div>
       </motion.div>
+      <motion.div
+        variants={fadeIn({ direction: 'right', type: 'tween', delay: 0.2, duration: 1 })}
+        className="flex justify-center flex-col items-center mb-10"
+      >
+        <p className='text-3xl tracking-widest mb-4 font-semibold uppercase'>{t("pages.observatory.title")}</p>
+        <p className='font-extralight mb-6 text-xl'>{t("pages.observatory.description")}</p>
+        <a href="/creativa/observatorio" className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
+            <FaEarthAmericas className='text-xl'/>
+            <p className='text-lg'>{t("pages.observatory.button")}</p>
+        </a>
+      </motion.div>
       <motion.img
             src={comision}
             alt="comision"
             variants={fadeIn({ direction: 'right', type: 'spring', delay: 0.1, duration: 0.5 })}
-            className='w-48 ml-auto mr-auto my-10'
+            className='w-48 ml-auto mr-auto my-20'
       />
     </section>
   )

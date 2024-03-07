@@ -7,7 +7,7 @@ export const TOKEN_KEY = "refine-auth";
 export const authProvider: AuthBindings = {
   forgotPassword: async ({ email }) => {    
     try {
-      const response = await axios.post('https://culltura.onrender.com/api/v1/usuarios/forgot-password', { email });
+      const response = await axios.post('http://localhost:8080/api/v1/usuarios/forgot-password', { email });
       if (response.data.success) {
         notification.success({
             message: "Recuperar Contraseña",
@@ -28,7 +28,7 @@ export const authProvider: AuthBindings = {
   },
   updatePassword: async ({ password, id, token }) => {
     try{
-      const response = await axios.post('https://culltura.onrender.com/api/v1/usuarios/update-password', { password, id, token });
+      const response = await axios.post('http://localhost:8080/api/v1/usuarios/update-password', { password, id, token });
       if(response) {
         notification.success({
           message: "Nueva contraseña",
@@ -50,7 +50,7 @@ export const authProvider: AuthBindings = {
   login: async ({ access, password }) => {
     try {
       // Make API call to backend to login
-      const response = await axios.post('https://culltura.onrender.com/api/v1/usuarios/login', { access, password });
+      const response = await axios.post('http://localhost:8080/api/v1/usuarios/login', { access, password });
       // Check if login is successful
       if (response.data.success) {
         // Save user data in local storage
