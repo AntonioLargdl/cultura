@@ -48,7 +48,7 @@ const BlogShowID = () => {
     const handleConfirm = async () => {
         setLoading(true);
         try {
-            const response = await axios.delete(`http://localhost:8080/api/v1/blog/delete/${id}`);
+            const response = await axios.delete(`https://culltura.onrender.com/api/v1/blog/delete/${id}`);
             if (response.data.success) {
                 navigate('/blog')
                 setLoading(false);

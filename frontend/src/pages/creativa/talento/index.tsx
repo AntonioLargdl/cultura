@@ -35,7 +35,7 @@ const TalentoDirectorio = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/v1/portafolios');
+          const response = await axios.get('https://culltura.onrender.com/api/v1/portafolios');
           setEmpty(false)
           setPortafolios(response.data);
           setLoading(false)

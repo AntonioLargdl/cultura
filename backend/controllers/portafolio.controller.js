@@ -162,6 +162,8 @@ const createPortafolio = async (req,res) => {
         })
 
         const savedPortfolio = await newPortfolio.save();
+
+        console.log('hola')
   
         res.status(200).json({success:true, message: "Portafolio creada exitosamente" });
     } catch (error) {
