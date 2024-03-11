@@ -69,7 +69,7 @@ const createDirectorio = async (req,res) => {
                 // Comprimir la imagen antes de subirla a Cloudinary
                 let compressedImageBuffer = await sharp(photoBuffer)
                 .resize({ width: 350 })
-                .png({ quality: 75 })
+                .png({ quality: 100 })
                 .toBuffer();
     
                 // Obtener la orientación EXIF de la imagen
