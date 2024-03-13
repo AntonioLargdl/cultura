@@ -9,7 +9,9 @@ import locacion from '../../assets/loc.webp'
 import talento from '../../assets/dir.webp'
 import crew from '../../assets/crew.webp'
 import comision from '../../assets/comision_white.webp'
+import services from '../../assets/services.webp'
 import convocatoria from '../../assets/convocatoria-seccion-talento.pdf'
+import convocatoria2 from '../../assets/convocatoria-hecho-en-morelia.pdf'
 import { useTranslate } from '@refinedev/core';
 import { IoMdLogIn } from 'react-icons/io';
 import { IoDocumentOutline } from 'react-icons/io5';
@@ -40,6 +42,13 @@ const MenuLanding = () => {
         text: t("pages.comision.menu.description.crew"),
         link: '/cfm/directorio',
     },
+    {
+      id: 'MORELIA-4',
+      imgUrl: services,
+      title: t("pages.temporal.services"),
+      text: t("pages.temporal.servicesd"),
+      link: '/cfm/directorio',
+  },
   ]
 
   return (
@@ -57,7 +66,7 @@ const MenuLanding = () => {
           variants={fadeIn({ direction: 'right', type: 'spring', delay: 0.1, duration: 0.5 })}
           className='w-48 ml-auto mr-auto mb-10'
         />
-        <TypingText title={`| ${t("pages.comision.menu.title")}`} textStyles="text-center" />
+        <TypingText title={`| ${t("pages.temporal.cinema")}`} textStyles="text-center" />
         <TitleText
           title={t("pages.comision.menu.h1")}
           textStyles="text-center"
@@ -75,6 +84,10 @@ const MenuLanding = () => {
           <a href={convocatoria} target='_blank' rel='nonreferrer' className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
             <IoDocumentOutline className='text-xl'/>
             <p className='text-lg'>{t("pages.temporal.cfm")}</p>
+          </a>
+          <a href={convocatoria2} target='_blank' rel='nonreferrer' className='flex gap-2 items-center px-6 py-4 border-[1px] rounded-xl hover:bg-white duration-300 hover:text-black'>
+            <IoDocumentOutline className='text-xl'/>
+            <p className='text-lg'>{t("pages.temporal.talent")}</p>
           </a>
         </div>
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">

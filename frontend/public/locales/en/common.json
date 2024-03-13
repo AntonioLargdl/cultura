@@ -9,8 +9,12 @@
       "about": "The City of Morelia, in addition to having a dual designation by UNESCO as a World Heritage Site (1991) and Creative City of Music (2017), possesses one of the most diverse ranges of creative and cultural expressions in the country. Therefore, the local government through the Ministry of Culture offers citizens this Observatory of Creative Spaces with the intention of showcasing the multifaceted and creative vocation of the city, as well as providing a platform for the dissemination and promotion of spaces and projects that position the city of Morelia as one of the cultural pillars of the country."
     },    
     "temporal": {
-      "cfm": "Talent call"
-    },
+      "cfm": "Talent Call",
+      "talent": "Call made in Morelia",
+      "services": "Services",
+      "servicesd": "Specialized Services",
+      "cinema": "Morelia City of Locations"
+    },    
     "landing": {
       "not": "There are no notes in this category yet, check back later",
       "empty": "You haven't created any notes yet",    
@@ -67,15 +71,15 @@
       "about": {
         "title": "Who we are?",
         "description1": "The Morelia Film Commission",
-        "description2": "part of the Municipal Secretariat of Culture, is dedicated to the development and promotion of the film and audiovisual industry in the city. We manage facilities, permits, and authorizations, establishing relationships with similar organizations inside and outside the country",
+        "description2": "It is the component body of the Municipal Culture Secretariat, whose purpose is the development and promotion of the city's film and audiovisual industry. It manages the granting of facilities, permits, and authorizations required for carrying out these activities, as well as establishing relationships and links with similar organizations inside and outside the country.",
         "description3": "We invite you to tell your stories in Morelia"
       },
       "do": {
         "title": "What do we do?",
-        "subtitle": "Feel the city",
-        "description1": "The Morelia Film Commission, part of the Municipal Secretariat of Culture",
-        "description2": "We develop and promote the film and audiovisual industry in the city",
-        "description3": "We manage facilities, permits, and authorizations for film promotion in Morelia"
+        "subtitle": "Morelia City of Locations",
+        "description1": "We offer an informative and facilitating guide",
+        "description2": "We are a commission that works to connect people, companies, and institutions of the Audiovisual and Cinematographic Industry, and with this work",
+        "description3": "We support the consolidation and permanence of Morelia as a filming destination"
       },
       "services": {
         "title": "Featured Services",
