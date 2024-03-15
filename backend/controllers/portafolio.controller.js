@@ -38,7 +38,7 @@ const base64UrlDecode = (input) => {
 
 // Traducción
 const translate = new Translate({
-    keyFilename: JSON.parse(process.env.GOOGLE_TRANSLATE_KEY_FILE),
+    keyFilename: process.env.GOOGLE_TRANSLATE_KEY_FILE,
 });
 
 // ------------------------------ Crear Portafolio ------------------------------
