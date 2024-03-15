@@ -40,7 +40,7 @@ const base64UrlDecode = (input) => {
 
 // Traducción
 const translate = new Translate({
-    keyFilename: process.env.GOOGLE_TRANSLATE_KEY_FILE,
+    keyFilename: JSON.parse(process.env.GOOGLE_TRANSLATE_KEY_FILE)
 });
 
 // ------------------------------ Crear Blogs ------------------------------
@@ -57,7 +57,6 @@ const createBlog = async (req, res) => {
         }
 
         const categoryId = await categoriasModel.findOne({_id})
-        console.log(categoryId)
         if (!categoryId) {
             return res.status(409).json({
               success: false,

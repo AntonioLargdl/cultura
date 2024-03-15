@@ -39,7 +39,7 @@ const base64UrlDecode = (input) => {
 
 // Traducción
 const translate = new Translate({
-    keyFilename: process.env.GOOGLE_TRANSLATE_KEY_FILE,
+    keyFilename: JSON.parse(process.env.GOOGLE_TRANSLATE_KEY_FILE),
 });
 
 // ------------------------------ Crear Directorio ------------------------------

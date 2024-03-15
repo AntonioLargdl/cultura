@@ -6,7 +6,7 @@ import blogModel from '../mongodb/models/blog.js';
 
 // Traducción
 const translate = new Translate({
-    keyFilename: process.env.GOOGLE_TRANSLATE_KEY_FILE,
+    keyFilename: JSON.parse(process.env.GOOGLE_TRANSLATE_KEY_FILE)
 });
 
 
